@@ -1,0 +1,4 @@
+[submodule "jcef/src/main"]
+	path = jcef/src/main
+	url = git@github.com:JetBrains/jcef.git
+	branch = dev
