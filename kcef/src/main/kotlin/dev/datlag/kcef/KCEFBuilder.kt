@@ -6,6 +6,8 @@ import dev.datlag.kcef.common.deleteDir
 import dev.datlag.kcef.common.existsSafely
 import dev.datlag.kcef.common.mkdirsSafely
 import dev.datlag.kcef.common.unquarantine
+import dev.datlag.kcef.step.extract.TarGzExtractor
+import dev.datlag.kcef.step.fetch.PackageDownloader
 import dev.datlag.kcef.step.init.CefInitializer
 import org.cef.CefApp
 import org.cef.CefSettings
@@ -26,11 +28,14 @@ class KCEFBuilder {
     }.getOrNull() ?: mutableListOf()
 
     private var releaseTag: String? = null
+    private var downloadBufferSize: Long = 16 * 1024
+    private var extractBufferSize: Long = 4096
 
     private var instance: CefApp? = null
     private val lock = Object()
     private var building = false
     private var installed = false
+    private var downloading = false
 
     fun installDir(dir: File) = apply {
         this.installDir = dir
@@ -71,7 +76,19 @@ class KCEFBuilder {
         }
     }
 
-    fun install() = apply {
+    fun downloadBuffer(size: Number) = apply {
+        if (size.toLong() > 0L) {
+            downloadBufferSize = size.toLong()
+        }
+    }
+
+    fun extractBuffer(size: Number) = apply {
+        if (size.toLong() > 0L) {
+            extractBufferSize = size.toLong()
+        }
+    }
+
+    suspend fun install() = apply {
         if (this.installed) {
             return this
         }
@@ -85,8 +102,24 @@ class KCEFBuilder {
                 throw CefException.InstallationDirectory
             }
 
-            // Download and extract
-            JCefAppConfig.getInstance().cefSettings
+            progress.downloading(0F)
+            val downloadedFile = PackageDownloader.downloadPackage(
+                releaseTag,
+                installDir,
+                progress,
+                downloadBufferSize
+            )
+
+            this.progress.extracting()
+            TarGzExtractor.extract(
+                this.installDir,
+                downloadedFile,
+                extractBufferSize
+            )
+
+            TarGzExtractor.move(
+                installDir
+            )
 
             this.progress.install()
             if (Platform.getCurrentPlatform().os.isMacOSX) {
@@ -100,7 +133,7 @@ class KCEFBuilder {
         this.installed = true
     }
 
-    fun build(): CefApp {
+    suspend fun build(): CefApp {
         this.instance?.let { return it }
 
         synchronized (lock) {
@@ -276,7 +309,11 @@ class KCEFBuilder {
          * enable this value if the application does not use windowless rendering as
          * it may reduce rendering performance on some systems.
          */
-        var windowlessRenderingEnabled: Boolean = false
+        var windowlessRenderingEnabled: Boolean = false,
+
+        var noSandbox: Boolean = scopeCatching {
+            JCefAppConfig.getInstance().cefSettings.no_sandbox
+        }.getOrNull() ?: CefSettings().no_sandbox
     ) {
         /**
          * The log severity. Only messages of this severity level or higher will be
@@ -374,6 +411,7 @@ class KCEFBuilder {
             this.user_agent = this@Settings.userAgent
             this.user_agent_product = this@Settings.userAgentProduct
             this.windowless_rendering_enabled = this@Settings.windowlessRenderingEnabled
+            this.no_sandbox = this@Settings.noSandbox
         }
 
         companion object {

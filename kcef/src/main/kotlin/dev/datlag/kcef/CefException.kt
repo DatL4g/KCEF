@@ -10,4 +10,13 @@ internal sealed class CefException(override val message: String) : Exception(mes
 
     data object InstallationDirectory : CefException("Could not create installation directory")
     data object InstallationLock : CefException("Could not create install.lock to complete installation")
+
+    data class UnsupportedPlatformPackage(
+        val os: String?,
+        val arch: String?
+    ) : CefException("No available package found for your platform [$os, $arch]")
+
+    data object DownloadTempFile : CefException("Could not create temp file to download jcef package")
+
+    data object Download : CefException("Could not download jcef package")
 }

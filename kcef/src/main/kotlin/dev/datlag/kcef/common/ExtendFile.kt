@@ -2,6 +2,7 @@ package dev.datlag.kcef.common
 
 import java.io.File
 import java.nio.file.Files
+import java.nio.file.LinkOption
 import java.util.stream.Collectors
 
 internal fun File.unquarantine() = scopeCatching {
@@ -76,9 +77,21 @@ internal fun File.listFilesSafely(): List<File> {
     }.getOrNull() ?: emptyList()
 }
 
-internal fun File.mkdirsSafely(): Boolean = scopeCatching {
-    this.mkdirs()
-}.getOrNull() ?: false
+internal fun File.mkdirsSafely(): Boolean {
+    return scopeCatching {
+        Files.createDirectories(this.toPath()).toFile().existsSafely()
+    }.getOrNull() ?: scopeCatching {
+        this.mkdirs()
+    }.getOrNull() ?: false
+}
+
+internal fun File.mkdirSafely(): Boolean {
+    return scopeCatching {
+        Files.createDirectory(this.toPath()).toFile().existsSafely()
+    }.getOrNull() ?: scopeCatching {
+        this.mkdir()
+    }.getOrNull() ?: false
+}
 
 internal fun File.createSafely(): Boolean {
     return scopeCatching {
@@ -86,4 +99,81 @@ internal fun File.createSafely(): Boolean {
     }.getOrNull() ?: scopeCatching {
         this.createNewFile()
     }.getOrNull() ?: false
+}
+
+internal fun createTempSafely(prefix: String, suffix: String): File? {
+    return scopeCatching {
+        Files.createTempFile(
+            prefix,
+            suffix
+        ).toFile()
+    }.getOrNull() ?: scopeCatching {
+        File.createTempFile(
+            prefix,
+            suffix
+        )
+    }.getOrNull()
+}
+
+internal fun File.deleteOnExitSafely() {
+    scopeCatching {
+        this.deleteOnExit()
+    }.getOrNull()
+}
+
+internal fun File.moveSafely(target: File): File {
+    return scopeCatching {
+        Files.move(
+            this.toPath(),
+            target.toPath()
+        ).toFile()
+    }.getOrNull() ?: scopeCatching {
+        if (this.renameTo(target)) {
+            target
+        } else {
+            this
+        }
+    }.getOrNull() ?: this
+}
+
+internal fun File.isSymlinkSafely(): Boolean {
+    return scopeCatching {
+        Files.isSymbolicLink(this.toPath())
+    }.getOrNull() ?: scopeCatching {
+        !Files.isRegularFile(this.toPath(), LinkOption.NOFOLLOW_LINKS)
+    }.getOrNull() ?: false
+}
+
+internal fun File.getRealFile(): File {
+    return if (isSymlinkSafely()) scopeCatching {
+        Files.readSymbolicLink(this.toPath()).toFile()
+    }.getOrNull() ?: this else this
+}
+
+internal fun File.isSame(file: File?): Boolean {
+    var sourceFile = this.getRealFile()
+    if (!sourceFile.existsSafely()) {
+        sourceFile = this
+    }
+
+    var targetFile = file?.getRealFile() ?: file
+    if (!targetFile.existsSafely()) {
+        targetFile = file
+    }
+
+    return if (targetFile == null) {
+        false
+    } else {
+        this == targetFile || scopeCatching {
+            sourceFile.absoluteFile == targetFile.absoluteFile || Files.isSameFile(sourceFile.toPath(), targetFile.toPath())
+        }.getOrNull() ?: false
+    }
+}
+
+internal fun File.parentSafely(): File? {
+    return scopeCatching {
+        this.toPath().parent?.toFile()
+    }.getOrNull() ?: scopeCatching {
+        this.parentFile
+    }.getOrNull()
 }

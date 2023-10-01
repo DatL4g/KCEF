@@ -30,8 +30,8 @@ internal data object Platform {
         }
     }
 
-    internal sealed class OS(private vararg val values: String) {
-        data object MACOSX : OS("mac", "darwin")
+    internal sealed class OS(internal vararg val values: String) {
+        data object MACOSX : OS("mac", "darwin", "osx")
         data object LINUX : OS("nux", "linux")
         data object WINDOWS : OS("win", "windows")
 
@@ -48,6 +48,15 @@ internal data object Platform {
         val isWindows: Boolean
             get() = this is WINDOWS || this == WINDOWS
 
+        override fun toString(): String {
+            return when {
+                isMacOSX -> "MacOS"
+                isLinux -> "Linux"
+                isWindows -> "Windows"
+                else -> "Unknown"
+            }
+        }
+
         companion object {
             fun matching(osName: String): OS? = when {
                 MACOSX.matches(osName) -> MACOSX
@@ -58,8 +67,8 @@ internal data object Platform {
         }
     }
 
-    internal sealed class ARCH(private vararg val values: String) {
-        data object AMD64 : ARCH("amd64", "x86_64")
+    internal sealed class ARCH(internal vararg val values: String) {
+        data object AMD64 : ARCH("amd64", "x86_64", "x64")
         data object I386 : ARCH("x86", "i386", "i486", "i586", "i686", "i786")
         data object ARM64 : ARCH("arm64", "aarch64")
         data object ARM : ARCH("arm")
@@ -79,6 +88,16 @@ internal data object Platform {
 
         val isARM: Boolean
             get() = this is ARM || this == ARM
+
+        override fun toString(): String {
+            return when {
+                isAMD64 -> "x64"
+                isI386 -> "x32"
+                isARM64 -> "arm64"
+                isARM -> "arm"
+                else -> "Unknown"
+            }
+        }
 
         companion object {
             fun matching(osArch: String): ARCH? = when {
