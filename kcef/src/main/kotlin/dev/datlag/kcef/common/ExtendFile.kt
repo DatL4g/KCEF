@@ -52,6 +52,12 @@ internal fun File.canWriteSafely(): Boolean {
 }
 
 internal fun File.deleteSafely(): Boolean {
+    if (this.isDirectorySafely()) {
+        if (this.listFilesSafely().isNotEmpty()) {
+            this.deleteDir()
+        }
+    }
+
     return scopeCatching {
         Files.delete(this.toPath())
     }.isSuccess || scopeCatching {

@@ -48,16 +48,18 @@ internal data object TarGzExtractor : Extractor {
 
     fun move(installDir: File) {
         var foundDir: File? = null
+        var foundParent: File? = null
 
         installDir.listFilesSafely().forEach { parent ->
             if (File(parent, "lib").existsSafely()) {
                 foundDir = File(parent, "lib")
+                foundParent = parent
             }
         }
 
         foundDir?.let {
             val target = it.moveSafely(File(installDir, "lib"))
-            it.parentSafely()?.let { p ->
+            foundParent?.let { p ->
                 p.deleteDir()
                 p.deleteSafely()
                 p.deleteOnExitSafely()
