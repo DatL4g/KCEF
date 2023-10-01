@@ -30,7 +30,21 @@ internal data object CefInitializer {
         loadLibrary(installDir, path, "GLESv2")
 
         SystemBootstrap.setLoader {
-            loadLibrary(installDir, path, it)
+            if (!loadLibrary(installDir, path, it)) {
+                println("Could not load '$it' library")
+            }
+        }
+
+        if (cefSettings.locales_dir_path.isNullOrEmpty()) {
+            cefSettings.locales_dir_path = File(installDir, "locales").canonicalPath
+        }
+
+        if (cefSettings.resources_dir_path.isNullOrEmpty()) {
+            cefSettings.resources_dir_path = installDir.canonicalPath
+        }
+
+        if (cefSettings.browser_subprocess_path.isNullOrEmpty()) {
+            cefSettings.browser_subprocess_path = File(installDir, "jcef_helper").canonicalPath
         }
 
         val success = if (Platform.getCurrentPlatform().os.isMacOSX) {
@@ -56,11 +70,16 @@ internal data object CefInitializer {
         if (!success) {
             throw CefException.Startup
         }
+        loadLibrary(installDir, path, "libcef")
         return CefApp.getInstanceIfAny() ?: scopeCatching {
             CefApp.getInstance(cefSettings)
         }.getOrNull() ?: CefApp.getInstance()
     }
 
+    /**
+     * The method required for loading a library may differ on platforms.
+     * This loading process may be a bit overkill but this way we can make sure the required libraries are loaded.
+     */
     private fun loadLibrary(installDir: File, libraryPath: String, name: String): Boolean {
         val os = Platform.getCurrentPlatform().os
         val ending = when {
@@ -73,28 +92,44 @@ internal data object CefInitializer {
         var libraryPathLibraryLoaded = true
         systemLoadLibrary(File(libraryPath, name)) {
             systemLoadLibrary(File(libraryPath, name + ending)) {
-                libraryPathLibraryLoaded = false
+                systemLoadLibrary(File(libraryPath, "lib$name")) {
+                    systemLoadLibrary(File(libraryPath, "lib$name$ending")) {
+                        libraryPathLibraryLoaded = false
+                    }
+                }
             }
         }
 
         var libraryPathLoaded = true
         systemLoad(File(libraryPath, name)) {
             systemLoad(File(libraryPath, name + ending)) {
-                libraryPathLoaded = false
+                systemLoad(File(libraryPath, "lib$name")) {
+                    systemLoad(File(libraryPath, "lib$name$ending")) {
+                        libraryPathLoaded = false
+                    }
+                }
             }
         }
 
         var installDirLibraryLoaded = true
         systemLoadLibrary(File(installDir, name)) {
             systemLoadLibrary(File(installDir, name + ending)) {
-                installDirLibraryLoaded = false
+                systemLoadLibrary(File(installDir, "lib$name")) {
+                    systemLoadLibrary(File(installDir, "lib$name$ending")) {
+                        installDirLibraryLoaded = false
+                    }
+                }
             }
         }
 
         var installDirLoaded = true
         systemLoad(File(installDir, name)) {
             systemLoad(File(installDir, name + ending)) {
-                installDirLoaded = false
+                systemLoad(File(installDir, "lib$name")) {
+                    systemLoad(File(installDir, "lib$name$ending")) {
+                        installDirLoaded = false
+                    }
+                }
             }
         }
 
@@ -102,9 +137,17 @@ internal data object CefInitializer {
         if (!libraryPathLibraryLoaded && !libraryPathLoaded && !installDirLibraryLoaded && !installDirLoaded) {
             systemLoadLibrary(name) {
                 systemLoadLibrary(name + ending) {
-                    systemLoad(name) {
-                        systemLoad(name + ending) {
-                            libraryLoaded = false
+                    systemLoadLibrary("lib$name") {
+                        systemLoadLibrary("lib$name$ending") {
+                            systemLoad(name) {
+                                systemLoad(name + ending) {
+                                    systemLoad("lib$name") {
+                                        systemLoad("lib$name$ending") {
+                                            libraryLoaded = false
+                                        }
+                                    }
+                                }
+                            }
                         }
                     }
                 }

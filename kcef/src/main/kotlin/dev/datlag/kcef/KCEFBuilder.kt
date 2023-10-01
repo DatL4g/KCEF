@@ -1,5 +1,11 @@
 package dev.datlag.kcef
 
+import com.jetbrains.cef.JCefAppConfig
+import dev.datlag.kcef.common.*
+import dev.datlag.kcef.common.deleteDir
+import dev.datlag.kcef.common.existsSafely
+import dev.datlag.kcef.common.mkdirsSafely
+import dev.datlag.kcef.common.unquarantine
 import dev.datlag.kcef.step.init.CefInitializer
 import org.cef.CefApp
 import org.cef.CefSettings
@@ -10,12 +16,21 @@ class KCEFBuilder {
 
     private var installDir: File = File("jcef-bundle")
     private var progress: InitProgress = InitProgress.Builder().build()
-    private var settings: Settings = Settings()
-    private var args: Collection<String> = emptyList()
+
+    private var settings: Settings = scopeCatching {
+        Settings.fromJcefSettings(JCefAppConfig.getInstance().cefSettings)
+    }.getOrNull() ?: Settings()
+
+    private var args: MutableList<String> = scopeCatching {
+        JCefAppConfig.getInstance().appArgsAsList.filterNotNull().toMutableList()
+    }.getOrNull() ?: mutableListOf()
+
+    private var releaseTag: String? = null
 
     private var instance: CefApp? = null
     private val lock = Object()
     private var building = false
+    private var installed = false
 
     fun installDir(dir: File) = apply {
         this.installDir = dir
@@ -38,11 +53,51 @@ class KCEFBuilder {
     }
 
     fun args(vararg args: String) = apply {
-        this.args = args.toList()
+        this.args.clear()
+        this.args.addAll(args)
+    }
+
+    fun addArgs(vararg args: String) = apply {
+        this.args.addAll(args)
+    }
+
+    fun release(tag: String) = apply {
+        this.releaseTag = tag
+    }
+
+    fun release(latest: Boolean) = apply {
+        if (latest) {
+            this.releaseTag = null
+        }
     }
 
     fun install() = apply {
+        if (this.installed) {
+            return this
+        }
 
+        this.progress.locating()
+        val installOk = File(installDir, "install.lock").existsSafely()
+        if (!installOk) {
+            installDir.deleteDir()
+
+            if (!this.installDir.mkdirsSafely()) {
+                throw CefException.InstallationDirectory
+            }
+
+            // Download and extract
+            JCefAppConfig.getInstance().cefSettings
+
+            this.progress.install()
+            if (Platform.getCurrentPlatform().os.isMacOSX) {
+                this.installDir.unquarantine()
+            }
+
+            if (!File(this.installDir, "install.lock").createSafely()) {
+                throw CefException.InstallationLock
+            }
+        }
+        this.installed = true
     }
 
     fun build(): CefApp {
@@ -61,11 +116,18 @@ class KCEFBuilder {
             this.building = true
         }
         install()
+        this.progress.initializing()
         synchronized(lock) {
             // Setting the instance has to occur in the synchronized block to prevent race conditions
             this.instance = CefInitializer.initialize(this.installDir, args, settings.toJcefSettings())
             //Add shutdown hook to attempt disposing our instance on jvm exit
             Runtime.getRuntime().addShutdownHook(Thread { this.instance?.dispose() })
+            //Notify progress handler
+            this.instance?.onInitialization { state ->
+                if (state == CefApp.CefAppState.INITIALIZED) {
+                    this.progress.initialized()
+                }
+            }
             //Resume waiting threads
             lock.notifyAll()
         }
@@ -313,7 +375,31 @@ class KCEFBuilder {
             this.user_agent_product = this@Settings.userAgentProduct
             this.windowless_rendering_enabled = this@Settings.windowlessRenderingEnabled
         }
+
+        companion object {
+            internal fun fromJcefSettings(settings: CefSettings) = Settings(
+                cachePath = settings.cache_path,
+                backgroundColor = settings.background_color,
+                browserSubProcessPath = settings.browser_subprocess_path,
+                commandLineArgsDisabled = settings.command_line_args_disabled,
+                cookieableSchemesExcludeDefaults = settings.cookieable_schemes_exclude_defaults,
+                cookieableSchemesList = settings.cookieable_schemes_list,
+                javascriptFlags = settings.javascript_flags,
+                locale = settings.locale,
+                localesDirPath = settings.locales_dir_path,
+                logFile = settings.log_file,
+                logSeverity = LogSeverity.fromJCefSeverity(settings.log_severity),
+                packLoadingDisabled = settings.pack_loading_disabled,
+                persistSessionCookies = settings.persist_session_cookies,
+                remoteDebuggingPort = settings.remote_debugging_port,
+                resourcesDirPath = settings.resources_dir_path,
+                uncaughtExceptionStackSize = settings.uncaught_exception_stack_size,
+                userAgent = settings.user_agent,
+                userAgentProduct = settings.user_agent_product,
+                windowlessRenderingEnabled = settings.windowless_rendering_enabled
+            )
+        }
     }
 }
 
-fun kcefBuilder(builder: KCEFBuilder.() -> Unit) = KCEFBuilder().apply(builder)
+fun kcef(builder: KCEFBuilder.() -> Unit) = KCEFBuilder().apply(builder)

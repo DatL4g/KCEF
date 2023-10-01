@@ -75,3 +75,15 @@ internal fun File.listFilesSafely(): List<File> {
         }
     }.getOrNull() ?: emptyList()
 }
+
+internal fun File.mkdirsSafely(): Boolean = scopeCatching {
+    this.mkdirs()
+}.getOrNull() ?: false
+
+internal fun File.createSafely(): Boolean {
+    return scopeCatching {
+        Files.createFile(this.toPath()).toFile().existsSafely()
+    }.getOrNull() ?: scopeCatching {
+        this.createNewFile()
+    }.getOrNull() ?: false
+}
