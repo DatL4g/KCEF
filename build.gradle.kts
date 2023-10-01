@@ -4,6 +4,7 @@ plugins {
     kotlin("jvm") version "1.9.0" apply false
     kotlin("plugin.serialization") version "1.9.0" apply false
     id("org.jetbrains.compose") version "1.5.2" apply false
+    id("com.vanniktech.maven.publish") version "0.25.3" apply false
 }
 
 buildscript {
@@ -31,6 +32,7 @@ allprojects {
         kotlinOptions.jvmTarget = "17"
     }
     tasks.withType<JavaCompile> {
+        targetCompatibility = "17"
         options.compilerArgs.addAll(arrayOf(
             "--add-exports", "java.desktop/sun.awt=ALL-UNNAMED"
         ))

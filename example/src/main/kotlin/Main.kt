@@ -29,7 +29,7 @@ fun main() = singleWindowApplication {
                 settings {
                     noSandbox = true
                 }
-                release("jbr-release-17.0.8.1b1063.1")
+                release(true)
             }.build()
         }
     }
