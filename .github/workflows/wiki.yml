@@ -31,10 +31,11 @@ jobs:
         uses: gradle/gradle-build-action@v2
 
       - name: Generate Wiki
-        run: ./gradlew dokkaGfmMultiModule
+        run: ./gradlew dokkaGfmMultiModule && mv build/dokka/gfmMultiModule/index.md build/dokka/gfmMultiModule/Home.md
 
       - name: Upload Wiki
         uses: Andrew-Chen-Wang/github-wiki-action@v4
         with:
           path: ./build/dokka/gfmMultiModule
           strategy: init
+          preprocess: false
