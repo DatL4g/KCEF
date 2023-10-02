@@ -10,9 +10,6 @@ plugins {
 
 val ktorVersion = "2.3.4"
 
-group = "de.datlag.kcef"
-version = "1.0.0"
-
 dependencies {
     api(project(":jcef"))
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
@@ -26,6 +23,7 @@ dependencies {
 mavenPublishing {
     publishToMavenCentral(host = SonatypeHost.S01, automaticRelease = true)
     signAllPublications()
+    coordinates("dev.datlag", "kcef", "1.0.0")
 
     pom {
         name.set(project.name)

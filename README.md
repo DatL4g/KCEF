@@ -37,7 +37,7 @@ Newer version may or may not be working.
 
 ```kotlin
 dependencies {
-    implementation("dev.datlag.kcef:kcef:$version")
+    implementation("dev.datlag:kcef:$version")
 }
 ```
 
@@ -48,7 +48,7 @@ dependencies {
 kcef = "" # put your wanted version here
 
 [libraries]
-kcef = { group = "dev.datlag.kcef", name = "kcef", version.ref = "kcef" }
+kcef = { group = "dev.datlag", name = "kcef", version.ref = "kcef" }
 ```
 
 ## Usage
