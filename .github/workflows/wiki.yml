@@ -1,0 +1,39 @@
+name: Publish Wiki
+on:
+  push:
+    paths-ignore:
+      - example
+
+concurrency:
+  group: publish-wiki
+  cancel-in-progress: true
+
+jobs:
+  publish-wiki:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: 'recursive'
+
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - name: Setup Gradle
+        uses: gradle/gradle-build-action@v2
+
+      - name: Generate Wiki
+        run: ./gradlew dokkaGfmMultiModule
+
+      - name: Upload Wiki
+        uses: Andrew-Chen-Wang/github-wiki-action@v4
+        with:
+          path: ./build/dokka/gfmMultiModule

@@ -6,6 +6,7 @@ plugins {
     id("com.vanniktech.maven.publish")
     id("maven-publish")
     id("signing")
+    id("org.jetbrains.dokka")
 }
 
 val ktorVersion = "2.3.4"
