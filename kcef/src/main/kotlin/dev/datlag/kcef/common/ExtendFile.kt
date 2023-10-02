@@ -1,8 +1,10 @@
 package dev.datlag.kcef.common
 
 import java.io.File
+import java.nio.file.CopyOption
 import java.nio.file.Files
 import java.nio.file.LinkOption
+import java.nio.file.StandardCopyOption
 import java.util.stream.Collectors
 
 internal fun File.unquarantine() = scopeCatching {
@@ -127,13 +129,26 @@ internal fun File.deleteOnExitSafely() {
     }.getOrNull()
 }
 
-internal fun File.moveSafely(target: File): File {
+internal fun File.moveSafely(target: File, overwrite: Boolean = false): File {
     return scopeCatching {
-        Files.move(
-            this.toPath(),
-            target.toPath()
-        ).toFile()
+        if (overwrite) {
+            Files.move(
+                this.toPath(),
+                target.toPath(),
+                StandardCopyOption.REPLACE_EXISTING
+            ).toFile()
+        } else {
+            Files.move(
+                this.toPath(),
+                target.toPath()
+            ).toFile()
+        }
     }.getOrNull() ?: scopeCatching {
+        if (overwrite) {
+            if (target.existsSafely()) {
+                target.deleteSafely()
+            }
+        }
         if (this.renameTo(target)) {
             target
         } else {

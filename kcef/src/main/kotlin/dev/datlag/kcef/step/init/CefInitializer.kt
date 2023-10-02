@@ -26,8 +26,12 @@ internal data object CefInitializer {
         systemProperty(JAVA_LIBRARY_PATH, path)
 
         loadLibrary(installDir, path, "jawt")
-        loadLibrary(installDir, path, "EGL")
-        loadLibrary(installDir, path, "GLESv2")
+
+        if(cefArgs.none { it.equals("--disable-gpu", true) }) {
+            // GPU required
+            loadLibrary(installDir, path, "EGL")
+            loadLibrary(installDir, path, "GLESv2")
+        }
 
         SystemBootstrap.setLoader {
             if (!loadLibrary(installDir, path, it)) {

@@ -1,6 +1,7 @@
 package dev.datlag.kcef.step.extract
 
 import dev.datlag.kcef.CefException
+import dev.datlag.kcef.Platform
 import dev.datlag.kcef.common.*
 import org.apache.commons.compress.archivers.tar.TarArchiveEntry
 import org.apache.commons.compress.archivers.tar.TarArchiveInputStream
@@ -51,6 +52,15 @@ internal data object TarGzExtractor : Extractor {
     }
 
     fun move(installDir: File) {
+        when (Platform.getCurrentPlatform().os) {
+            Platform.OS.LINUX -> linuxMove(installDir)
+            Platform.OS.MACOSX -> macMove(installDir)
+            Platform.OS.WINDOWS -> winMove(installDir)
+            else -> linuxMove(installDir)
+        }
+    }
+
+    private fun linuxMove(installDir: File) {
         var foundDir: File? = null
         var foundParent: File? = null
 
@@ -67,6 +77,80 @@ internal data object TarGzExtractor : Extractor {
                 p.deleteDir()
                 p.deleteSafely()
                 p.deleteOnExitSafely()
+            }
+
+            installDir.listFilesSafely().forEach { deleteCandidate ->
+                if (!deleteCandidate.isSame(target)) {
+                    deleteCandidate.deleteSafely()
+                }
+            }
+
+            target.listFilesSafely().forEach { moveCandidate ->
+                moveCandidate.moveSafely(File(installDir, moveCandidate.name))
+            }
+
+            target.deleteSafely()
+        }
+    }
+
+    private fun macMove(installDir: File) {
+        var foundDir: File? = null
+        var foundParent: File? = null
+
+        installDir.listFilesSafely().forEach { parent ->
+            if (File(parent, "Contents").existsSafely()) {
+                foundDir = File(parent, "Contents")
+                foundParent = parent
+            }
+        }
+
+        val target = File(installDir, "lib").also { it.mkdirSafely() }
+        foundDir?.let { contents ->
+            File(contents, "Home/lib").listFilesSafely().forEach { moveCandidate ->
+                moveCandidate.moveSafely(File(target, moveCandidate.name))
+            }
+
+            File(contents, "Frameworks/Chromium Embedded Framework.framework").moveSafely(
+                File(target, "Chromium Embedded Framework.framework")
+            )
+
+            File(contents, "Frameworks/jcef Helper.app").moveSafely(
+                File(target, "jcef Helper.app")
+            )
+
+            foundParent?.let { p ->
+                p.deleteDir()
+                p.deleteSafely()
+                p.deleteOnExitSafely()
+            }
+
+            installDir.listFilesSafely().forEach { deleteCandidate ->
+                if (!deleteCandidate.isSame(target)) {
+                    deleteCandidate.deleteSafely()
+                }
+            }
+
+            target.listFilesSafely().forEach { moveCandidate ->
+                moveCandidate.moveSafely(File(installDir, moveCandidate.name))
+            }
+
+            target.deleteSafely()
+        }
+    }
+
+    private fun winMove(installDir: File) {
+        var foundDir: File? = null
+
+        installDir.listFilesSafely().forEach { parent ->
+            if (File(parent, "lib").existsSafely()) {
+                foundDir = parent
+            }
+        }
+
+        foundDir?.let {
+            val target = File(it, "lib").moveSafely(File(installDir, "lib"))
+            File(it, "bin").listFilesSafely().forEach { moveCandidate ->
+                moveCandidate.moveSafely(File(target, moveCandidate.name))
             }
 
             installDir.listFilesSafely().forEach { deleteCandidate ->
