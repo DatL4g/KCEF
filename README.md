@@ -55,7 +55,135 @@ kcef = { group = "dev.datlag", name = "kcef", version.ref = "kcef" }
 
 ## Usage
 
-TBD
+### Initialize
+
+It's recommended to initialize `KCEF` directly after starting the application.
+
+This way users don't have to wait when the `CefBrowser` is used in another UI page.
+
+<details open>
+<summary>Kotlin</summary>
+
+This is recommended to be called in a **Coroutine** with **IO** scope.
+
+```kotlin
+KCEF.init(
+    builder = {
+        progress {
+            onDownloading {
+                println("Download progress: $it%")
+            }
+        }
+        release(true)
+    }
+)
+```
+
+</details>
+
+<details>
+<summary>Java</summary>
+
+This is recommended to be called in a **IO** Thread.
+
+```java
+KCEF.initBlocking(
+    new KCEFBuilder().progress(
+        new InitProgress.Builder().onDownloading(progress -> {
+            System.out.println("Download progress: " + progress + "%");
+        }).build()
+    ).release(true),
+    throwable -> {
+        if (throwable != null) {
+            throwable.printStackTrace();
+        }
+    },
+    () -> {
+        System.out.println("Restart required");
+    }
+);
+```
+
+</details>
+
+### Create client
+
+<details open>
+<summary>Kotlin</summary>
+
+If you listen to the `onInitialized` progress in the `KCEF.init` method, you can get the client blocking on the **Main** Thread.
+
+```kotlin
+if (initialized) {
+    val client = KCEF.newClientBlocking()
+}
+```
+
+Otherwise, you should run this in a Coroutine which is not using the **Main** scope.
+
+```kotlin
+KCEF.newClient()
+```
+
+The above methods may throw a `CefException`, you can use the nullable equivalent instead.
+
+```kotlin
+if (initialized) {
+    val client: CefClient? = KCEF.newClientOrNullBlocking { throwable ->
+        throwable?.printStackTrace()
+    }
+}
+```
+
+```kotlin
+/** Needs to be called in  a coroutine */
+val client: CefClient? = KCEF.newClientOrNull { throwable ->
+    throwable?.printStackTrace()
+}
+```
+
+</details>
+
+<details>
+<summary>Java</summary>
+
+If you listen to the `onInitialized` progress in the `KCEF.init` method, you can get the client blocking on the **Main** Thread.
+
+```java
+if (initialized) {
+    CefClient client = CefClient client = KCEF.newClientBlocking();
+}
+```
+
+Otherwise, you should run this in a new Thread.
+
+```java
+/** Run in a new Thread */
+CefClient client = CefClient client = KCEF.newClientBlocking();
+```
+
+The above methods may throw a `CefException`, you can use the nullable equivalent instead.
+
+```java
+if (initialized) {
+    CefClient client = KCEF.newClientOrNullBlocking(throwable -> {
+        if (throwable != null) {
+            throwable.printStackTrace()
+        }
+    });
+}
+```
+
+```java
+/** Should be called in a new Thread */
+CefClient client = KCEF.newClientOrNullBlocking(throwable -> {
+    if (throwable != null) {
+        throwable.printStackTrace()
+    }
+});
+```
+
+</details>
 
 ## Flags
 

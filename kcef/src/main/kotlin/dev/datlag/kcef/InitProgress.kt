@@ -15,34 +15,34 @@ interface InitProgress {
     fun initialized() {}
 
     class Builder {
-        private var locatingCallback: () -> Unit = { }
-        private var downloadingCallback: (Float) -> Unit = { }
-        private var extractingCallback: () -> Unit = { }
-        private var installCallback: () -> Unit = { }
-        private var initializingCallback: () -> Unit = { }
-        private var initializedCallback: () -> Unit = { }
+        private var locatingCallback: NoProgressCallback = NoProgressCallback {  }
+        private var downloadingCallback: ProgressCallback = ProgressCallback {  }
+        private var extractingCallback: NoProgressCallback = NoProgressCallback {  }
+        private var installCallback: NoProgressCallback = NoProgressCallback {  }
+        private var initializingCallback: NoProgressCallback = NoProgressCallback {  }
+        private var initializedCallback: NoProgressCallback = NoProgressCallback {  }
 
-        fun onLocating(callback: () -> Unit) = apply {
+        fun onLocating(callback: NoProgressCallback) = apply {
             locatingCallback = callback
         }
 
-        fun onDownloading(callback: (progress: Float) -> Unit) = apply {
+        fun onDownloading(callback: ProgressCallback) = apply {
             downloadingCallback = callback
         }
 
-        fun onExtracting(callback: () -> Unit) = apply {
+        fun onExtracting(callback: NoProgressCallback) = apply {
             extractingCallback = callback
         }
 
-        fun onInstall(callback: () -> Unit) = apply {
+        fun onInstall(callback: NoProgressCallback) = apply {
             installCallback = callback
         }
 
-        fun onInitializing(callback: () -> Unit) = apply {
+        fun onInitializing(callback: NoProgressCallback) = apply {
             initializingCallback = callback
         }
 
-        fun onInitialized(callback: () -> Unit) = apply {
+        fun onInitialized(callback: NoProgressCallback) = apply {
             initializedCallback = callback
         }
 
@@ -70,6 +70,14 @@ interface InitProgress {
             override fun initialized() {
                 initializedCallback()
             }
+        }
+
+        fun interface NoProgressCallback {
+            operator fun invoke()
+        }
+
+        fun interface ProgressCallback {
+            operator fun invoke(progress: Float)
         }
     }
 }

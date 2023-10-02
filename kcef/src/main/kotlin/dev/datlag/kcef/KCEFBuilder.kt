@@ -88,7 +88,7 @@ class KCEFBuilder {
         }
     }
 
-    suspend fun install() = apply {
+    internal suspend fun install() = apply {
         if (this.installed) {
             return this
         }
@@ -134,7 +134,7 @@ class KCEFBuilder {
     }
 
     @Throws(CefException::class)
-    suspend fun build(): CefApp {
+    internal suspend fun build(): CefApp {
         this.instance?.let { return it }
 
         synchronized (lock) {

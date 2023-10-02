@@ -10,14 +10,6 @@ import org.cef.CefClient
 import java.io.File
 import kotlin.properties.Delegates
 
-fun interface InitError {
-    fun onError(throwable: Throwable?)
-}
-
-fun interface InitRestartRequired {
-    fun onRestartRequired()
-}
-
 data object KCEF {
 
     private val state: MutableStateFlow<State> = MutableStateFlow(State.New)
@@ -68,14 +60,14 @@ data object KCEF {
                 currentBuilder.build()
             }
             setInitResult(result)
-            result.exceptionOrNull()?.let(onError::onError)
+            result.exceptionOrNull()?.let(onError::invoke)
         } else {
             val installResult = suspendCatching {
                 builder.install()
             }
             installResult.exceptionOrNull()?.let {
                 setInitResult(Result.failure(it))
-                onError.onError(it)
+                onError(it)
             }
 
             val result = suspendCatching {
@@ -84,9 +76,9 @@ data object KCEF {
 
             setInitResult(result)
             if (result.isFailure) {
-                result.exceptionOrNull()?.let(onError::onError)
+                result.exceptionOrNull()?.let(onError::invoke)
                 setInitResult(Result.failure(CefException.ApplicationRestartRequired))
-                onRestartRequired.onRestartRequired()
+                onRestartRequired()
             }
         }
     }
@@ -123,7 +115,7 @@ data object KCEF {
 
     @JvmStatic
     @JvmOverloads
-    suspend fun newClientOrNull(onError: (Throwable?) -> Unit = { }): CefClient? {
+    suspend fun newClientOrNull(onError: NewClientOrNull = NewClientOrNull {  }): CefClient? {
         return when (state.value) {
             State.New -> {
                 onError(CefException.NotInitialized)
@@ -148,7 +140,7 @@ data object KCEF {
 
     @JvmStatic
     @JvmOverloads
-    fun newClientOrNullBlocking(onError: (Throwable?) -> Unit = { }): CefClient? = runBlocking {
+    fun newClientOrNullBlocking(onError: NewClientOrNull = NewClientOrNull {  }): CefClient? = runBlocking {
         newClientOrNull(onError)
     }
 
@@ -190,5 +182,17 @@ data object KCEF {
         data object Initialized : State()
         data class Error(val exception: Throwable?) : State()
         data object Disposed : State()
+    }
+
+    fun interface InitError {
+        operator fun invoke(throwable: Throwable?)
+    }
+
+    fun interface InitRestartRequired {
+        operator fun invoke()
+    }
+
+    fun interface NewClientOrNull {
+        operator fun invoke(throwable: Throwable?)
     }
 }
