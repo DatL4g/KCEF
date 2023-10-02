@@ -133,6 +133,7 @@ class KCEFBuilder {
         this.installed = true
     }
 
+    @Throws(CefException::class)
     suspend fun build(): CefApp {
         this.instance?.let { return it }
 
