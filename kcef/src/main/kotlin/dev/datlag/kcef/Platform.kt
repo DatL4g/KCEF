@@ -32,11 +32,13 @@ internal data object Platform {
 
     internal sealed class OS(internal vararg val values: String) {
         data object MACOSX : OS("mac", "darwin", "osx")
-        data object LINUX : OS("nux", "linux")
+        data object LINUX : OS("linux")
         data object WINDOWS : OS("win", "windows")
 
         fun matches(osName: String): Boolean {
-            return this.values.contains(osName.lowercase(Locale.ENGLISH))
+            return this.values.any {
+                osName.startsWith(it, true)
+            } || this.values.contains(osName.lowercase(Locale.ENGLISH))
         }
 
         val isMacOSX: Boolean

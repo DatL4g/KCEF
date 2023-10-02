@@ -13,28 +13,17 @@ import java.io.File
 
 internal data object CefInitializer {
 
-    private const val JAVA_LIBRARY_PATH = "java.library.path"
-
     fun initialize(installDir: File, cefArgs: Collection<String>, cefSettings: CefSettings): CefApp {
-        var path = systemProperty(JAVA_LIBRARY_PATH) ?: ""
+        loadLibrary(installDir, "jawt")
 
-        if (path.isNotEmpty() && !path.endsWith(File.pathSeparator)) {
-            path += File.pathSeparator
-        }
-
-        path += installDir.canonicalPath
-        systemProperty(JAVA_LIBRARY_PATH, path)
-
-        loadLibrary(installDir, path, "jawt")
-
-        if(cefArgs.none { it.equals("--disable-gpu", true) }) {
+        if(cefArgs.none { it.trim().equals("--disable-gpu", true) }) {
             // GPU required
-            loadLibrary(installDir, path, "EGL")
-            loadLibrary(installDir, path, "GLESv2")
+            loadLibrary(installDir, "EGL")
+            loadLibrary(installDir, "GLESv2")
         }
 
         SystemBootstrap.setLoader {
-            if (!loadLibrary(installDir, path, it)) {
+            if (!loadLibrary(installDir, it)) {
                 println("Could not load '$it' library")
             }
         }
@@ -74,7 +63,7 @@ internal data object CefInitializer {
         if (!success) {
             throw CefException.Startup
         }
-        loadLibrary(installDir, path, "libcef")
+        loadLibrary(installDir, "libcef")
         return CefApp.getInstanceIfAny() ?: scopeCatching {
             CefApp.getInstance(cefSettings)
         }.getOrNull() ?: CefApp.getInstance()
@@ -84,35 +73,13 @@ internal data object CefInitializer {
      * The method required for loading a library may differ on platforms.
      * This loading process may be a bit overkill but this way we can make sure the required libraries are loaded.
      */
-    private fun loadLibrary(installDir: File, libraryPath: String, name: String): Boolean {
+    private fun loadLibrary(installDir: File, name: String): Boolean {
         val os = Platform.getCurrentPlatform().os
         val ending = when {
             os.isWindows -> ".dll"
             os.isLinux -> ".so"
             os.isMacOSX -> ".dylib"
             else -> ""
-        }
-
-        var libraryPathLibraryLoaded = true
-        systemLoadLibrary(File(libraryPath, name)) {
-            systemLoadLibrary(File(libraryPath, name + ending)) {
-                systemLoadLibrary(File(libraryPath, "lib$name")) {
-                    systemLoadLibrary(File(libraryPath, "lib$name$ending")) {
-                        libraryPathLibraryLoaded = false
-                    }
-                }
-            }
-        }
-
-        var libraryPathLoaded = true
-        systemLoad(File(libraryPath, name)) {
-            systemLoad(File(libraryPath, name + ending)) {
-                systemLoad(File(libraryPath, "lib$name")) {
-                    systemLoad(File(libraryPath, "lib$name$ending")) {
-                        libraryPathLoaded = false
-                    }
-                }
-            }
         }
 
         var installDirLibraryLoaded = true
@@ -138,7 +105,7 @@ internal data object CefInitializer {
         }
 
         var libraryLoaded = true
-        if (!libraryPathLibraryLoaded && !libraryPathLoaded && !installDirLibraryLoaded && !installDirLoaded) {
+        if (!installDirLibraryLoaded && !installDirLoaded) {
             systemLoadLibrary(name) {
                 systemLoadLibrary(name + ending) {
                     systemLoadLibrary("lib$name") {
