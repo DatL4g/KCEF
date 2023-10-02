@@ -31,6 +31,7 @@ allprojects {
 
     tasks.withType<KotlinCompile> {
         kotlinOptions.jvmTarget = "17"
+        kotlinOptions.freeCompilerArgs = listOf("-Xjvm-default=all")
     }
     tasks.withType<JavaCompile> {
         targetCompatibility = "17"

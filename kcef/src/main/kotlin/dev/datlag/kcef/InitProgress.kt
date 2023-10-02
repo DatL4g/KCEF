@@ -1,5 +1,6 @@
 package dev.datlag.kcef
 
+@JvmDefaultWithCompatibility
 interface InitProgress {
 
     fun locating() {}
