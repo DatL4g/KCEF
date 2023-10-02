@@ -34,7 +34,9 @@ jobs:
         run: ./gradlew dokkaGfmMultiModule
 
       - name: Preprocess Wiki
-        run: mv ./build/dokka/gfmMultiModule/kcef/kcef/dev.datlag.kcef/index.md ./build/dokka/gfmMultiModule/kcef/kcef/dev.datlag.kcef/Home.md
+        run: |
+          mv ./build/dokka/gfmMultiModule/kcef/kcef/dev.datlag.kcef/index.md ./build/dokka/gfmMultiModule/kcef/kcef/dev.datlag.kcef/Home.md
+          find ./build/dokka/gfmMultiModule/kcef/kcef/dev.datlag.kcef/* -type f -exec sed -i 's/.md//' {} \;
 
       - name: Upload Wiki
         uses: Andrew-Chen-Wang/github-wiki-action@v4
