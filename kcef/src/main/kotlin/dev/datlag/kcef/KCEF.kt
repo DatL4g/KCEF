@@ -10,36 +10,47 @@ import org.cef.CefClient
 import java.io.File
 import kotlin.properties.Delegates
 
+fun interface InitError {
+    fun onError(throwable: Throwable?)
+}
+
+fun interface InitRestartRequired {
+    fun onRestartRequired()
+}
+
 data object KCEF {
 
     private val state: MutableStateFlow<State> = MutableStateFlow(State.New)
     private var cefApp by Delegates.notNull<CefApp>()
 
+    @JvmStatic
     @JvmOverloads
     suspend fun init(
         builder: KCEFBuilder.() -> Unit,
-        onError: (Throwable?) -> Unit = { },
-        onRestartRequired: () -> Unit = { }
+        onError: InitError = InitError {  },
+        onRestartRequired: InitRestartRequired = InitRestartRequired {  }
     ) = init(
         builder = KCEFBuilder().apply(builder),
         onError = onError,
         onRestartRequired = onRestartRequired
     )
 
+    @JvmStatic
     @JvmOverloads
     fun initBlocking(
         builder: KCEFBuilder.() -> Unit,
-        onError: (Throwable?) -> Unit = { },
-        onRestartRequired: () -> Unit = { }
+        onError: InitError = InitError {  },
+        onRestartRequired: InitRestartRequired = InitRestartRequired {  }
     ) = runBlocking {
         init(builder, onError, onRestartRequired)
     }
 
+    @JvmStatic
     @JvmOverloads
     suspend fun init(
         builder: KCEFBuilder,
-        onError: (Throwable?) -> Unit = { },
-        onRestartRequired: () -> Unit = { }
+        onError: InitError = InitError {  },
+        onRestartRequired: InitRestartRequired = InitRestartRequired {  }
     ) {
         val currentBuilder = when (state.value) {
             State.Disposed -> throw CefException.Disposed
@@ -57,14 +68,14 @@ data object KCEF {
                 currentBuilder.build()
             }
             setInitResult(result)
-            result.exceptionOrNull()?.let(onError)
+            result.exceptionOrNull()?.let(onError::onError)
         } else {
             val installResult = suspendCatching {
                 builder.install()
             }
             installResult.exceptionOrNull()?.let {
                 setInitResult(Result.failure(it))
-                onError(it)
+                onError.onError(it)
             }
 
             val result = suspendCatching {
@@ -73,22 +84,24 @@ data object KCEF {
 
             setInitResult(result)
             if (result.isFailure) {
-                result.exceptionOrNull()?.let(onError)
+                result.exceptionOrNull()?.let(onError::onError)
                 setInitResult(Result.failure(CefException.ApplicationRestartRequired))
-                onRestartRequired.invoke()
+                onRestartRequired.onRestartRequired()
             }
         }
     }
 
+    @JvmStatic
     @JvmOverloads
     fun initBlocking(
         builder: KCEFBuilder,
-        onError: (Throwable?) -> Unit = { },
-        onRestartRequired: () -> Unit = { }
+        onError: InitError = InitError {  },
+        onRestartRequired: InitRestartRequired = InitRestartRequired {  }
     ) = runBlocking {
         init(builder, onError, onRestartRequired)
     }
 
+    @JvmStatic
     suspend fun newClient(): CefClient {
         return when (state.value) {
             State.New -> throw CefException.NotInitialized
@@ -103,10 +116,12 @@ data object KCEF {
         }
     }
 
+    @JvmStatic
     fun newClientBlocking(): CefClient = runBlocking {
         newClient()
     }
 
+    @JvmStatic
     @JvmOverloads
     suspend fun newClientOrNull(onError: (Throwable?) -> Unit = { }): CefClient? {
         return when (state.value) {
@@ -131,11 +146,13 @@ data object KCEF {
         }
     }
 
+    @JvmStatic
     @JvmOverloads
     fun newClientOrNullBlocking(onError: (Throwable?) -> Unit = { }): CefClient? = runBlocking {
         newClientOrNull(onError)
     }
 
+    @JvmStatic
     suspend fun dispose() {
         when (state.value) {
             State.New, State.Disposed, is State.Error -> return
@@ -151,6 +168,7 @@ data object KCEF {
         }
     }
 
+    @JvmStatic
     fun disposeBlocking() = runBlocking {
         dispose()
     }
