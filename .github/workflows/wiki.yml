@@ -34,11 +34,11 @@ jobs:
         run: ./gradlew dokkaGfmMultiModule
 
       - name: Preprocess Wiki
-        run: mv ./build/dokka/gfmMultiModule/kcef/dev.datlag.kcef/index.md ./build/dokka/gfmMultiModule/kcef/dev.datlag.kcef/Home.md
+        run: mv ./build/dokka/gfmMultiModule/kcef/kcef/dev.datlag.kcef/index.md ./build/dokka/gfmMultiModule/kcef/kcef/dev.datlag.kcef/Home.md
 
       - name: Upload Wiki
         uses: Andrew-Chen-Wang/github-wiki-action@v4
         with:
-          path: ./build/dokka/gfmMultiModule/kcef/dev.datlag.kcef
+          path: ./build/dokka/gfmMultiModule/kcef/kcef/dev.datlag.kcef
           strategy: init
           preprocess: false
