@@ -1,0 +1,854 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>CefMenuModel</title>
+<link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">    <script>var pathToRoot = "../../../";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async></script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../styles/font-jb-sans-auto.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+    <div class="root">
+<nav class="navigation" id="navigation-wrapper">
+    <div class="navigation--inner">
+        <div class="navigation-title">
+            <button class="menu-toggle" id="menu-toggle" type="button">toggle menu</button>
+            <div class="library-name">
+<a class="library-name--link" href="../../../index.html">
+                            KCEF
+                    </a>            </div>
+            <div class="library-version">
+            </div>
+        </div>
+        <div class="filter-section" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":jcef:dokkaHtmlPartial/main">jvm</button>
+        </div>
+    </div>
+    <div class="navigation-controls">
+        <button class="navigation-controls--btn navigation-controls--theme" id="theme-toggle-button" type="button">switch theme</button>
+        <div class="navigation-controls--btn navigation-controls--search" id="searchBar" role="button">search in API</div>
+    </div>
+</nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="sidebar--inner" id="sideMenu"></div>
+            </div>
+            <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageids="jcef::org.cef.callback/CefMenuModel///PointingToDeclaration//1511286446">
+  <div class="breadcrumbs"><a href="../../index.html">jcef</a><span class="delimiter">/</span><a href="../index.html">org.cef.callback</a><span class="delimiter">/</span><span class="current">CefMenuModel</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Cef</span><wbr><span>Menu</span><wbr><span><span>Model</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">interface </span><a href="index.html">CefMenuModel</a></div><p class="paragraph">Supports creation and modification of menus. See cef_menu_id_t for the command ids that have default implementations. All user-defined command ids should be between MENU_ID_USER_FIRST and MENU_ID_USER_LAST. The methods of this class can only be accessed on the browser process the UI thread.</p></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="TYPE">
+        <h2 class="">Types</h2>
+        <div class="table"><a data-name="-188888923%2FClasslikes%2F1511286446" anchor-label="MenuId" id="-188888923%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-menu-id/index.html"><span>Menu</span><wbr><span><span>Id</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-188888923%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="-menu-id/index.html">MenuId</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="80464339%2FClasslikes%2F1511286446" anchor-label="MenuItemType" id="80464339%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-menu-item-type/index.html"><span>Menu</span><wbr><span>Item</span><wbr><span><span>Type</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="80464339%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-menu-item-type/index.html">MenuItemType</a></div><div class="brief ">Supported menu item types.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="1829489815%2FFunctions%2F1511286446" anchor-label="addCheckItem" id="1829489815%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="add-check-item.html"><span>add</span><wbr><span>Check</span><wbr><span><span>Item</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1829489815%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="add-check-item.html"><span class="token function">addCheckItem</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">command_id<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">label<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Add a check item to the menu.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="853137507%2FFunctions%2F1511286446" anchor-label="addItem" id="853137507%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="add-item.html"><span>add</span><wbr><span><span>Item</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="853137507%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="add-item.html"><span class="token function">addItem</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">command_id<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">label<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Add an item to the menu.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-342224360%2FFunctions%2F1511286446" anchor-label="addRadioItem" id="-342224360%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="add-radio-item.html"><span>add</span><wbr><span>Radio</span><wbr><span><span>Item</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-342224360%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="add-radio-item.html"><span class="token function">addRadioItem</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">command_id<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">label<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">group_id<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Add a radio item to the menu.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="511631174%2FFunctions%2F1511286446" anchor-label="addSeparator" id="511631174%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="add-separator.html"><span>add</span><wbr><span><span>Separator</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="511631174%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="add-separator.html"><span class="token function">addSeparator</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Add a separator to the menu.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2046314733%2FFunctions%2F1511286446" anchor-label="addSubMenu" id="-2046314733%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="add-sub-menu.html"><span>add</span><wbr><span>Sub</span><wbr><span><span>Menu</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2046314733%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="add-sub-menu.html"><span class="token function">addSubMenu</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">command_id<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">label<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">CefMenuModel</a></div><div class="brief ">Add a sub-menu to the menu.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="713196643%2FFunctions%2F1511286446" anchor-label="clear" id="713196643%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="clear.html"><span><span>clear</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="713196643%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="clear.html"><span class="token function">clear</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Clears the menu.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1497755125%2FFunctions%2F1511286446" anchor-label="getAccelerator" id="1497755125%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-accelerator.html"><span>get</span><wbr><span><span>Accelerator</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1497755125%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-accelerator.html"><span class="token function">getAccelerator</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">command_id<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">key_code<span class="token operator">: </span><a href="../../org.cef.misc/-int-ref/index.html">IntRef</a><span class="token punctuation">, </span></span><span class="parameter ">shift_pressed<span class="token operator">: </span><a href="../../org.cef.misc/-bool-ref/index.html">BoolRef</a><span class="token punctuation">, </span></span><span class="parameter ">ctrl_pressed<span class="token operator">: </span><a href="../../org.cef.misc/-bool-ref/index.html">BoolRef</a><span class="token punctuation">, </span></span><span class="parameter ">alt_pressed<span class="token operator">: </span><a href="../../org.cef.misc/-bool-ref/index.html">BoolRef</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Retrieves the keyboard accelerator for the specified |command_id|.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1257899198%2FFunctions%2F1511286446" anchor-label="getAcceleratorAt" id="-1257899198%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-accelerator-at.html"><span>get</span><wbr><span>Accelerator</span><wbr><span><span>At</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1257899198%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-accelerator-at.html"><span class="token function">getAcceleratorAt</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">index<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">key_code<span class="token operator">: </span><a href="../../org.cef.misc/-int-ref/index.html">IntRef</a><span class="token punctuation">, </span></span><span class="parameter ">shift_pressed<span class="token operator">: </span><a href="../../org.cef.misc/-bool-ref/index.html">BoolRef</a><span class="token punctuation">, </span></span><span class="parameter ">ctrl_pressed<span class="token operator">: </span><a href="../../org.cef.misc/-bool-ref/index.html">BoolRef</a><span class="token punctuation">, </span></span><span class="parameter ">alt_pressed<span class="token operator">: </span><a href="../../org.cef.misc/-bool-ref/index.html">BoolRef</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Retrieves the keyboard accelerator for the specified |index|.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1322610996%2FFunctions%2F1511286446" anchor-label="getCommandIdAt" id="-1322610996%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-command-id-at.html"><span>get</span><wbr><span>Command</span><wbr><span>Id</span><wbr><span><span>At</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1322610996%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-command-id-at.html"><span class="token function">getCommandIdAt</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">index<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></div><div class="brief ">Returns the command id at the specified |index| or -1 if not found due to invalid range or the index being a separator.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1251436719%2FFunctions%2F1511286446" anchor-label="getCount" id="-1251436719%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-count.html"><span>get</span><wbr><span><span>Count</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1251436719%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-count.html"><span class="token function">getCount</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></div><div class="brief ">Returns the number of items in this menu.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1690147539%2FFunctions%2F1511286446" anchor-label="getGroupId" id="-1690147539%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-group-id.html"><span>get</span><wbr><span>Group</span><wbr><span><span>Id</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1690147539%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-group-id.html"><span class="token function">getGroupId</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">command_id<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></div><div class="brief ">Returns the group id for the specified |command_id| or -1 if invalid.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1500866240%2FFunctions%2F1511286446" anchor-label="getGroupIdAt" id="-1500866240%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-group-id-at.html"><span>get</span><wbr><span>Group</span><wbr><span>Id</span><wbr><span><span>At</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1500866240%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-group-id-at.html"><span class="token function">getGroupIdAt</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">index<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></div><div class="brief ">Returns the group id at the specified |index| or -1 if invalid.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2028088580%2FFunctions%2F1511286446" anchor-label="getIndexOf" id="-2028088580%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-index-of.html"><span>get</span><wbr><span>Index</span><wbr><span><span>Of</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2028088580%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-index-of.html"><span class="token function">getIndexOf</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">command_id<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></div><div class="brief ">Returns the index associated with the specified |command_id| or -1 if not found due to the command id not existing in the menu.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1108676711%2FFunctions%2F1511286446" anchor-label="getLabel" id="1108676711%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-label.html"><span>get</span><wbr><span><span>Label</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1108676711%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-label.html"><span class="token function">getLabel</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">command_id<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a></div><div class="brief ">Returns the label for the specified |command_id| or empty if not found.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-480289286%2FFunctions%2F1511286446" anchor-label="getLabelAt" id="-480289286%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-label-at.html"><span>get</span><wbr><span>Label</span><wbr><span><span>At</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-480289286%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-label-at.html"><span class="token function">getLabelAt</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">index<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a></div><div class="brief ">Returns the label at the specified |index| or empty if not found due to invalid range or the index being a separator.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1787725682%2FFunctions%2F1511286446" anchor-label="getSubMenu" id="1787725682%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-sub-menu.html"><span>get</span><wbr><span>Sub</span><wbr><span><span>Menu</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1787725682%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-sub-menu.html"><span class="token function">getSubMenu</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">command_id<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">CefMenuModel</a></div><div class="brief ">Returns the submenu for the specified |command_id| or empty if invalid.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-749257147%2FFunctions%2F1511286446" anchor-label="getSubMenuAt" id="-749257147%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-sub-menu-at.html"><span>get</span><wbr><span>Sub</span><wbr><span>Menu</span><wbr><span><span>At</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-749257147%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-sub-menu-at.html"><span class="token function">getSubMenuAt</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">index<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">CefMenuModel</a></div><div class="brief ">Returns the submenu at the specified |index| or empty if invalid.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1851407699%2FFunctions%2F1511286446" anchor-label="getType" id="1851407699%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-type.html"><span>get</span><wbr><span><span>Type</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1851407699%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-type.html"><span class="token function">getType</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">command_id<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="-menu-item-type/index.html">CefMenuModel.MenuItemType</a></div><div class="brief ">Returns the item type for the specified |command_id|.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="319619046%2FFunctions%2F1511286446" anchor-label="getTypeAt" id="319619046%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-type-at.html"><span>get</span><wbr><span>Type</span><wbr><span><span>At</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="319619046%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-type-at.html"><span class="token function">getTypeAt</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">index<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="-menu-item-type/index.html">CefMenuModel.MenuItemType</a></div><div class="brief ">Returns the item type at the specified |index|.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1392506406%2FFunctions%2F1511286446" anchor-label="hasAccelerator" id="-1392506406%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="has-accelerator.html"><span>has</span><wbr><span><span>Accelerator</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1392506406%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="has-accelerator.html"><span class="token function">hasAccelerator</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">command_id<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Returns true if the specified |command_id| has a keyboard accelerator assigned.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1064421037%2FFunctions%2F1511286446" anchor-label="hasAcceleratorAt" id="1064421037%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="has-accelerator-at.html"><span>has</span><wbr><span>Accelerator</span><wbr><span><span>At</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1064421037%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="has-accelerator-at.html"><span class="token function">hasAcceleratorAt</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">index<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Returns true if the specified |index| has a keyboard accelerator assigned.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1081172818%2FFunctions%2F1511286446" anchor-label="insertCheckItemAt" id="-1081172818%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="insert-check-item-at.html"><span>insert</span><wbr><span>Check</span><wbr><span>Item</span><wbr><span><span>At</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1081172818%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="insert-check-item-at.html"><span class="token function">insertCheckItemAt</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">index<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">command_id<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">label<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Insert a check item in the menu at the specified |index|.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-595407106%2FFunctions%2F1511286446" anchor-label="insertItemAt" id="-595407106%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="insert-item-at.html"><span>insert</span><wbr><span>Item</span><wbr><span><span>At</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-595407106%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="insert-item-at.html"><span class="token function">insertItemAt</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">index<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">command_id<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">label<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Insert an item in the menu at the specified |index|.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1463527185%2FFunctions%2F1511286446" anchor-label="insertRadioItemAt" id="-1463527185%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="insert-radio-item-at.html"><span>insert</span><wbr><span>Radio</span><wbr><span>Item</span><wbr><span><span>At</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1463527185%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="insert-radio-item-at.html"><span class="token function">insertRadioItemAt</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">index<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">command_id<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">label<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">group_id<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Insert a radio item in the menu at the specified |index|.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1573868958%2FFunctions%2F1511286446" anchor-label="insertSeparatorAt" id="-1573868958%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="insert-separator-at.html"><span>insert</span><wbr><span>Separator</span><wbr><span><span>At</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1573868958%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="insert-separator-at.html"><span class="token function">insertSeparatorAt</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">index<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Insert a separator in the menu at the specified |index|.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1637210538%2FFunctions%2F1511286446" anchor-label="insertSubMenuAt" id="1637210538%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="insert-sub-menu-at.html"><span>insert</span><wbr><span>Sub</span><wbr><span>Menu</span><wbr><span><span>At</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1637210538%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="insert-sub-menu-at.html"><span class="token function">insertSubMenuAt</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">index<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">command_id<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">label<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">CefMenuModel</a></div><div class="brief ">Insert a sub-menu in the menu at the specified |index|.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-297732096%2FFunctions%2F1511286446" anchor-label="isChecked" id="-297732096%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="is-checked.html"><span>is</span><wbr><span><span>Checked</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-297732096%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="is-checked.html"><span class="token function">isChecked</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">command_id<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Returns true if the specified |command_id| is checked.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="875545427%2FFunctions%2F1511286446" anchor-label="isCheckedAt" id="875545427%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="is-checked-at.html"><span>is</span><wbr><span>Checked</span><wbr><span><span>At</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="875545427%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="is-checked-at.html"><span class="token function">isCheckedAt</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">index<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Returns true if the specified |index| is checked.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1073043302%2FFunctions%2F1511286446" anchor-label="isEnabled" id="-1073043302%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="is-enabled.html"><span>is</span><wbr><span><span>Enabled</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1073043302%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="is-enabled.html"><span class="token function">isEnabled</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">command_id<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Returns true if the specified |command_id| is enabled.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1169181331%2FFunctions%2F1511286446" anchor-label="isEnabledAt" id="-1169181331%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="is-enabled-at.html"><span>is</span><wbr><span>Enabled</span><wbr><span><span>At</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1169181331%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="is-enabled-at.html"><span class="token function">isEnabledAt</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">index<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Returns true if the specified |index| is enabled.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1379813963%2FFunctions%2F1511286446" anchor-label="isVisible" id="1379813963%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="is-visible.html"><span>is</span><wbr><span><span>Visible</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1379813963%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="is-visible.html"><span class="token function">isVisible</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">command_id<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Returns true if the specified |command_id| is visible.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1910395170%2FFunctions%2F1511286446" anchor-label="isVisibleAt" id="-1910395170%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="is-visible-at.html"><span>is</span><wbr><span>Visible</span><wbr><span><span>At</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1910395170%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="is-visible-at.html"><span class="token function">isVisibleAt</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">index<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Returns true if the specified |index| is visible.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="261801837%2FFunctions%2F1511286446" anchor-label="remove" id="261801837%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="remove.html"><span><span>remove</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="261801837%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="remove.html"><span class="token function">remove</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">command_id<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Removes the item with the specified |command_id|.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="969119786%2FFunctions%2F1511286446" anchor-label="removeAccelerator" id="969119786%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="remove-accelerator.html"><span>remove</span><wbr><span><span>Accelerator</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="969119786%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="remove-accelerator.html"><span class="token function">removeAccelerator</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">command_id<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Remove the keyboard accelerator for the specified |command_id|.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1450508035%2FFunctions%2F1511286446" anchor-label="removeAcceleratorAt" id="-1450508035%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="remove-accelerator-at.html"><span>remove</span><wbr><span>Accelerator</span><wbr><span><span>At</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1450508035%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="remove-accelerator-at.html"><span class="token function">removeAcceleratorAt</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">index<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Remove the keyboard accelerator at the specified |index|.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1716743040%2FFunctions%2F1511286446" anchor-label="removeAt" id="1716743040%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="remove-at.html"><span>remove</span><wbr><span><span>At</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1716743040%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="remove-at.html"><span class="token function">removeAt</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">index<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Removes the item at the specified |index|.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="445555543%2FFunctions%2F1511286446" anchor-label="setAccelerator" id="445555543%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-accelerator.html"><span>set</span><wbr><span><span>Accelerator</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="445555543%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-accelerator.html"><span class="token function">setAccelerator</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">command_id<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">key_code<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">shift_pressed<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token punctuation">, </span></span><span class="parameter ">ctrl_pressed<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token punctuation">, </span></span><span class="parameter ">alt_pressed<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Set the keyboard accelerator for the specified |command_id|.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-845920342%2FFunctions%2F1511286446" anchor-label="setAcceleratorAt" id="-845920342%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-accelerator-at.html"><span>set</span><wbr><span>Accelerator</span><wbr><span><span>At</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-845920342%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-accelerator-at.html"><span class="token function">setAcceleratorAt</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">index<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">key_code<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">shift_pressed<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token punctuation">, </span></span><span class="parameter ">ctrl_pressed<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token punctuation">, </span></span><span class="parameter ">alt_pressed<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Set the keyboard accelerator at the specified |index|.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1385769591%2FFunctions%2F1511286446" anchor-label="setChecked" id="-1385769591%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-checked.html"><span>set</span><wbr><span><span>Checked</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1385769591%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-checked.html"><span class="token function">setChecked</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">command_id<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">checked<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Check the specified |command_id|.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-398417316%2FFunctions%2F1511286446" anchor-label="setCheckedAt" id="-398417316%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-checked-at.html"><span>set</span><wbr><span>Checked</span><wbr><span><span>At</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-398417316%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-checked-at.html"><span class="token function">setCheckedAt</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">index<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">checked<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Check the specified |index|.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1190948268%2FFunctions%2F1511286446" anchor-label="setCommandIdAt" id="-1190948268%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-command-id-at.html"><span>set</span><wbr><span>Command</span><wbr><span>Id</span><wbr><span><span>At</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1190948268%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-command-id-at.html"><span class="token function">setCommandIdAt</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">index<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">command_id<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Sets the command id at the specified |index|.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-475313117%2FFunctions%2F1511286446" anchor-label="setEnabled" id="-475313117%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-enabled.html"><span>set</span><wbr><span><span>Enabled</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-475313117%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-enabled.html"><span class="token function">setEnabled</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">command_id<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">enabled<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Change the enabled status of the specified |command_id|.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1623074186%2FFunctions%2F1511286446" anchor-label="setEnabledAt" id="-1623074186%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-enabled-at.html"><span>set</span><wbr><span>Enabled</span><wbr><span><span>At</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1623074186%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-enabled-at.html"><span class="token function">setEnabledAt</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">index<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">enabled<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Change the enabled status at the specified |index|.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="867904053%2FFunctions%2F1511286446" anchor-label="setGroupId" id="867904053%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-group-id.html"><span>set</span><wbr><span>Group</span><wbr><span><span>Id</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="867904053%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-group-id.html"><span class="token function">setGroupId</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">command_id<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">group_id<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Sets the group id for the specified |command_id|.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="53186504%2FFunctions%2F1511286446" anchor-label="setGroupIdAt" id="53186504%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-group-id-at.html"><span>set</span><wbr><span>Group</span><wbr><span>Id</span><wbr><span><span>At</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="53186504%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-group-id-at.html"><span class="token function">setGroupIdAt</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">index<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">group_id<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Sets the group id at the specified |index|.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="260079359%2FFunctions%2F1511286446" anchor-label="setLabel" id="260079359%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-label.html"><span>set</span><wbr><span><span>Label</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="260079359%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-label.html"><span class="token function">setLabel</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">command_id<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">label<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Sets the label for the specified |command_id|.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-42838324%2FFunctions%2F1511286446" anchor-label="setLabelAt" id="-42838324%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-label-at.html"><span>set</span><wbr><span>Label</span><wbr><span><span>At</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-42838324%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-label-at.html"><span class="token function">setLabelAt</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">index<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">label<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Set the label at the specified |index|.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="536784084%2FFunctions%2F1511286446" anchor-label="setVisible" id="536784084%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-visible.html"><span>set</span><wbr><span><span>Visible</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="536784084%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-visible.html"><span class="token function">setVisible</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">command_id<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">visible<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Change the visibility of the specified |command_id|.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="339727079%2FFunctions%2F1511286446" anchor-label="setVisibleAt" id="339727079%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-visible-at.html"><span>set</span><wbr><span>Visible</span><wbr><span><span>At</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="339727079%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-visible-at.html"><span class="token function">setVisibleAt</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">index<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">visible<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Change the visibility at the specified |index|.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2023 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

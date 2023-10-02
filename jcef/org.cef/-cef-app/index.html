@@ -1,0 +1,434 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>CefApp</title>
+<link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">    <script>var pathToRoot = "../../../";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async></script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../styles/font-jb-sans-auto.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+    <div class="root">
+<nav class="navigation" id="navigation-wrapper">
+    <div class="navigation--inner">
+        <div class="navigation-title">
+            <button class="menu-toggle" id="menu-toggle" type="button">toggle menu</button>
+            <div class="library-name">
+<a class="library-name--link" href="../../../index.html">
+                            KCEF
+                    </a>            </div>
+            <div class="library-version">
+            </div>
+        </div>
+        <div class="filter-section" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":jcef:dokkaHtmlPartial/main">jvm</button>
+        </div>
+    </div>
+    <div class="navigation-controls">
+        <button class="navigation-controls--btn navigation-controls--theme" id="theme-toggle-button" type="button">switch theme</button>
+        <div class="navigation-controls--btn navigation-controls--search" id="searchBar" role="button">search in API</div>
+    </div>
+</nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="sidebar--inner" id="sideMenu"></div>
+            </div>
+            <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageids="jcef::org.cef/CefApp///PointingToDeclaration//1511286446">
+  <div class="breadcrumbs"><a href="../../index.html">jcef</a><span class="delimiter">/</span><a href="../index.html">org.cef</a><span class="delimiter">/</span><span class="current">CefApp</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Cef</span><wbr><span><span>App</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="index.html">CefApp</a> : <a href="../../org.cef.handler/-cef-app-handler-adapter/index.html">CefAppHandlerAdapter</a></div><p class="paragraph">Exposes static methods for managing the global CEF context.</p></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="TYPE">
+        <h2 class="">Types</h2>
+        <div class="table"><a data-name="1441458457%2FClasslikes%2F1511286446" anchor-label="CefAppState" id="1441458457%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-cef-app-state/index.html"><span>Cef</span><wbr><span>App</span><wbr><span><span>State</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1441458457%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-cef-app-state/index.html">CefAppState</a></div><div class="brief ">The CefAppState gives you a hint if the CefApp is already usable or not usable any more.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1278186881%2FClasslikes%2F1511286446" anchor-label="CefVersion" id="1278186881%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-cef-version/index.html"><span>Cef</span><wbr><span><span>Version</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1278186881%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="-cef-version/index.html">CefVersion</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="1568471709%2FFunctions%2F1511286446" anchor-label="addAppHandler" id="1568471709%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="add-app-handler.html"><span>add</span><wbr><span>App</span><wbr><span><span>Handler</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1568471709%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="add-app-handler.html"><span class="token function">addAppHandler</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">appHandler<span class="token operator">: </span><a href="../../org.cef.handler/-cef-app-handler/index.html">CefAppHandler</a></span></span><span class="token punctuation">)</span></div><div class="brief ">Assign an AppHandler to CefApp.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1012149610%2FFunctions%2F1511286446" anchor-label="clearSchemeHandlerFactories" id="1012149610%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="clear-scheme-handler-factories.html"><span>clear</span><wbr><span>Scheme</span><wbr><span>Handler</span><wbr><span><span>Factories</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1012149610%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="clear-scheme-handler-factories.html"><span class="token function">clearSchemeHandlerFactories</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Clear all registered scheme handler factories.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1971756487%2FFunctions%2F1511286446" anchor-label="createClient" id="-1971756487%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="create-client.html"><span>create</span><wbr><span><span>Client</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1971756487%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="create-client.html"><span class="token function">createClient</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-cef-client/index.html">CefClient</a></div><div class="brief ">Creates a new client instance and returns it to the caller.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-58943461%2FFunctions%2F1511286446" anchor-label="dispose" id="-58943461%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="dispose.html"><span><span>dispose</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-58943461%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="dispose.html"><span class="token function">dispose</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div><div class="brief ">To shutdown the system, it's important to call the dispose method.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="2087763789%2FFunctions%2F1511286446" anchor-label="doMessageLoopWork" id="2087763789%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="do-message-loop-work.html"><span>do</span><wbr><span>Message</span><wbr><span>Loop</span><wbr><span><span>Work</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2087763789%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="do-message-loop-work.html"><span class="token function">doMessageLoopWork</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">delay_ms<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html">Long</a></span></span><span class="token punctuation">)</span></div><div class="brief ">Perform a single message loop iteration.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1735808435%2FFunctions%2F1511286446" anchor-label="getInstance" id="1735808435%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-instance.html"><span>get</span><wbr><span><span>Instance</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1735808435%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-instance.html"><span class="token function">getInstance</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">CefApp</a></div><div class="brief ">Get an instance of this class.</div><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-instance.html"><span class="token function">getInstance</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">args<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html">Array</a><span class="token operator">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">CefApp</a></div><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-instance.html"><span class="token function">getInstance</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">settings<span class="token operator">: </span><a href="../-cef-settings/index.html">CefSettings</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">CefApp</a></div><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-instance.html"><span class="token function">getInstance</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">args<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html">Array</a><span class="token operator">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">settings<span class="token operator">: </span><a href="../-cef-settings/index.html">CefSettings</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">CefApp</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-683008260%2FFunctions%2F1511286446" anchor-label="getInstanceIfAny" id="-683008260%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-instance-if-any.html"><span>get</span><wbr><span>Instance</span><wbr><span>If</span><wbr><span><span>Any</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-683008260%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-instance-if-any.html"><span class="token function">getInstanceIfAny</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">CefApp</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1816887109%2FFunctions%2F1511286446" anchor-label="getState" id="1816887109%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-state.html"><span>get</span><wbr><span><span>State</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1816887109%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-state.html"><span class="token function">getState</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="-cef-app-state/index.html">CefApp.CefAppState</a></div><div class="brief ">Returns the current state of CefApp.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1218665118%2FFunctions%2F1511286446" anchor-label="getVersion" id="1218665118%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-version.html"><span>get</span><wbr><span><span>Version</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1218665118%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-version.html"><span class="token function">getVersion</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="-cef-version/index.html">CefApp.CefVersion</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-705216448%2FFunctions%2F1511286446" anchor-label="onBeforeChildProcessLaunch" id="-705216448%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../../org.cef.handler/-cef-app-handler-adapter/on-before-child-process-launch.html"><span>on</span><wbr><span>Before</span><wbr><span>Child</span><wbr><span>Process</span><wbr><span><span>Launch</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-705216448%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="../../org.cef.handler/-cef-app-handler-adapter/on-before-child-process-launch.html"><span class="token function">onBeforeChildProcessLaunch</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">command_line<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a></span></span><span class="token punctuation">)</span></div><div class="brief ">Called before a child process is launched.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="794445707%2FFunctions%2F1511286446" anchor-label="onBeforeCommandLineProcessing" id="794445707%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../../org.cef.handler/-cef-app-handler-adapter/on-before-command-line-processing.html"><span>on</span><wbr><span>Before</span><wbr><span>Command</span><wbr><span>Line</span><wbr><span><span>Processing</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="794445707%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="../../org.cef.handler/-cef-app-handler-adapter/on-before-command-line-processing.html"><span class="token function">onBeforeCommandLineProcessing</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">process_type<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">command_line<span class="token operator">: </span><a href="../../org.cef.callback/-cef-command-line/index.html">CefCommandLine</a></span></span><span class="token punctuation">)</span></div><div class="brief ">Provides an opportunity to view and/or modify command-line arguments before processing by CEF and Chromium.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1919865774%2FFunctions%2F1511286446" anchor-label="onBeforeTerminate" id="1919865774%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../../org.cef.handler/-cef-app-handler-adapter/on-before-terminate.html"><span>on</span><wbr><span>Before</span><wbr><span><span>Terminate</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1919865774%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="../../org.cef.handler/-cef-app-handler-adapter/on-before-terminate.html"><span class="token function">onBeforeTerminate</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Provides an opportunity to hook into the native shutdown process.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-26797691%2FFunctions%2F1511286446" anchor-label="onContextInitialized" id="-26797691%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../../org.cef.handler/-cef-app-handler-adapter/on-context-initialized.html"><span>on</span><wbr><span>Context</span><wbr><span><span>Initialized</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-26797691%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="../../org.cef.handler/-cef-app-handler-adapter/on-context-initialized.html"><span class="token function">onContextInitialized</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div><div class="brief ">Called on the browser process UI thread immediately after the CEF context has been initialized.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="2105070229%2FFunctions%2F1511286446" anchor-label="onInitialization" id="2105070229%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="on-initialization.html"><span>on</span><wbr><span><span>Initialization</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2105070229%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="on-initialization.html"><span class="token function">onInitialization</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">initListener<span class="token operator">: </span><a href="../../org.cef.handler/-cef-app-state-handler/index.html">CefAppStateHandler</a></span></span><span class="token punctuation">)</span></div><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="on-initialization.html"><span class="token function">onInitialization</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">initListener<span class="token operator">: </span><a href="../../org.cef.handler/-cef-app-state-handler/index.html">CefAppStateHandler</a><span class="token punctuation">, </span></span><span class="parameter ">first<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="966311443%2FFunctions%2F1511286446" anchor-label="onRegisterCustomSchemes" id="966311443%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../../org.cef.handler/-cef-app-handler-adapter/on-register-custom-schemes.html"><span>on</span><wbr><span>Register</span><wbr><span>Custom</span><wbr><span><span>Schemes</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="966311443%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="../../org.cef.handler/-cef-app-handler-adapter/on-register-custom-schemes.html"><span class="token function">onRegisterCustomSchemes</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">registrar<span class="token operator">: </span><a href="../../org.cef.callback/-cef-scheme-registrar/index.html">CefSchemeRegistrar</a></span></span><span class="token punctuation">)</span></div><div class="brief ">Provides an opportunity to register custom schemes.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2015428597%2FFunctions%2F1511286446" anchor-label="onScheduleMessagePumpWork" id="-2015428597%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../../org.cef.handler/-cef-app-handler-adapter/on-schedule-message-pump-work.html"><span>on</span><wbr><span>Schedule</span><wbr><span>Message</span><wbr><span>Pump</span><wbr><span><span>Work</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2015428597%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="../../org.cef.handler/-cef-app-handler-adapter/on-schedule-message-pump-work.html"><span class="token function">onScheduleMessagePumpWork</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">delay_ms<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html">Long</a></span></span><span class="token punctuation">)</span></div><div class="brief ">Called from any thread when work has been scheduled for the browser process main (UI) thread.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1305708900%2FFunctions%2F1511286446" anchor-label="registerSchemeHandlerFactory" id="1305708900%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="register-scheme-handler-factory.html"><span>register</span><wbr><span>Scheme</span><wbr><span>Handler</span><wbr><span><span>Factory</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1305708900%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="register-scheme-handler-factory.html"><span class="token function">registerSchemeHandlerFactory</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">schemeName<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">domainName<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">factory<span class="token operator">: </span><a href="../../org.cef.callback/-cef-scheme-handler-factory/index.html">CefSchemeHandlerFactory</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Register a scheme handler factory for the specified |scheme_name| and optional |domain_name|.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="315100602%2FFunctions%2F1511286446" anchor-label="setSettings" id="315100602%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-settings.html"><span>set</span><wbr><span><span>Settings</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="315100602%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-settings.html"><span class="token function">setSettings</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">settings<span class="token operator">: </span><a href="../-cef-settings/index.html">CefSettings</a></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1875909142%2FFunctions%2F1511286446" anchor-label="startup" id="1875909142%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="startup.html"><span><span>startup</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1875909142%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="startup.html"><span class="token function">startup</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">args<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html">Array</a><span class="token operator">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">This method must be called at the beginning of the main() method to perform platform- specific startup initialization.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1452377768%2FFunctions%2F1511286446" anchor-label="stateHasChanged" id="-1452377768%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../../org.cef.handler/-cef-app-handler-adapter/state-has-changed.html"><span>state</span><wbr><span>Has</span><wbr><span><span>Changed</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1452377768%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="../../org.cef.handler/-cef-app-handler-adapter/state-has-changed.html"><span class="token function">stateHasChanged</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">state<span class="token operator">: </span><a href="-cef-app-state/index.html">CefApp.CefAppState</a></span></span><span class="token punctuation">)</span></div><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="../../org.cef.handler/-cef-app-state-handler/state-has-changed.html"><span class="token function">stateHasChanged</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">state<span class="token operator">: </span><a href="-cef-app-state/index.html">CefApp.CefAppState</a></span></span><span class="token punctuation">)</span></div><div class="brief ">Implement this method to get state changes of the CefApp.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="939786876%2FFunctions%2F1511286446" anchor-label="updateArgs" id="939786876%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../../org.cef.handler/-cef-app-handler-adapter/update-args.html"><span>update</span><wbr><span><span>Args</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="939786876%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="../../org.cef.handler/-cef-app-handler-adapter/update-args.html"><span class="token function">updateArgs</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">args<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/index.html">Array</a><span class="token operator">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2023 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

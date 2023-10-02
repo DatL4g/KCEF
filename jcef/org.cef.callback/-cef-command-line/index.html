@@ -1,0 +1,265 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>CefCommandLine</title>
+<link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">    <script>var pathToRoot = "../../../";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async></script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../styles/font-jb-sans-auto.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+    <div class="root">
+<nav class="navigation" id="navigation-wrapper">
+    <div class="navigation--inner">
+        <div class="navigation-title">
+            <button class="menu-toggle" id="menu-toggle" type="button">toggle menu</button>
+            <div class="library-name">
+<a class="library-name--link" href="../../../index.html">
+                            KCEF
+                    </a>            </div>
+            <div class="library-version">
+            </div>
+        </div>
+        <div class="filter-section" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":jcef:dokkaHtmlPartial/main">jvm</button>
+        </div>
+    </div>
+    <div class="navigation-controls">
+        <button class="navigation-controls--btn navigation-controls--theme" id="theme-toggle-button" type="button">switch theme</button>
+        <div class="navigation-controls--btn navigation-controls--search" id="searchBar" role="button">search in API</div>
+    </div>
+</nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="sidebar--inner" id="sideMenu"></div>
+            </div>
+            <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageids="jcef::org.cef.callback/CefCommandLine///PointingToDeclaration//1511286446">
+  <div class="breadcrumbs"><a href="../../index.html">jcef</a><span class="delimiter">/</span><a href="../index.html">org.cef.callback</a><span class="delimiter">/</span><span class="current">CefCommandLine</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Cef</span><wbr><span>Command</span><wbr><span><span>Line</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">interface </span><a href="index.html">CefCommandLine</a></div><p class="paragraph">Class used to create and/or parse command line arguments. Arguments with '--', '-' and, on Windows, '/' prefixes are considered switches. Switches will always precede any arguments without switch prefixes. Switches can optionally have a value specified using the '=' delimiter (e.g. "-switch=value"). An argument of "--" will terminate switch parsing with all subsequent tokens, regardless of prefix, being interpreted as non-switch arguments. Switch names are considered case-insensitive.</p></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="-173914109%2FFunctions%2F1511286446" anchor-label="appendArgument" id="-173914109%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="append-argument.html"><span>append</span><wbr><span><span>Argument</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-173914109%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="append-argument.html"><span class="token function">appendArgument</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">argument<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a></span></span><span class="token punctuation">)</span></div><div class="brief ">Add an argument to the end of the command line.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-849339540%2FFunctions%2F1511286446" anchor-label="appendSwitch" id="-849339540%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="append-switch.html"><span>append</span><wbr><span><span>Switch</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-849339540%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="append-switch.html"><span class="token function">appendSwitch</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">name<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a></span></span><span class="token punctuation">)</span></div><div class="brief ">Add a switch with an empty value to the end of the command line.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1740970783%2FFunctions%2F1511286446" anchor-label="appendSwitchWithValue" id="-1740970783%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="append-switch-with-value.html"><span>append</span><wbr><span>Switch</span><wbr><span>With</span><wbr><span><span>Value</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1740970783%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="append-switch-with-value.html"><span class="token function">appendSwitchWithValue</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">name<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">value<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a></span></span><span class="token punctuation">)</span></div><div class="brief ">Add a switch with the specified value to the end of the command line.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1190007809%2FFunctions%2F1511286446" anchor-label="getArguments" id="-1190007809%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-arguments.html"><span>get</span><wbr><span><span>Arguments</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1190007809%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-arguments.html"><span class="token function">getArguments</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Vector.html">Vector</a><span class="token operator">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a><span class="token operator">&gt;</span></div><div class="brief ">Get the remaining command line arguments.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1885809809%2FFunctions%2F1511286446" anchor-label="getProgram" id="1885809809%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-program.html"><span>get</span><wbr><span><span>Program</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1885809809%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-program.html"><span class="token function">getProgram</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a></div><div class="brief ">Get the program part of the command line string (the first item).</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="119689027%2FFunctions%2F1511286446" anchor-label="getSwitches" id="119689027%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-switches.html"><span>get</span><wbr><span><span>Switches</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="119689027%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-switches.html"><span class="token function">getSwitches</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Map.html">Map</a><span class="token operator">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a><span class="token punctuation">, </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a><span class="token operator">&gt;</span></div><div class="brief ">Returns the map of switch names and values.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1386605715%2FFunctions%2F1511286446" anchor-label="getSwitchValue" id="1386605715%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-switch-value.html"><span>get</span><wbr><span>Switch</span><wbr><span><span>Value</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1386605715%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-switch-value.html"><span class="token function">getSwitchValue</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">name<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a></div><div class="brief ">Returns the value associated with the given switch.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1796989373%2FFunctions%2F1511286446" anchor-label="hasArguments" id="-1796989373%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="has-arguments.html"><span>has</span><wbr><span><span>Arguments</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1796989373%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="has-arguments.html"><span class="token function">hasArguments</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Tests if there are remaining command line arguments.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-407458456%2FFunctions%2F1511286446" anchor-label="hasSwitch" id="-407458456%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="has-switch.html"><span>has</span><wbr><span><span>Switch</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-407458456%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="has-switch.html"><span class="token function">hasSwitch</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">name<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Checks if the command line has a specific switches.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1562459009%2FFunctions%2F1511286446" anchor-label="hasSwitches" id="-1562459009%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="has-switches.html"><span>has</span><wbr><span><span>Switches</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1562459009%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="has-switches.html"><span class="token function">hasSwitches</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Checks if the command line has switches.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="604104876%2FFunctions%2F1511286446" anchor-label="reset" id="604104876%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="reset.html"><span><span>reset</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="604104876%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="reset.html"><span class="token function">reset</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div><div class="brief ">Reset the command-line switches and arguments but leave the program component unchanged.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-592053864%2FFunctions%2F1511286446" anchor-label="setProgram" id="-592053864%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-program.html"><span>set</span><wbr><span><span>Program</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-592053864%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-program.html"><span class="token function">setProgram</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">program<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a></span></span><span class="token punctuation">)</span></div><div class="brief ">Set the program part of the command line string (the first item).</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2023 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

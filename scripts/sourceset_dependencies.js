@@ -1,1 +1,1 @@
-sourceset_dependencies = '{":kcef:dokkaHtmlPartial/main":[]}'
+sourceset_dependencies = '{":jcef:dokkaHtmlPartial/main":[],":kcef:dokkaHtmlPartial/main":[]}'

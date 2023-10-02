@@ -1,0 +1,288 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>CefTouchEvent</title>
+<link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">    <script>var pathToRoot = "../../../";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async></script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../styles/font-jb-sans-auto.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+    <div class="root">
+<nav class="navigation" id="navigation-wrapper">
+    <div class="navigation--inner">
+        <div class="navigation-title">
+            <button class="menu-toggle" id="menu-toggle" type="button">toggle menu</button>
+            <div class="library-name">
+<a class="library-name--link" href="../../../index.html">
+                            KCEF
+                    </a>            </div>
+            <div class="library-version">
+            </div>
+        </div>
+        <div class="filter-section" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":jcef:dokkaHtmlPartial/main">jvm</button>
+        </div>
+    </div>
+    <div class="navigation-controls">
+        <button class="navigation-controls--btn navigation-controls--theme" id="theme-toggle-button" type="button">switch theme</button>
+        <div class="navigation-controls--btn navigation-controls--search" id="searchBar" role="button">search in API</div>
+    </div>
+</nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="sidebar--inner" id="sideMenu"></div>
+            </div>
+            <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageids="jcef::org.cef.input/CefTouchEvent///PointingToDeclaration//1511286446">
+  <div class="breadcrumbs"><a href="../../index.html">jcef</a><span class="delimiter">/</span><a href="../index.html">org.cef.input</a><span class="delimiter">/</span><span class="current">CefTouchEvent</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Cef</span><wbr><span>Touch</span><wbr><span><span>Event</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="index.html">CefTouchEvent</a></div></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="CONSTRUCTOR">
+        <h2 class="">Constructors</h2>
+        <div class="table"><a data-name="-437827149%2FConstructors%2F1511286446" anchor-label="CefTouchEvent" id="-437827149%2FConstructors%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-togglable="CONSTRUCTOR" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-cef-touch-event.html"><span>Cef</span><wbr><span>Touch</span><wbr><span><span>Event</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-437827149%2FConstructors%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">id<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">x<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html">Float</a><span class="token punctuation">, </span></span><span class="parameter ">y<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html">Float</a><span class="token punctuation">, </span></span><span class="parameter ">radiusX<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html">Float</a><span class="token punctuation">, </span></span><span class="parameter ">radiusY<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html">Float</a><span class="token punctuation">, </span></span><span class="parameter ">rotationAngle<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html">Float</a><span class="token punctuation">, </span></span><span class="parameter ">pressure<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html">Float</a><span class="token punctuation">, </span></span><span class="parameter ">type<span class="token operator">: </span><a href="-event-type/index.html">CefTouchEvent.EventType</a><span class="token punctuation">, </span></span><span class="parameter ">modifiersEx<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">pointerType<span class="token operator">: </span><a href="-pointer-type/index.html">CefTouchEvent.PointerType</a></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="TYPE">
+        <h2 class="">Types</h2>
+        <div class="table"><a data-name="452870181%2FClasslikes%2F1511286446" anchor-label="EventType" id="452870181%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-event-type/index.html"><span>Event</span><wbr><span><span>Type</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="452870181%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-event-type/index.html">EventType</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1048698526%2FClasslikes%2F1511286446" anchor-label="PointerType" id="-1048698526%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-pointer-type/index.html"><span>Pointer</span><wbr><span><span>Type</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1048698526%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-pointer-type/index.html">PointerType</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="PROPERTY">
+        <h2 class="">Properties</h2>
+        <div class="table"><a data-name="1509750553%2FProperties%2F1511286446" anchor-label="id" id="1509750553%2FProperties%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="id.html"><span><span>id</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1509750553%2FProperties%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="id.html">id</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></div><div class="brief ">The id of a touch point.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="379323927%2FProperties%2F1511286446" anchor-label="modifiersEx" id="379323927%2FProperties%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="modifiers-ex.html"><span>modifiers</span><wbr><span><span>Ex</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="379323927%2FProperties%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="modifiers-ex.html">modifiersEx</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></div><div class="brief ">Bit flags describing any pressed modifier keys.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1929753009%2FProperties%2F1511286446" anchor-label="pointerType" id="-1929753009%2FProperties%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="pointer-type.html"><span>pointer</span><wbr><span><span>Type</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1929753009%2FProperties%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="pointer-type.html">pointerType</a><span class="token operator">: </span><a href="-pointer-type/index.html">CefTouchEvent.PointerType</a></div><div class="brief ">The device type that caused the event.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-496696337%2FProperties%2F1511286446" anchor-label="pressure" id="-496696337%2FProperties%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="pressure.html"><span><span>pressure</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-496696337%2FProperties%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="pressure.html">pressure</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html">Float</a></div><div class="brief ">The normalized pressure of the pointer input in the range of [0,1].</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="702753472%2FProperties%2F1511286446" anchor-label="radiusX" id="702753472%2FProperties%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="radius-x.html"><span>radius</span><wbr><span><span>X</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="702753472%2FProperties%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="radius-x.html">radiusX</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html">Float</a></div><div class="brief ">X radius in pixels.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="733773279%2FProperties%2F1511286446" anchor-label="radiusY" id="733773279%2FProperties%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="radius-y.html"><span>radius</span><wbr><span><span>Y</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="733773279%2FProperties%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="radius-y.html">radiusY</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html">Float</a></div><div class="brief ">Y radius in pixels.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1477117711%2FProperties%2F1511286446" anchor-label="rotationAngle" id="-1477117711%2FProperties%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="rotation-angle.html"><span>rotation</span><wbr><span><span>Angle</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1477117711%2FProperties%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="rotation-angle.html">rotationAngle</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html">Float</a></div><div class="brief ">Rotation angle in radians.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1002380314%2FProperties%2F1511286446" anchor-label="type" id="1002380314%2FProperties%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="type.html"><span><span>type</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1002380314%2FProperties%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="type.html">type</a><span class="token operator">: </span><a href="-event-type/index.html">CefTouchEvent.EventType</a></div><div class="brief ">The state of the touch point.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1322631346%2FProperties%2F1511286446" anchor-label="x" id="-1322631346%2FProperties%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="x.html"><span><span>x</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1322631346%2FProperties%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="x.html">x</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html">Float</a></div><div class="brief ">X coordinate relative to the left side of the view.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1291611539%2FProperties%2F1511286446" anchor-label="y" id="-1291611539%2FProperties%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="y.html"><span><span>y</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1291611539%2FProperties%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">val </span><a href="y.html">y</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-float/index.html">Float</a></div><div class="brief ">Y coordinate relative to the top side of the view.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2023 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

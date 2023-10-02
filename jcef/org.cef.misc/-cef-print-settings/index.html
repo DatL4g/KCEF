@@ -1,0 +1,509 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>CefPrintSettings</title>
+<link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">    <script>var pathToRoot = "../../../";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async></script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../styles/font-jb-sans-auto.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+    <div class="root">
+<nav class="navigation" id="navigation-wrapper">
+    <div class="navigation--inner">
+        <div class="navigation-title">
+            <button class="menu-toggle" id="menu-toggle" type="button">toggle menu</button>
+            <div class="library-name">
+<a class="library-name--link" href="../../../index.html">
+                            KCEF
+                    </a>            </div>
+            <div class="library-version">
+            </div>
+        </div>
+        <div class="filter-section" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":jcef:dokkaHtmlPartial/main">jvm</button>
+        </div>
+    </div>
+    <div class="navigation-controls">
+        <button class="navigation-controls--btn navigation-controls--theme" id="theme-toggle-button" type="button">switch theme</button>
+        <div class="navigation-controls--btn navigation-controls--search" id="searchBar" role="button">search in API</div>
+    </div>
+</nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="sidebar--inner" id="sideMenu"></div>
+            </div>
+            <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageids="jcef::org.cef.misc/CefPrintSettings///PointingToDeclaration//1511286446">
+  <div class="breadcrumbs"><a href="../../index.html">jcef</a><span class="delimiter">/</span><a href="../index.html">org.cef.misc</a><span class="delimiter">/</span><span class="current">CefPrintSettings</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Cef</span><wbr><span>Print</span><wbr><span><span>Settings</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">class </span><a href="index.html">CefPrintSettings</a> : <a href="../../org.cef.callback/-cef-native-adapter/index.html">CefNativeAdapter</a></div><p class="paragraph">Class representing print settings.</p></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="TYPE">
+        <h2 class="">Types</h2>
+        <div class="table"><a data-name="-100298472%2FClasslikes%2F1511286446" anchor-label="ColorModel" id="-100298472%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-color-model/index.html"><span>Color</span><wbr><span><span>Model</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-100298472%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-color-model/index.html">ColorModel</a></div><div class="brief ">Print job color mode values.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-776576069%2FClasslikes%2F1511286446" anchor-label="DuplexMode" id="-776576069%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-duplex-mode/index.html"><span>Duplex</span><wbr><span><span>Mode</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-776576069%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">enum </span><a href="-duplex-mode/index.html">DuplexMode</a></div><div class="brief ">Print job duplex mode values.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="1631884909%2FFunctions%2F1511286446" anchor-label="create" id="1631884909%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="create.html"><span><span>create</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1631884909%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="create.html"><span class="token function">create</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">CefPrintSettings</a></div><div class="brief ">Create a new CefPrintSettings object.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1170107438%2FFunctions%2F1511286446" anchor-label="dispose" id="-1170107438%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="dispose.html"><span><span>dispose</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1170107438%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="dispose.html"><span class="token function">dispose</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div><div class="brief ">Removes the native reference from an unused object.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="804865045%2FFunctions%2F1511286446" anchor-label="getColorModel" id="804865045%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-color-model.html"><span>get</span><wbr><span>Color</span><wbr><span><span>Model</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="804865045%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-color-model.html"><span class="token function">getColorModel</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="-color-model/index.html">CefPrintSettings.ColorModel</a></div><div class="brief ">Get the color model.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1682198936%2FFunctions%2F1511286446" anchor-label="getCopies" id="-1682198936%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-copies.html"><span>get</span><wbr><span><span>Copies</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1682198936%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-copies.html"><span class="token function">getCopies</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></div><div class="brief ">Get the number of copies.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1531200506%2FFunctions%2F1511286446" anchor-label="getDeviceName" id="1531200506%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-device-name.html"><span>get</span><wbr><span>Device</span><wbr><span><span>Name</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1531200506%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-device-name.html"><span class="token function">getDeviceName</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a></div><div class="brief ">Get the device name.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1929897054%2FFunctions%2F1511286446" anchor-label="getDPI" id="-1929897054%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-d-p-i.html"><span>get</span><wbr><span><span>DPI</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1929897054%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-d-p-i.html"><span class="token function">getDPI</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></div><div class="brief ">Get the DPI (dots per inch).</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="128587448%2FFunctions%2F1511286446" anchor-label="getDuplexMode" id="128587448%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-duplex-mode.html"><span>get</span><wbr><span>Duplex</span><wbr><span><span>Mode</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="128587448%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-duplex-mode.html"><span class="token function">getDuplexMode</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="-duplex-mode/index.html">CefPrintSettings.DuplexMode</a></div><div class="brief ">Get the duplex mode.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1557277255%2FFunctions%2F1511286446" anchor-label="getNativeRef" id="1557277255%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../../org.cef.callback/-cef-native-adapter/get-native-ref.html"><span>get</span><wbr><span>Native</span><wbr><span><span>Ref</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1557277255%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="../../org.cef.callback/-cef-native-adapter/get-native-ref.html"><span class="token function">getNativeRef</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html">Long</a></div><br><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="../../org.cef.callback/-cef-native-adapter/get-native-ref.html"><span class="token function">getNativeRef</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">identifer<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html">Long</a></div><div class="brief ">Method is called by the native code to get the reference to an previous stored identifier.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1273714803%2FFunctions%2F1511286446" anchor-label="getPageRanges" id="-1273714803%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-page-ranges.html"><span>get</span><wbr><span>Page</span><wbr><span><span>Ranges</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1273714803%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-page-ranges.html"><span class="token function">getPageRanges</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">ranges<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Vector.html">Vector</a><span class="token operator">&lt;</span><a href="../-cef-page-range/index.html">CefPageRange</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span></div><div class="brief ">Retrieve the page ranges.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1901465387%2FFunctions%2F1511286446" anchor-label="getPageRangesCount" id="-1901465387%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-page-ranges-count.html"><span>get</span><wbr><span>Page</span><wbr><span>Ranges</span><wbr><span><span>Count</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1901465387%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-page-ranges-count.html"><span class="token function">getPageRangesCount</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></div><div class="brief ">Returns the number of page ranges that currently exist.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="2115363712%2FFunctions%2F1511286446" anchor-label="isLandscape" id="2115363712%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="is-landscape.html"><span>is</span><wbr><span><span>Landscape</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2115363712%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="is-landscape.html"><span class="token function">isLandscape</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Returns true if the orientation is landscape.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1351519677%2FFunctions%2F1511286446" anchor-label="isReadOnly" id="1351519677%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="is-read-only.html"><span>is</span><wbr><span>Read</span><wbr><span><span>Only</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1351519677%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="is-read-only.html"><span class="token function">isReadOnly</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Returns true if the values of this object are read-only.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="725398147%2FFunctions%2F1511286446" anchor-label="isSelectionOnly" id="725398147%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="is-selection-only.html"><span>is</span><wbr><span>Selection</span><wbr><span><span>Only</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="725398147%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="is-selection-only.html"><span class="token function">isSelectionOnly</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Returns true if only the selection will be printed.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1550466977%2FFunctions%2F1511286446" anchor-label="isValid" id="-1550466977%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="is-valid.html"><span>is</span><wbr><span><span>Valid</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1550466977%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="is-valid.html"><span class="token function">isValid</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Returns true if this object is valid.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-563973259%2FFunctions%2F1511286446" anchor-label="setCollate" id="-563973259%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-collate.html"><span>set</span><wbr><span><span>Collate</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-563973259%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-collate.html"><span class="token function">setCollate</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">collate<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span></div><div class="brief ">Set whether pages will be collated.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-244486545%2FFunctions%2F1511286446" anchor-label="setColorModel" id="-244486545%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-color-model.html"><span>set</span><wbr><span>Color</span><wbr><span><span>Model</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-244486545%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-color-model.html"><span class="token function">setColorModel</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">model<span class="token operator">: </span><a href="-color-model/index.html">CefPrintSettings.ColorModel</a></span></span><span class="token punctuation">)</span></div><div class="brief ">Set the color model.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="824501143%2FFunctions%2F1511286446" anchor-label="setCopies" id="824501143%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-copies.html"><span>set</span><wbr><span><span>Copies</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="824501143%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-copies.html"><span class="token function">setCopies</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">copies<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span></div><div class="brief ">Set the number of copies.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-722097815%2FFunctions%2F1511286446" anchor-label="setDeviceName" id="-722097815%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-device-name.html"><span>set</span><wbr><span>Device</span><wbr><span><span>Name</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-722097815%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-device-name.html"><span class="token function">setDeviceName</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">name<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a></span></span><span class="token punctuation">)</span></div><div class="brief ">Set the device name.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="162462597%2FFunctions%2F1511286446" anchor-label="setDPI" id="162462597%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-d-p-i.html"><span>set</span><wbr><span><span>DPI</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="162462597%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-d-p-i.html"><span class="token function">setDPI</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">dpi<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span></div><div class="brief ">Set the DPI (dots per inch).</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1336229515%2FFunctions%2F1511286446" anchor-label="setDuplexMode" id="-1336229515%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-duplex-mode.html"><span>set</span><wbr><span>Duplex</span><wbr><span><span>Mode</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1336229515%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-duplex-mode.html"><span class="token function">setDuplexMode</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">mode<span class="token operator">: </span><a href="-duplex-mode/index.html">CefPrintSettings.DuplexMode</a></span></span><span class="token punctuation">)</span></div><div class="brief ">Set the duplex mode.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="806663146%2FFunctions%2F1511286446" anchor-label="setNativeRef" id="806663146%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../../org.cef.callback/-cef-native-adapter/set-native-ref.html"><span>set</span><wbr><span>Native</span><wbr><span><span>Ref</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="806663146%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="../../org.cef.callback/-cef-native-adapter/set-native-ref.html"><span class="token function">setNativeRef</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">identifer<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">nativeRef<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html">Long</a></span></span><span class="token punctuation">)</span></div><div class="brief ">Method is called by the native code to store a reference to an implemented native JNI counterpart.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-44051425%2FFunctions%2F1511286446" anchor-label="setOrientation" id="-44051425%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-orientation.html"><span>set</span><wbr><span><span>Orientation</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-44051425%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-orientation.html"><span class="token function">setOrientation</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">landscape<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span></div><div class="brief ">Set the page orientation.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="969191321%2FFunctions%2F1511286446" anchor-label="setPageRanges" id="969191321%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-page-ranges.html"><span>set</span><wbr><span>Page</span><wbr><span><span>Ranges</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="969191321%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-page-ranges.html"><span class="token function">setPageRanges</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">ranges<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Vector.html">Vector</a><span class="token operator">&lt;</span><a href="../-cef-page-range/index.html">CefPageRange</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span></div><div class="brief ">Set the page ranges.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="908085084%2FFunctions%2F1511286446" anchor-label="setPrinterPrintableArea" id="908085084%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-printer-printable-area.html"><span>set</span><wbr><span>Printer</span><wbr><span>Printable</span><wbr><span><span>Area</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="908085084%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-printer-printable-area.html"><span class="token function">setPrinterPrintableArea</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">physical_size_device_units<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/awt/Dimension.html">Dimension</a><span class="token punctuation">, </span></span><span class="parameter ">printable_area_device_units<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/awt/Rectangle.html">Rectangle</a><span class="token punctuation">, </span></span><span class="parameter ">landscape_needs_flip<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span></div><div class="brief ">Set the printer printable area in device units.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-817872601%2FFunctions%2F1511286446" anchor-label="setSelectionOnly" id="-817872601%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-selection-only.html"><span>set</span><wbr><span>Selection</span><wbr><span><span>Only</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-817872601%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-selection-only.html"><span class="token function">setSelectionOnly</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">selection_only<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span></div><div class="brief ">Set whether only the selection will be printed.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="999394717%2FFunctions%2F1511286446" anchor-label="willCollate" id="999394717%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="will-collate.html"><span>will</span><wbr><span><span>Collate</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="999394717%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="will-collate.html"><span class="token function">willCollate</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Returns true if pages will be collated.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2023 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

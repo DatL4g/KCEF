@@ -1,0 +1,224 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>CefMessageRouter</title>
+<link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">    <script>var pathToRoot = "../../../";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async></script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../styles/font-jb-sans-auto.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+    <div class="root">
+<nav class="navigation" id="navigation-wrapper">
+    <div class="navigation--inner">
+        <div class="navigation-title">
+            <button class="menu-toggle" id="menu-toggle" type="button">toggle menu</button>
+            <div class="library-name">
+<a class="library-name--link" href="../../../index.html">
+                            KCEF
+                    </a>            </div>
+            <div class="library-version">
+            </div>
+        </div>
+        <div class="filter-section" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":jcef:dokkaHtmlPartial/main">jvm</button>
+        </div>
+    </div>
+    <div class="navigation-controls">
+        <button class="navigation-controls--btn navigation-controls--theme" id="theme-toggle-button" type="button">switch theme</button>
+        <div class="navigation-controls--btn navigation-controls--search" id="searchBar" role="button">search in API</div>
+    </div>
+</nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="sidebar--inner" id="sideMenu"></div>
+            </div>
+            <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageids="jcef::org.cef.browser/CefMessageRouter///PointingToDeclaration//1511286446">
+  <div class="breadcrumbs"><a href="../../index.html">jcef</a><span class="delimiter">/</span><a href="../index.html">org.cef.browser</a><span class="delimiter">/</span><span class="current">CefMessageRouter</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Cef</span><wbr><span>Message</span><wbr><span><span>Router</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">class </span><a href="index.html">CefMessageRouter</a> : <a href="../../org.cef.callback/-cef-native-adapter/index.html">CefNativeAdapter</a></div><p class="paragraph">The below classes implement support for routing aynchronous messages between JavaScript running in the renderer process and C++ running in the browser process. An application interacts with the router by passing it data from standard CEF C++ callbacks (OnBeforeBrowse, OnProcessMessageRecieved, OnContextCreated, etc). The renderer-side router supports generic JavaScript callback registration and execution while the browser-side router supports application-specific logic via one or more application-provided Handler instances. The renderer-side router implementation exposes a query function and a cancel function via the JavaScript 'window' object: // Create and send a new query. var request_id = window.cefQuery({ request: 'my_request', persistent: false, onSuccess: function(response) {}, onFailure: function(error_code, error_message) {} }); // Optionally cancel the query. window.cefQueryCancel(request_id); When |window.cefQuery| is executed the request is sent asynchronously to one or more C++ Handler objects registered in the browser process. Each C++ Handler can choose to either handle or ignore the query in the Handler::OnQuery callback. If a Handler chooses to handle the query then it should execute Callback::Success when a response is available or Callback::Failure if an error occurs. This will result in asynchronous execution of the associated JavaScript callback in the renderer process. Any queries unhandled by C++ code in the browser process will be automatically canceled and the associated JavaScript onFailure callback will be executed with an error code of -1. Queries can be either persistent or non-persistent. If the query is persistent than the callbacks will remain registered until one of the following conditions are met: A. The query is canceled in JavaScript using the |window.cefQueryCancel| function. B. The query is canceled in C++ code using the Callback::Failure function. C. The context associated with the query is released due to browser destruction, navigation or renderer process termination. If the query is non-persistent then the registration will be removed after the JavaScript callback is executed a single time. If a query is canceled for a reason other than Callback::Failure being executed then the associated Handler's OnQueryCanceled method will be called. Some possible usage patterns include: One-time Request. Use a non-persistent query to send a JavaScript request. The Handler evaluates the request and returns the response. The query is then discarded. Broadcast. Use a persistent query to register as a JavaScript broadcast receiver. The Handler keeps track of all registered Callbacks and executes them sequentially to deliver the broadcast message. Subscription. Use a persistent query to register as a JavaScript subscription receiver. The Handler initiates the subscription feed on the first request and delivers responses to all registered subscribers as they become available. The Handler cancels the subscription feed when there are no longer any registered JavaScript receivers. Message routing occurs on a per-browser and per-context basis. Consequently, additional application logic can be applied by restricting which browser or context instances are passed into the router. If you choose to use this approach do so cautiously. In order for the router to function correctly any browser or context instance passed into a single router callback must then be passed into all router callbacks. There is generally no need to have multiple renderer-side routers unless you wish to have multiple bindings with different JavaScript function names. It can be useful to have multiple browser-side routers with different client- provided Handler instances when implementing different behaviors on a per- browser basis. This implementation places no formatting restrictions on payload content. An application may choose to exchange anything from simple formatted strings to serialized XML or JSON data. EXAMPLE USAGE 1. Define the router configuration. You can optionally specify settings like the JavaScript function names. The configuration must be the same in both the browser and renderer processes. If using multiple routers in the same application make sure to specify unique function names for each router configuration. // Example config object showing the default values. CefMessageRouterConfig config = new CefMessageRouterConfig(); config.jsQueryFunction = "cefQuery"; config.jsCancelFunction = "cefQueryCancel"; 2. Create an instance of CefMessageRouter in the browser process. messageRouter_ = CefMessageRouter.create(config); 3. Register one or more Handlers. The Handler instances must either outlive the router or be removed from the router before they're deleted. messageRouter_.addHandler(myHandler); 4. Add your message router to all CefClient instances you want to get your JavaScript code be handled. myClient.addMessageRouter(messageRouter_); 4. Execute the query function from JavaScript code. window.cefQuery({request: 'my_request', persistent: false, onSuccess: function(response) { print(response); }, onFailure: function(error_code, error_message) {} }); 5. Handle the query in your CefMessageRouterHandler.onQuery implementation and execute the appropriate callback either immediately or asynchronously. public boolean onQuery(CefBrowser browser, long query_id, String request, boolean persistent, CefQueryCallback callback) { if (request.indexOf("my_request") == 0) { callback.success("my_response"); return true; } return false; // Not handled. } 6. Notice that the success callback is executed in JavaScript.</p></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="TYPE">
+        <h2 class="">Types</h2>
+        <div class="table"><a data-name="2108573916%2FClasslikes%2F1511286446" anchor-label="CefMessageRouterConfig" id="2108573916%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-cef-message-router-config/index.html"><span>Cef</span><wbr><span>Message</span><wbr><span>Router</span><wbr><span><span>Config</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2108573916%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-cef-message-router-config/index.html">CefMessageRouterConfig</a></div><div class="brief ">Used to configure the query router.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="-865827125%2FFunctions%2F1511286446" anchor-label="addHandler" id="-865827125%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="add-handler.html"><span>add</span><wbr><span><span>Handler</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-865827125%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="add-handler.html"><span class="token function">addHandler</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">handler<span class="token operator">: </span><a href="../../org.cef.handler/-cef-message-router-handler/index.html">CefMessageRouterHandler</a><span class="token punctuation">, </span></span><span class="parameter ">first<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Add a new query handler.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-332832089%2FFunctions%2F1511286446" anchor-label="cancelPending" id="-332832089%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="cancel-pending.html"><span>cancel</span><wbr><span><span>Pending</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-332832089%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="cancel-pending.html"><span class="token function">cancelPending</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">browser<span class="token operator">: </span><a href="../-cef-browser/index.html">CefBrowser</a><span class="token punctuation">, </span></span><span class="parameter ">handler<span class="token operator">: </span><a href="../../org.cef.handler/-cef-message-router-handler/index.html">CefMessageRouterHandler</a></span></span><span class="token punctuation">)</span></div><div class="brief ">Cancel all pending queries associated with either |browser| or |handler|.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-291250093%2FFunctions%2F1511286446" anchor-label="create" id="-291250093%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="create.html"><span><span>create</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-291250093%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="create.html"><span class="token function">create</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">CefMessageRouter</a></div><div class="brief ">Create a new router with the default configuration.</div><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="create.html"><span class="token function">create</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">config<span class="token operator">: </span><a href="-cef-message-router-config/index.html">CefMessageRouter.CefMessageRouterConfig</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">CefMessageRouter</a></div><div class="brief ">Create a new router with the specified configuration.</div><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="create.html"><span class="token function">create</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">handler<span class="token operator">: </span><a href="../../org.cef.handler/-cef-message-router-handler/index.html">CefMessageRouterHandler</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">CefMessageRouter</a></div><div class="brief ">Create a new router with the specified handler and default configuration.</div><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="create.html"><span class="token function">create</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">config<span class="token operator">: </span><a href="-cef-message-router-config/index.html">CefMessageRouter.CefMessageRouterConfig</a><span class="token punctuation">, </span></span><span class="parameter ">handler<span class="token operator">: </span><a href="../../org.cef.handler/-cef-message-router-handler/index.html">CefMessageRouterHandler</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">CefMessageRouter</a></div><div class="brief ">Create a new router with the specified handler and configuration.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="801377766%2FFunctions%2F1511286446" anchor-label="dispose" id="801377766%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="dispose.html"><span><span>dispose</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="801377766%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="dispose.html"><span class="token function">dispose</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div><div class="brief ">Must be called if the CefMessageRouter instance isn't used any more.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-513917831%2FFunctions%2F1511286446" anchor-label="getMessageRouterConfig" id="-513917831%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-message-router-config.html"><span>get</span><wbr><span>Message</span><wbr><span>Router</span><wbr><span><span>Config</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-513917831%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-message-router-config.html"><span class="token function">getMessageRouterConfig</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="-cef-message-router-config/index.html">CefMessageRouter.CefMessageRouterConfig</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1557277255%2FFunctions%2F1511286446" anchor-label="getNativeRef" id="1557277255%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../../org.cef.callback/-cef-native-adapter/get-native-ref.html"><span>get</span><wbr><span>Native</span><wbr><span><span>Ref</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1557277255%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="../../org.cef.callback/-cef-native-adapter/get-native-ref.html"><span class="token function">getNativeRef</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html">Long</a></div><br><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="../../org.cef.callback/-cef-native-adapter/get-native-ref.html"><span class="token function">getNativeRef</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">identifer<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html">Long</a></div><div class="brief ">Method is called by the native code to get the reference to an previous stored identifier.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="168058109%2FFunctions%2F1511286446" anchor-label="removeHandler" id="168058109%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="remove-handler.html"><span>remove</span><wbr><span><span>Handler</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="168058109%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="remove-handler.html"><span class="token function">removeHandler</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">handler<span class="token operator">: </span><a href="../../org.cef.handler/-cef-message-router-handler/index.html">CefMessageRouterHandler</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief ">Remove an existing query handler.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="806663146%2FFunctions%2F1511286446" anchor-label="setNativeRef" id="806663146%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../../org.cef.callback/-cef-native-adapter/set-native-ref.html"><span>set</span><wbr><span>Native</span><wbr><span><span>Ref</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="806663146%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="../../org.cef.callback/-cef-native-adapter/set-native-ref.html"><span class="token function">setNativeRef</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">identifer<span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">nativeRef<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html">Long</a></span></span><span class="token punctuation">)</span></div><div class="brief ">Method is called by the native code to store a reference to an implemented native JNI counterpart.</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2023 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

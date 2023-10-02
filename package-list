@@ -1,5 +1,15 @@
 $dokka.format:html-v1
 $dokka.linkExtension:html
 
+module:jcef
+com.jetbrains.cef
+org.cef
+org.cef.browser
+org.cef.callback
+org.cef.handler
+org.cef.input
+org.cef.misc
+org.cef.network
+org.cef.security
 module:kcef
 dev.datlag.kcef
