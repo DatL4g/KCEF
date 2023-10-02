@@ -1,5 +1,6 @@
 package dev.datlag.kcef.step.extract
 
+import dev.datlag.kcef.CefException
 import dev.datlag.kcef.common.*
 import org.apache.commons.compress.archivers.tar.TarArchiveEntry
 import org.apache.commons.compress.archivers.tar.TarArchiveInputStream
@@ -22,6 +23,9 @@ internal data object TarGzExtractor : Extractor {
 
                         if (currentEntry != null) {
                             val file = File(installDir, currentEntry.name)
+                            if (!file.validate(installDir)) {
+                                throw CefException.BadArchive
+                            }
 
                             if (currentEntry.isDirectory) {
                                 file.mkdirSafely()

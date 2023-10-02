@@ -183,3 +183,11 @@ internal fun File.parentSafely(): File? {
         this.parentFile
     }.getOrNull()
 }
+
+internal fun File.validate(parent: File): Boolean {
+    return scopeCatching {
+        this.toPath().normalize().startsWith(parent.toPath())
+    }.getOrNull() ?: scopeCatching {
+        this.canonicalPath.startsWith(parent.canonicalPath)
+    }.getOrNull() ?: false
+}

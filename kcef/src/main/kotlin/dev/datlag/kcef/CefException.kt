@@ -19,4 +19,6 @@ sealed class CefException(override val message: String) : Exception(message) {
     data object DownloadTempFile : CefException("Could not create temp file to download jcef package")
 
     data object Download : CefException("Could not download jcef package")
+
+    data object BadArchive : CefException("The provided archive contains a bad (malicious) file")
 }
