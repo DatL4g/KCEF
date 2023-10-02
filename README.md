@@ -18,7 +18,7 @@ Please take a look at [JetBrains/JetBrainsRuntime](https://github.com/JetBrains/
 
 ### Repository
 
-This library is published to [Maven Central](https://mvnrepository.com/artifact/dev.datlag.kcef/kcef).
+This library is published to [Maven Central](https://mvnrepository.com/artifact/dev.datlag/kcef).
 
 ```gradle
 repositories {
