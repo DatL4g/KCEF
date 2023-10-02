@@ -4,38 +4,40 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.awt.SwingPanel
 import androidx.compose.ui.window.singleWindowApplication
-import dev.datlag.kcef.kcef
+import dev.datlag.kcef.KCEF
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import org.cef.CefApp
 import org.cef.browser.CefRendering
 
 fun main() = singleWindowApplication {
     var initialized by remember { mutableStateOf(false) }
-    var download by remember { mutableStateOf(0F) }
+    var download by remember { mutableStateOf(-1) }
 
-    val cefApp by produceState<CefApp?>(null) {
-        value = withContext(Dispatchers.IO) {
-            kcef {
-                addArgs("--no-sandbox")
-                progress {
-                    onInitialized {
-                        initialized = true
+    LaunchedEffect(Unit) {
+        withContext(Dispatchers.IO) {
+            KCEF.init(
+                builder = {
+                    addArgs("--no-sandbox")
+                    progress {
+                        onInitialized {
+                            initialized = true
+                        }
+                        onDownloading {
+                            download = it.toInt()
+                        }
                     }
-                    onDownloading {
-                        download = it
+                    settings {
+                        noSandbox = true
                     }
+                    release(true)
                 }
-                settings {
-                    noSandbox = true
-                }
-                release(true)
-            }.build()
+            )
         }
     }
 
     if (initialized) {
-        val client = cefApp!!.createClient()
+        // CEF is definitely initialized here, so we can use the blocking method without produceState
+        val client = KCEF.newClientBlocking()
         val browser = client.createBrowser(
             "https://github.com/DATL4G/KCEF",
             CefRendering.DEFAULT,
@@ -49,7 +51,7 @@ fun main() = singleWindowApplication {
             modifier = Modifier.fillMaxSize()
         )
     } else {
-        if (download > 0F) {
+        if (download > -1) {
             Text("Downloading: $download%")
         } else {
             Text("Initializing please wait...")
@@ -58,7 +60,7 @@ fun main() = singleWindowApplication {
 
     DisposableEffect(Unit) {
         onDispose {
-            cefApp?.dispose()
+            KCEF.disposeBlocking()
         }
     }
 }

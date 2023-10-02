@@ -1,7 +1,6 @@
 package dev.datlag.kcef
 
 sealed class CefException(override val message: String) : Exception(message) {
-    data object Initialization : CefException("Error while initializing JCef")
     data object Startup : CefException("JCef did not initialize correctly!")
     data class UnsupportedPlatform(
         val os: String?,
@@ -21,4 +20,12 @@ sealed class CefException(override val message: String) : Exception(message) {
     data object Download : CefException("Could not download jcef package")
 
     data object BadArchive : CefException("The provided archive contains a bad (malicious) file")
+
+    data object NotInitialized : CefException("Cef was not initialized.")
+
+    data object Disposed : CefException("Cef is disposed.")
+
+    data object ApplicationRestartRequired : CefException("Application needs to restart.")
+
+    data class Error(val exception: Throwable?) : CefException("Got error: ${exception?.message}")
 }

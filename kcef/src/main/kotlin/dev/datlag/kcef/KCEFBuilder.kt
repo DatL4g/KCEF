@@ -16,7 +16,7 @@ import java.io.File
 
 class KCEFBuilder {
 
-    private var installDir: File = File("jcef-bundle")
+    internal var installDir: File = File("jcef-bundle")
     private var progress: InitProgress = InitProgress.Builder().build()
 
     private var settings: Settings = scopeCatching {
@@ -435,7 +435,8 @@ class KCEFBuilder {
                 uncaughtExceptionStackSize = settings.uncaught_exception_stack_size,
                 userAgent = settings.user_agent,
                 userAgentProduct = settings.user_agent_product,
-                windowlessRenderingEnabled = settings.windowless_rendering_enabled
+                windowlessRenderingEnabled = settings.windowless_rendering_enabled,
+                noSandbox = settings.no_sandbox
             )
         }
     }
