@@ -14,6 +14,12 @@ import org.cef.CefSettings
 import org.cef.CefSettings.ColorType
 import java.io.File
 
+/**
+ * Class used to configure the JCef environment. Specify
+ * an installation directory, arguments to be passed to JCef
+ * and configure the [Settings] to
+ * your needs.
+ */
 class KCEFBuilder {
 
     internal var installDir: File = File("jcef-bundle")
@@ -37,51 +43,120 @@ class KCEFBuilder {
     private var installed = false
     private var downloading = false
 
+    /**
+     * Sets the installation directory to use.
+     * Defaults to "./jcef-bundle".
+     *
+     * @param dir the directory to install to
+     */
     fun installDir(dir: File) = apply {
         this.installDir = dir
     }
 
+    /**
+     * Specify a progress listener to receive install progress updates.
+     *
+     * @param listener a [InitProgress] to use
+     */
     fun progress(listener: InitProgress) = apply {
         this.progress = listener
     }
 
+    /**
+     * Specify a progress listener to receive install progress updates.
+     *
+     * @param builder a builder method to create [InitProgress] to use
+     */
     fun progress(builder: InitProgress.Builder.() -> Unit) = apply {
         this.progress = InitProgress.Builder().apply(builder).build()
     }
 
+    /**
+     * Specify the Settings to create the Cef instance.
+     *
+     * @param settings a [Settings] to use
+     */
     fun settings(settings: Settings) = apply {
         this.settings = settings
     }
 
+    /**
+     * Specify the Settings to create the Cef instance.
+     *
+     * @param builder a builder method to edit/create [Settings] to use
+     */
     fun settings(builder: Settings.() -> Unit) = apply {
         this.settings = settings.apply(builder)
     }
 
+    /**
+     * Clear all previous added arguments and use the specified ones to pass to the JCef library.
+     * Arguments may contain spaces.
+     *
+     * Due to installation using gradle some arguments may be overwritten again depending on your platform.
+     *
+     * Make sure to not specify arguments that break the installation process (e.g. subprocess path, resources path...)!
+     *
+     * @param args the arguments to add
+     */
     fun args(vararg args: String) = apply {
         this.args.clear()
         this.args.addAll(args)
     }
 
+    /**
+     * Add one or multiple arguments to pass to the JCef library.
+     * Arguments may contain spaces.
+     *
+     * Due to installation using gradle some arguments may be overwritten again depending on your platform.
+     *
+     * Make sure to not specify arguments that break the installation process (e.g. subprocess path, resources path...)!
+     *
+     * @param args the arguments to add
+     */
     fun addArgs(vararg args: String) = apply {
         this.args.addAll(args)
     }
 
+    /**
+     * Specify and pin the used [runtime package](https://github.com/JetBrains/JetBrainsRuntime/releases) to a tag.
+     *
+     * @param tag the release that will be downloaded and used on the client.
+     */
     fun release(tag: String) = apply {
         this.releaseTag = tag
     }
 
+    /**
+     * Set the used [runtime package](https://github.com/JetBrains/JetBrainsRuntime/releases) to the latest release.
+     *
+     * @param latest if true the latest release will be used,
+     * make sure to use [release] with a tag if you want to pin it instead.
+     */
     fun release(latest: Boolean) = apply {
         if (latest) {
             this.releaseTag = null
         }
     }
 
+    /**
+     * Overwrite the buffer size to download the
+     * [runtime package](https://github.com/JetBrains/JetBrainsRuntime/releases) on the client.
+     *
+     * @param size the buffer size used to while downloading
+     */
     fun downloadBuffer(size: Number) = apply {
         if (size.toLong() > 0L) {
             downloadBufferSize = size.toLong()
         }
     }
 
+    /**
+     * Overwrite the buffer size to extract the
+     * [runtime package](https://github.com/JetBrains/JetBrainsRuntime/releases) on the client.
+     *
+     * @param size the buffer size used to while extracting
+     */
     fun extractBuffer(size: Number) = apply {
         if (size.toLong() > 0L) {
             extractBufferSize = size.toLong()
@@ -442,4 +517,4 @@ class KCEFBuilder {
     }
 }
 
-fun kcef(builder: KCEFBuilder.() -> Unit) = KCEFBuilder().apply(builder)
+fun kcefBuilder(builder: KCEFBuilder.() -> Unit) = KCEFBuilder().apply(builder)

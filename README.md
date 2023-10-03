@@ -185,6 +185,20 @@ CefClient client = KCEF.newClientOrNullBlocking(throwable -> {
 
 </details>
 
+### Dispose
+
+If the `CefClient` is no longer used, make sure to dispose it.
+
+`client.dispose()`
+
+If you no longer need any CEF instance, cleanup up using the `KCEF` class.
+
+`KCEF.disposeBlocking()`
+
+or, if you're not sure if the `KCEF.init` process is finished
+
+`KCEF.dispose()`
+
 ## Flags
 
 Some platforms require the addition of specific flags. To use on MacOSX, add the following JVM flags:

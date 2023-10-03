@@ -15,6 +15,15 @@ data object KCEF {
     private val state: MutableStateFlow<State> = MutableStateFlow(State.New)
     private var cefApp by Delegates.notNull<CefApp>()
 
+    /**
+     * Download, install and initialize CEF on the client.
+     *
+     * @param builder builder method to create a [KCEFBuilder] to use
+     * @param onError an optional listener for errors
+     * @param onRestartRequired an optional listener to be notified when the application needs a restart,
+     * may happen on some platforms if CEF couldn't be initialized after downloading and installing.
+     * @throws CefException.Disposed if you called [dispose] or [disposeBlocking] previously
+     */
     @JvmStatic
     @JvmOverloads
     suspend fun init(
@@ -27,6 +36,11 @@ data object KCEF {
         onRestartRequired = onRestartRequired
     )
 
+    /**
+     * Blocking equivalent of [init]
+     *
+     * @see init
+     */
     @JvmStatic
     @JvmOverloads
     fun initBlocking(
@@ -37,6 +51,15 @@ data object KCEF {
         init(builder, onError, onRestartRequired)
     }
 
+    /**
+     * Download, install and initialize CEF on the client.
+     *
+     * @param builder the [KCEFBuilder] to use
+     * @param onError an optional listener for errors
+     * @param onRestartRequired an optional listener to be notified when the application needs a restart,
+     * may happen on some platforms if CEF couldn't be initialized after downloading and installing.
+     * @throws CefException.Disposed if you called [dispose] or [disposeBlocking] previously
+     */
     @JvmStatic
     @JvmOverloads
     suspend fun init(
@@ -83,6 +106,11 @@ data object KCEF {
         }
     }
 
+    /**
+     * Blocking equivalent of [init]
+     *
+     * @see init
+     */
     @JvmStatic
     @JvmOverloads
     fun initBlocking(
@@ -93,6 +121,17 @@ data object KCEF {
         init(builder, onError, onRestartRequired)
     }
 
+    /**
+     * Create a new CefClient after CEF has been initialized.
+     *
+     * Waits for initialization if it isn't finished yet.
+     *
+     * @see init to initialize CEF
+     * @throws CefException.NotInitialized if the [init] method have not been called.
+     * @throws CefException.Disposed if you called [dispose] or [disposeBlocking] previously
+     * @throws CefException.Error if any other error occurred during initialization
+     * @return [CefClient] after initialization
+     */
     @JvmStatic
     suspend fun newClient(): CefClient {
         return when (state.value) {
@@ -108,11 +147,25 @@ data object KCEF {
         }
     }
 
+    /**
+     * Blocking equivalent of [newClient]
+     *
+     * @see newClient to initialize CEF
+     */
     @JvmStatic
     fun newClientBlocking(): CefClient = runBlocking {
         newClient()
     }
 
+    /**
+     * Create a new CefClient after CEF has been initialized.
+     *
+     * Waits for initialization if it isn't finished yet.
+     *
+     * @see init to initialize CEF
+     * @param onError an optional listener for any error occurred during initialization
+     * @return [CefClient] after initialization or null if any error occurred
+     */
     @JvmStatic
     @JvmOverloads
     suspend fun newClientOrNull(onError: NewClientOrNull = NewClientOrNull {  }): CefClient? {
@@ -138,12 +191,23 @@ data object KCEF {
         }
     }
 
+    /**
+     * Blocking equivalent of [newClientOrNull]
+     *
+     * @see newClientOrNull to initialize CEF
+     */
     @JvmStatic
     @JvmOverloads
     fun newClientOrNullBlocking(onError: NewClientOrNull = NewClientOrNull {  }): CefClient? = runBlocking {
         newClientOrNull(onError)
     }
 
+    /**
+     * Dispose the [CefApp] instance if it is not needed anymore.
+     * For example on exiting the application.
+     *
+     * Waits for initialization if it isn't finished yet
+     */
     @JvmStatic
     suspend fun dispose() {
         when (state.value) {
@@ -160,6 +224,11 @@ data object KCEF {
         }
     }
 
+    /**
+     * Blocking equivalent of [dispose]
+     *
+     * @see dispose to initialize CEF
+     */
     @JvmStatic
     fun disposeBlocking() = runBlocking {
         dispose()
