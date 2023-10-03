@@ -10,6 +10,13 @@ import org.cef.CefClient
 import java.io.File
 import kotlin.properties.Delegates
 
+/**
+ * Class used to initialize the JCef environment.
+ *
+ * Create a new [CefClient] after initialization easily.
+ *
+ * Dispose the JCef environment if you don't need it anymore.
+ */
 data object KCEF {
 
     private val state: MutableStateFlow<State> = MutableStateFlow(State.New)
@@ -26,6 +33,7 @@ data object KCEF {
      */
     @JvmStatic
     @JvmOverloads
+    @Throws(CefException.Disposed::class)
     suspend fun init(
         builder: KCEFBuilder.() -> Unit,
         onError: InitError = InitError {  },
@@ -43,6 +51,7 @@ data object KCEF {
      */
     @JvmStatic
     @JvmOverloads
+    @Throws(CefException.Disposed::class)
     fun initBlocking(
         builder: KCEFBuilder.() -> Unit,
         onError: InitError = InitError {  },
@@ -62,6 +71,7 @@ data object KCEF {
      */
     @JvmStatic
     @JvmOverloads
+    @Throws(CefException.Disposed::class)
     suspend fun init(
         builder: KCEFBuilder,
         onError: InitError = InitError {  },
@@ -113,6 +123,7 @@ data object KCEF {
      */
     @JvmStatic
     @JvmOverloads
+    @Throws(CefException.Disposed::class)
     fun initBlocking(
         builder: KCEFBuilder,
         onError: InitError = InitError {  },
@@ -133,6 +144,11 @@ data object KCEF {
      * @return [CefClient] after initialization
      */
     @JvmStatic
+    @Throws(
+        CefException.NotInitialized::class,
+        CefException.Disposed::class,
+        CefException.Error::class
+    )
     suspend fun newClient(): CefClient {
         return when (state.value) {
             State.New -> throw CefException.NotInitialized
@@ -153,6 +169,11 @@ data object KCEF {
      * @see newClient to initialize CEF
      */
     @JvmStatic
+    @Throws(
+        CefException.NotInitialized::class,
+        CefException.Disposed::class,
+        CefException.Error::class
+    )
     fun newClientBlocking(): CefClient = runBlocking {
         newClient()
     }
