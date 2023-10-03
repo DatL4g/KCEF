@@ -180,7 +180,6 @@ class KCEFBuilder {
             progress.downloading(0F)
             val downloadedFile = PackageDownloader.downloadPackage(
                 releaseTag,
-                installDir,
                 progress,
                 downloadBufferSize
             )

@@ -1,7 +1,7 @@
 package dev.datlag.kcef.step.fetch
 
 import dev.datlag.kcef.CefException
-import dev.datlag.kcef.InitProgress
+import dev.datlag.kcef.KCEFBuilder
 import dev.datlag.kcef.Platform
 import dev.datlag.kcef.common.createTempSafely
 import dev.datlag.kcef.common.deleteOnExitSafely
@@ -31,8 +31,7 @@ internal data object PackageDownloader {
 
     suspend fun downloadPackage(
         tag: String?,
-        installDir: File,
-        progress: InitProgress,
+        progress: KCEFBuilder.InitProgress,
         bufferSize: Long
     ): File {
         val client = HttpClient(OkHttp) {
