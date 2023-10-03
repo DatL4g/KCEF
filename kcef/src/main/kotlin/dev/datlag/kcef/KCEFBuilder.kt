@@ -257,6 +257,8 @@ class KCEFBuilder {
 
         fun initialized() {}
 
+        companion object
+
         class Builder {
             private var locatingCallback: NoProgressCallback = NoProgressCallback {  }
             private var downloadingCallback: ProgressCallback = ProgressCallback {  }
@@ -315,6 +317,8 @@ class KCEFBuilder {
                 }
             }
 
+            companion object
+
             fun interface NoProgressCallback {
                 operator fun invoke()
             }
@@ -325,7 +329,7 @@ class KCEFBuilder {
         }
     }
 
-    data class Settings(
+    data class Settings @JvmOverloads constructor(
         /**
          * The location where cache data will be stored on disk. If empty an in-memory
          * cache will be used for some features and a temporary disk cache for others.
