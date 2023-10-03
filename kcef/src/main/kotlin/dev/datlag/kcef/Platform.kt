@@ -3,7 +3,7 @@ package dev.datlag.kcef
 import dev.datlag.kcef.common.systemProperty
 import java.util.*
 
-internal data object Platform {
+data object Platform {
 
     private const val PROPERTY_OS_NAME = "os.name"
     private const val PROPERTY_OS_ARCH = "os.arch"
@@ -30,12 +30,12 @@ internal data object Platform {
         }
     }
 
-    internal sealed class OS(internal vararg val values: String) {
+    sealed class OS(internal vararg val values: String) {
         data object MACOSX : OS("mac", "darwin", "osx")
         data object LINUX : OS("linux")
         data object WINDOWS : OS("win", "windows")
 
-        fun matches(osName: String): Boolean {
+        internal fun matches(osName: String): Boolean {
             return this.values.any {
                 osName.startsWith(it, true)
             } || this.values.contains(osName.lowercase(Locale.ENGLISH))
@@ -60,7 +60,7 @@ internal data object Platform {
         }
 
         companion object {
-            fun matching(osName: String): OS? = when {
+            internal fun matching(osName: String): OS? = when {
                 MACOSX.matches(osName) -> MACOSX
                 LINUX.matches(osName) -> LINUX
                 WINDOWS.matches(osName) -> WINDOWS
@@ -69,13 +69,13 @@ internal data object Platform {
         }
     }
 
-    internal sealed class ARCH(internal vararg val values: String) {
+    sealed class ARCH(internal vararg val values: String) {
         data object AMD64 : ARCH("amd64", "x86_64", "x64")
         data object I386 : ARCH("x86", "i386", "i486", "i586", "i686", "i786")
         data object ARM64 : ARCH("arm64", "aarch64")
         data object ARM : ARCH("arm")
 
-        fun matches(osArch: String): Boolean {
+        internal fun matches(osArch: String): Boolean {
             return this.values.contains(osArch.lowercase(Locale.ENGLISH))
         }
 
@@ -102,7 +102,7 @@ internal data object Platform {
         }
 
         companion object {
-            fun matching(osArch: String): ARCH? = when {
+            internal fun matching(osArch: String): ARCH? = when {
                 AMD64.matches(osArch) -> AMD64
                 I386.matches(osArch) -> I386
                 ARM64.matches(osArch) -> ARM64
@@ -112,7 +112,7 @@ internal data object Platform {
         }
     }
 
-    internal data class OSInfo(
+    data class OSInfo(
         val os: OS,
         val arch: ARCH
     )

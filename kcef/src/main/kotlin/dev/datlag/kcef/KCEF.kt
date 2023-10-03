@@ -6,14 +6,14 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
 import org.cef.CefApp
-import org.cef.CefClient
+import org.cef.handler.CefAppHandlerAdapter
 import java.io.File
 import kotlin.properties.Delegates
 
 /**
  * Class used to initialize the JCef environment.
  *
- * Create a new [CefClient] after initialization easily.
+ * Create a new [KCEFClient] after initialization easily.
  *
  * Dispose the JCef environment if you don't need it anymore.
  */
@@ -86,7 +86,9 @@ data object KCEF {
             }
         } ?: return
 
-        val installOk = File(builder.installDir, "install.lock").existsSafely()
+        currentBuilder.addAppHandler(AppHandler)
+
+        val installOk = File(currentBuilder.installDir, "install.lock").existsSafely()
 
         if (installOk) {
             val result = suspendCatching {
@@ -96,7 +98,7 @@ data object KCEF {
             result.exceptionOrNull()?.let(onError::invoke)
         } else {
             val installResult = suspendCatching {
-                builder.install()
+                currentBuilder.install()
             }
             installResult.exceptionOrNull()?.let {
                 setInitResult(Result.failure(it))
@@ -104,7 +106,7 @@ data object KCEF {
             }
 
             val result = suspendCatching {
-                builder.build()
+                currentBuilder.build()
             }
 
             setInitResult(result)
@@ -141,7 +143,7 @@ data object KCEF {
      * @throws CefException.NotInitialized if the [init] method have not been called.
      * @throws CefException.Disposed if you called [dispose] or [disposeBlocking] previously
      * @throws CefException.Error if any other error occurred during initialization
-     * @return [CefClient] after initialization
+     * @return [KCEFClient] after initialization
      */
     @JvmStatic
     @Throws(
@@ -149,12 +151,12 @@ data object KCEF {
         CefException.Disposed::class,
         CefException.Error::class
     )
-    suspend fun newClient(): CefClient {
+    suspend fun newClient(): KCEFClient {
         return when (state.value) {
             State.New -> throw CefException.NotInitialized
             State.Disposed -> throw CefException.Disposed
             is State.Error -> throw CefException.Error((state.value as? State.Error)?.exception)
-            State.Initialized -> cefApp.createClient()
+            State.Initialized -> KCEFClient(cefApp.createClient())
             State.Initializing -> {
                 state.first { it != State.Initializing }
 
@@ -174,7 +176,7 @@ data object KCEF {
         CefException.Disposed::class,
         CefException.Error::class
     )
-    fun newClientBlocking(): CefClient = runBlocking {
+    fun newClientBlocking(): KCEFClient = runBlocking {
         newClient()
     }
 
@@ -185,11 +187,11 @@ data object KCEF {
      *
      * @see init to initialize CEF
      * @param onError an optional listener for any error occurred during initialization
-     * @return [CefClient] after initialization or null if any error occurred
+     * @return [KCEFClient] after initialization or null if any error occurred
      */
     @JvmStatic
     @JvmOverloads
-    suspend fun newClientOrNull(onError: NewClientOrNullError = NewClientOrNullError {  }): CefClient? {
+    suspend fun newClientOrNull(onError: NewClientOrNullError = NewClientOrNullError {  }): KCEFClient? {
         return when (state.value) {
             State.New -> {
                 onError(CefException.NotInitialized)
@@ -203,7 +205,7 @@ data object KCEF {
                 onError(CefException.Error((state.value as? State.Error)?.exception))
                 null
             }
-            State.Initialized -> cefApp.createClient()
+            State.Initialized -> KCEFClient(cefApp.createClient())
             State.Initializing -> {
                 state.first { it != State.Initializing }
 
@@ -219,7 +221,7 @@ data object KCEF {
      */
     @JvmStatic
     @JvmOverloads
-    fun newClientOrNullBlocking(onError: NewClientOrNullError = NewClientOrNullError {  }): CefClient? = runBlocking {
+    fun newClientOrNullBlocking(onError: NewClientOrNullError = NewClientOrNullError {  }): KCEFClient? = runBlocking {
         newClientOrNull(onError)
     }
 
@@ -284,5 +286,16 @@ data object KCEF {
 
     fun interface NewClientOrNullError {
         operator fun invoke(throwable: Throwable?)
+    }
+
+    private data object AppHandler : CefAppHandlerAdapter(arrayOf()) {
+
+        override fun onContextInitialized() {
+            super.onContextInitialized()
+
+            cefApp.registerSchemeHandlerFactory(
+                KCEFFileSchemeHandlerFactory.FILE_SCHEME_NAME, "", KCEFFileSchemeHandlerFactory()
+            )
+        }
     }
 }

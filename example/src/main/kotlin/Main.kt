@@ -1,4 +1,6 @@
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
@@ -43,13 +45,32 @@ fun main() = singleWindowApplication {
             CefRendering.DEFAULT,
             false
         )
+        val html = """
+            <html>
+                <head>
+                    <title>KCEF</title>
+                </head>
+                <body>
+                    Welcome to KCEF!
+                </body>
+            </html>
+        """.trimIndent()
 
-        SwingPanel(
-            factory = {
-                browser.uiComponent
-            },
-            modifier = Modifier.fillMaxSize()
-        )
+        Column(modifier = Modifier.fillMaxSize()) {
+            Button(
+                onClick = {
+                    browser.loadHtml(html)
+                }
+            ) {
+                Text(text = "Load HTML")
+            }
+            SwingPanel(
+                factory = {
+                    browser.uiComponent
+                },
+                modifier = Modifier.fillMaxSize()
+            )
+        }
     } else {
         if (download > -1) {
             Text("Downloading: $download%")

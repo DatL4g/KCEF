@@ -19,6 +19,7 @@ dependencies {
     implementation("io.ktor:ktor-client-content-negotiation:$ktorVersion")
     implementation("io.ktor:ktor-serialization-kotlinx-json:$ktorVersion")
     implementation("org.apache.commons:commons-compress:1.24.0")
+    implementation(kotlin("stdlib"))
 }
 
 mavenPublishing {

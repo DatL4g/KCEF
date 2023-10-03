@@ -12,6 +12,7 @@ import dev.datlag.kcef.step.init.CefInitializer
 import org.cef.CefApp
 import org.cef.CefSettings
 import org.cef.CefSettings.ColorType
+import org.cef.handler.CefAppHandler
 import java.io.File
 
 /**
@@ -161,6 +162,21 @@ class KCEFBuilder {
         if (size.toLong() > 0L) {
             extractBufferSize = size.toLong()
         }
+    }
+
+    /**
+     * Assign an AppHandler to CefApp. The AppHandler can be used to evaluate
+     * application arguments, to register your own schemes and to hook into the
+     * shutdown sequence. See CefAppHandler for more details.
+     *
+     * This method must be called before CefApp is initialized. CefApp will be
+     * initialized automatically if you call createClient() the first time.
+     * @param appHandler An instance of CefAppHandler.
+     *
+     * @throws IllegalStateException in case of CefApp is already initialized
+     */
+    fun addAppHandler(appHandler: CefAppHandler) = apply {
+        CefApp.addAppHandler(appHandler)
     }
 
     internal suspend fun install() = apply {
