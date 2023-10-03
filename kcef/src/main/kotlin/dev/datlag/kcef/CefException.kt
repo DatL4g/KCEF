@@ -27,5 +27,5 @@ sealed class CefException(override val message: String) : Exception(message) {
 
     data object ApplicationRestartRequired : CefException("Application needs to restart.")
 
-    data class Error(val exception: Throwable?) : CefException("Got error: ${exception?.message}")
+    data class Error(override val cause: Throwable?) : CefException("Got error: ${cause?.message}")
 }

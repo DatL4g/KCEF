@@ -189,7 +189,7 @@ data object KCEF {
      */
     @JvmStatic
     @JvmOverloads
-    suspend fun newClientOrNull(onError: NewClientOrNull = NewClientOrNull {  }): CefClient? {
+    suspend fun newClientOrNull(onError: NewClientOrNullError = NewClientOrNullError {  }): CefClient? {
         return when (state.value) {
             State.New -> {
                 onError(CefException.NotInitialized)
@@ -219,7 +219,7 @@ data object KCEF {
      */
     @JvmStatic
     @JvmOverloads
-    fun newClientOrNullBlocking(onError: NewClientOrNull = NewClientOrNull {  }): CefClient? = runBlocking {
+    fun newClientOrNullBlocking(onError: NewClientOrNullError = NewClientOrNullError {  }): CefClient? = runBlocking {
         newClientOrNull(onError)
     }
 
@@ -282,7 +282,7 @@ data object KCEF {
         operator fun invoke()
     }
 
-    fun interface NewClientOrNull {
+    fun interface NewClientOrNullError {
         operator fun invoke(throwable: Throwable?)
     }
 }

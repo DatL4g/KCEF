@@ -89,7 +89,7 @@ This is recommended to be called in a **IO** Thread.
 ```java
 KCEF.initBlocking(
     new KCEFBuilder().progress(
-        new InitProgress.Builder().onDownloading(progress -> {
+        new KCEFBuilder.InitProgress.Builder().onDownloading(progress -> {
             System.out.println("Download progress: " + progress + "%");
         }).build()
     ).release(true),
