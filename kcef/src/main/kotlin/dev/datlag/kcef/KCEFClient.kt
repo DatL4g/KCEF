@@ -20,7 +20,10 @@ import org.cef.handler.CefRenderHandler
 import org.cef.handler.CefRequestHandler
 import org.cef.handler.CefWindowHandler
 
-class KCEFClient(
+/**
+ * Class that can create a [KCEFBrowser] instance and inherits the default [CefClient] methods.
+ */
+class KCEFClient internal constructor(
     private val client: CefClient
 ) : CefContextMenuHandler by client,
     CefDialogHandler by client,
@@ -38,8 +41,22 @@ class KCEFClient(
     CefRequestHandler by client,
     CefWindowHandler by client {
 
+    /**
+     * Create a [KCEFBrowser] instance
+     *
+     * @param browser the default [CefBrowser] to inherit from
+     * @return [KCEFBrowser]
+     */
     fun createBrowser(browser: CefBrowser): KCEFBrowser = KCEFBrowser(this, browser)
 
+    /**
+     * Create a [KCEFBrowser] instance
+     *
+     * @param url the default URL to launch with
+     * @param rendering [CefRendering] option that specifies the CEF rendering
+     * @param isTransparent whether the browser is transparent
+     * @return [KCEFBrowser]
+     */
     @JvmOverloads
     fun createBrowser(
         url: String?,
@@ -47,6 +64,15 @@ class KCEFClient(
         isTransparent: Boolean = false
     ) = createBrowser(client.createBrowser(url, rendering, isTransparent))
 
+    /**
+     * Create a [KCEFBrowser] instance
+     *
+     * @param url the default URL to launch with
+     * @param rendering [CefRendering] option that specifies the CEF rendering
+     * @param isTransparent whether the browser is transparent
+     * @param context [CefRequestContext] handling the request
+     * @return [KCEFBrowser]
+     */
     @JvmOverloads
     fun createBrowser(
         url: String?,
@@ -58,4 +84,6 @@ class KCEFClient(
     override fun onCursorChange(browser: CefBrowser?, cursorType: Int): Boolean {
         return client.onCursorChange(browser, cursorType)
     }
+
+    companion object
 }

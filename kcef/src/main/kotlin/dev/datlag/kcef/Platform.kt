@@ -10,6 +10,13 @@ data object Platform {
 
     private var osInfo: OSInfo? = null
 
+    /**
+     * Get information about the current OS.
+     *
+     * @see OSInfo
+     * @return [OSInfo]
+     */
+    @Throws(CefException.UnsupportedPlatform::class)
     fun getCurrentPlatform(): OSInfo {
         osInfo?.let {
             return it
@@ -30,10 +37,10 @@ data object Platform {
         }
     }
 
-    sealed class OS(internal vararg val values: String) {
-        data object MACOSX : OS("mac", "darwin", "osx")
-        data object LINUX : OS("linux")
-        data object WINDOWS : OS("win", "windows")
+    sealed class OS(open val name: String, internal vararg val values: String) {
+        data class MACOSX(override val name: String) : OS("mac", "darwin", "osx")
+        data class LINUX(override val name: String) : OS("linux")
+        data class WINDOWS(override val name: String) : OS("win", "windows")
 
         internal fun matches(osName: String): Boolean {
             return this.values.any {
@@ -42,13 +49,13 @@ data object Platform {
         }
 
         val isMacOSX: Boolean
-            get() = this is MACOSX || this == MACOSX
+            get() = this is MACOSX
 
         val isLinux: Boolean
-            get() = this is LINUX || this == LINUX
+            get() = this is LINUX
 
         val isWindows: Boolean
-            get() = this is WINDOWS || this == WINDOWS
+            get() = this is WINDOWS
 
         override fun toString(): String {
             return when {
@@ -61,35 +68,35 @@ data object Platform {
 
         companion object {
             internal fun matching(osName: String): OS? = when {
-                MACOSX.matches(osName) -> MACOSX
-                LINUX.matches(osName) -> LINUX
-                WINDOWS.matches(osName) -> WINDOWS
+                MACOSX(osName).matches(osName) -> MACOSX(osName)
+                LINUX(osName).matches(osName) -> LINUX(osName)
+                WINDOWS(osName).matches(osName) -> WINDOWS(osName)
                 else -> null
             }
         }
     }
 
-    sealed class ARCH(internal vararg val values: String) {
-        data object AMD64 : ARCH("amd64", "x86_64", "x64")
-        data object I386 : ARCH("x86", "i386", "i486", "i586", "i686", "i786")
-        data object ARM64 : ARCH("arm64", "aarch64")
-        data object ARM : ARCH("arm")
+    sealed class ARCH(open val arch: String, internal vararg val values: String) {
+        data class AMD64(override val arch: String) : ARCH("amd64", "x86_64", "x64")
+        data class I386(override val arch: String) : ARCH("x86", "i386", "i486", "i586", "i686", "i786")
+        data class ARM64(override val arch: String) : ARCH("arm64", "aarch64")
+        data class ARM(override val arch: String) : ARCH("arm")
 
         internal fun matches(osArch: String): Boolean {
             return this.values.contains(osArch.lowercase(Locale.ENGLISH))
         }
 
         val isAMD64: Boolean
-            get() = this is AMD64 || this == AMD64
+            get() = this is AMD64
 
         val isI386: Boolean
-            get() = this is I386 || this == I386
+            get() = this is I386
 
         val isARM64: Boolean
-            get() = this is ARM64 || this == ARM64
+            get() = this is ARM64
 
         val isARM: Boolean
-            get() = this is ARM || this == ARM
+            get() = this is ARM
 
         override fun toString(): String {
             return when {
@@ -103,15 +110,21 @@ data object Platform {
 
         companion object {
             internal fun matching(osArch: String): ARCH? = when {
-                AMD64.matches(osArch) -> AMD64
-                I386.matches(osArch) -> I386
-                ARM64.matches(osArch) -> ARM64
-                ARM.matches(osArch) -> ARM
+                AMD64(osArch).matches(osArch) -> AMD64(osArch)
+                I386(osArch).matches(osArch) -> I386(osArch)
+                ARM64(osArch).matches(osArch) -> ARM64(osArch)
+                ARM(osArch).matches(osArch) -> ARM(osArch)
                 else -> null
             }
         }
     }
 
+    /**
+     * Class holding information about a platform.
+     *
+     * @param os the basic OS info, whether it is [OS.LINUX], [OS.MACOSX] or [OS.WINDOWS] and it's name.
+     * @param arch the Arch info, whether it is [ARCH.AMD64], [ARCH.I386], [ARCH.ARM64] or [ARCH.ARM] and it's name
+     */
     data class OSInfo(
         val os: OS,
         val arch: ARCH

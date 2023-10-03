@@ -52,10 +52,11 @@ internal data object TarGzExtractor : Extractor {
     }
 
     fun move(installDir: File) {
-        when (Platform.getCurrentPlatform().os) {
-            Platform.OS.LINUX -> linuxMove(installDir)
-            Platform.OS.MACOSX -> macMove(installDir)
-            Platform.OS.WINDOWS -> winMove(installDir)
+        val os = Platform.getCurrentPlatform().os
+        when {
+            os.isLinux-> linuxMove(installDir)
+            os.isMacOSX -> macMove(installDir)
+            os.isWindows -> winMove(installDir)
             else -> linuxMove(installDir)
         }
     }
