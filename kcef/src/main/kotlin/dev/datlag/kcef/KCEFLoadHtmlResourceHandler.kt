@@ -10,7 +10,7 @@ import org.cef.network.CefResponse
 import java.io.InputStream
 import kotlin.math.min
 
-class KCEFLoadHtmlResourceHandler constructor(
+internal class KCEFLoadHtmlResourceHandler constructor(
     private val inputStream: InputStream
 ) : CefResourceHandlerAdapter() {
 

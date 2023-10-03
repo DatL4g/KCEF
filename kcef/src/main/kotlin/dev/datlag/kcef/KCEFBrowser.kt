@@ -1,10 +1,9 @@
 package dev.datlag.kcef
 
-import org.cef.CefClient
 import org.cef.browser.CefBrowser
 
 class KCEFBrowser(
-    private val client: CefClient,
+    private val client: KCEFClient,
     private val browser: CefBrowser
 ) : CefBrowser by browser {
 

@@ -38,7 +38,7 @@ class KCEFClient(
     CefRequestHandler by client,
     CefWindowHandler by client {
 
-    fun createBrowser(browser: CefBrowser): KCEFBrowser = KCEFBrowser(client, browser)
+    fun createBrowser(browser: CefBrowser): KCEFBrowser = KCEFBrowser(this, browser)
 
     @JvmOverloads
     fun createBrowser(

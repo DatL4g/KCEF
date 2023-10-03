@@ -8,7 +8,7 @@ import org.cef.network.CefRequest
 import java.util.Collections
 import java.util.WeakHashMap
 
-class KCEFFileSchemeHandlerFactory : CefSchemeHandlerFactory {
+internal class KCEFFileSchemeHandlerFactory : CefSchemeHandlerFactory {
     override fun create(
         browser: CefBrowser?,
         frame: CefFrame?,
