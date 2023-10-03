@@ -1,11 +1,10 @@
 package dev.datlag.kcef.step.init
 
-import dev.datlag.kcef.CefException
+import dev.datlag.kcef.KCEFException
 import dev.datlag.kcef.Platform
 import dev.datlag.kcef.common.scopeCatching
 import dev.datlag.kcef.common.systemLoad
 import dev.datlag.kcef.common.systemLoadLibrary
-import dev.datlag.kcef.common.systemProperty
 import org.cef.CefApp
 import org.cef.CefSettings
 import org.cef.SystemBootstrap
@@ -61,7 +60,7 @@ internal data object CefInitializer {
         }
 
         if (!success) {
-            throw CefException.Startup
+            throw KCEFException.Startup
         }
         loadLibrary(installDir, "libcef")
         return CefApp.getInstanceIfAny() ?: scopeCatching {

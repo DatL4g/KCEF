@@ -1,6 +1,6 @@
 package dev.datlag.kcef.step.fetch
 
-import dev.datlag.kcef.CefException
+import dev.datlag.kcef.KCEFException
 import dev.datlag.kcef.KCEFBuilder
 import dev.datlag.kcef.Platform
 import dev.datlag.kcef.common.createTempSafely
@@ -73,7 +73,7 @@ internal data object PackageDownloader {
 
         if (platformPackageList.isEmpty()) {
             client.close()
-            throw CefException.UnsupportedPlatformPackage(
+            throw KCEFException.UnsupportedPlatformPackage(
                 platform.os.toString(),
                 platform.arch.toString()
             )
@@ -98,7 +98,7 @@ internal data object PackageDownloader {
             suffix = ".tar.gz"
         ) ?: run {
             client.close()
-            throw CefException.DownloadTempFile
+            throw KCEFException.DownloadTempFile
         }
 
         file.deleteOnExitSafely()
@@ -124,7 +124,7 @@ internal data object PackageDownloader {
 
         client.close()
         if (!success) {
-            throw CefException.Download
+            throw KCEFException.Download
         }
         return file
     }

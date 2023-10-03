@@ -1,9 +1,11 @@
 package dev.datlag.kcef
 
+import kotlinx.coroutines.Runnable
 import org.cef.CefClient
 import org.cef.browser.CefBrowser
 import org.cef.browser.CefRendering
 import org.cef.browser.CefRequestContext
+import org.cef.handler.CefAppStateHandler
 import org.cef.handler.CefContextMenuHandler
 import org.cef.handler.CefDialogHandler
 import org.cef.handler.CefDisplayHandler
@@ -39,7 +41,11 @@ class KCEFClient internal constructor(
     CefPrintHandler by client,
     CefRenderHandler by client,
     CefRequestHandler by client,
-    CefWindowHandler by client {
+    CefWindowHandler by client,
+    CefAppStateHandler by client {
+
+    val info: String
+        get() = client.info
 
     /**
      * Create a [KCEFBrowser] instance
@@ -85,5 +91,127 @@ class KCEFClient internal constructor(
         return client.onCursorChange(browser, cursorType)
     }
 
-    companion object
+    fun setOnDisposeCallback(onDisposed: Runnable) {
+        client.setOnDisposeCallback(onDisposed)
+    }
+
+    fun addContextMenuHandler(handler: CefContextMenuHandler) = apply {
+        client.addContextMenuHandler(handler)
+    }
+
+    fun removeContextMenuHandler() = apply {
+        client.removeContextMenuHandler()
+    }
+
+    fun addDialogHandler(handler: CefDialogHandler) = apply {
+        client.addDialogHandler(handler)
+    }
+
+    fun removeDialogHandler() = apply {
+        client.removeDialogHandler()
+    }
+
+    fun addDisplayHandler(handler: CefDisplayHandler) = apply {
+        client.addDisplayHandler(handler)
+    }
+
+    fun removeDisplayHandler() = apply {
+        client.removeDisplayHandler()
+    }
+
+    fun addDownloadHandler(handler: CefDownloadHandler) = apply {
+        client.addDownloadHandler(handler)
+    }
+
+    fun removeDownloadHandler() = apply {
+        client.removeDownloadHandler()
+    }
+
+    fun addDragHandler(handler: CefDragHandler) = apply {
+        client.addDragHandler(handler)
+    }
+
+    fun removeDragHandler() = apply {
+        client.removeDragHandler()
+    }
+
+    fun addFocusHandler(handler: CefFocusHandler) = apply {
+        client.addFocusHandler(handler)
+    }
+
+    fun removeFocusHandler() = apply {
+        client.removeFocusHandler()
+    }
+
+    fun addPermissionHandler(handler: CefPermissionHandler) = apply {
+        client.addPermissionHandler(handler)
+    }
+
+    fun removePermissionHandler() = apply {
+        client.removePermissionHandler()
+    }
+
+    fun addJSDialogHandler(handler: CefJSDialogHandler) = apply {
+        client.addJSDialogHandler(handler)
+    }
+
+    fun removeJSDialogHandler() = apply {
+        client.removeJSDialogHandler()
+    }
+
+    fun addKeyboardHandler(handler: CefKeyboardHandler) = apply {
+        client.addKeyboardHandler(handler)
+    }
+
+    fun removeKeyboardHandler() = apply {
+        client.removeKeyboardHandler()
+    }
+
+    fun addLifeSpanHandler(handler: CefLifeSpanHandler) = apply {
+        client.addLifeSpanHandler(handler)
+    }
+
+    fun removeLifeSpanHandler() = apply {
+        client.removeLifeSpanHandler()
+    }
+
+    fun addLoadHandler(handler: CefLoadHandler) = apply {
+        client.addLoadHandler(handler)
+    }
+
+    fun removeLoadHandler() = apply {
+        client.removeLoadHandler()
+    }
+
+    fun addPrintHandler(handler: CefPrintHandler) = apply {
+        client.addPrintHandler(handler)
+    }
+
+    fun removePrintHandler() = apply {
+        client.removePrintHandler()
+    }
+
+    fun addRequestHandler(handler: CefRequestHandler) = apply {
+        client.addRequestHandler(handler)
+    }
+
+    fun removeRequestHandler() = apply {
+        client.removeRequestHandler()
+    }
+
+    fun getContextMenuHandler(): CefContextMenuHandler = this
+    fun getDialogHandler(): CefDialogHandler = this
+    fun getDisplayHandler(): CefDisplayHandler = this
+    fun getDownloadHandler(): CefDownloadHandler = this
+    fun getDragHandler(): CefDragHandler = this
+    fun getFocusHandler(): CefFocusHandler = this
+    fun getPermissionHandler(): CefPermissionHandler = this
+    fun getJSDialogHandler(): CefJSDialogHandler = this
+    fun getKeyboardHandler(): CefKeyboardHandler = this
+    fun getLifeSpanHandler(): CefLifeSpanHandler = this
+    fun getLoadHandler(): CefLoadHandler = this
+    fun getPrintHandler(): CefPrintHandler = this
+    fun getRenderHandler(): CefRenderHandler = this
+    fun getRequestHandler(): CefRequestHandler = this
+    fun getWindowHandler(): CefWindowHandler = this
 }

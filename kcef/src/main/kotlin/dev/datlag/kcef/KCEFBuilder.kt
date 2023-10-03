@@ -190,7 +190,7 @@ class KCEFBuilder {
             installDir.deleteDir()
 
             if (!this.installDir.mkdirsSafely()) {
-                throw CefException.InstallationDirectory
+                throw KCEFException.InstallationDirectory
             }
 
             progress.downloading(0F)
@@ -217,13 +217,13 @@ class KCEFBuilder {
             }
 
             if (!File(this.installDir, "install.lock").createSafely()) {
-                throw CefException.InstallationLock
+                throw KCEFException.InstallationLock
             }
         }
         this.installed = true
     }
 
-    @Throws(CefException::class)
+    @Throws(KCEFException::class)
     internal suspend fun build(): CefApp {
         this.instance?.let { return it }
 

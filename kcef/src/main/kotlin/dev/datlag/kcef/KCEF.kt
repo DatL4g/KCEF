@@ -29,11 +29,11 @@ data object KCEF {
      * @param onError an optional listener for errors
      * @param onRestartRequired an optional listener to be notified when the application needs a restart,
      * may happen on some platforms if CEF couldn't be initialized after downloading and installing.
-     * @throws CefException.Disposed if you called [dispose] or [disposeBlocking] previously
+     * @throws KCEFException.Disposed if you called [dispose] or [disposeBlocking] previously
      */
     @JvmStatic
     @JvmOverloads
-    @Throws(CefException.Disposed::class)
+    @Throws(KCEFException.Disposed::class)
     suspend fun init(
         builder: KCEFBuilder.() -> Unit,
         onError: InitError = InitError {  },
@@ -51,7 +51,7 @@ data object KCEF {
      */
     @JvmStatic
     @JvmOverloads
-    @Throws(CefException.Disposed::class)
+    @Throws(KCEFException.Disposed::class)
     fun initBlocking(
         builder: KCEFBuilder.() -> Unit,
         onError: InitError = InitError {  },
@@ -67,18 +67,18 @@ data object KCEF {
      * @param onError an optional listener for errors
      * @param onRestartRequired an optional listener to be notified when the application needs a restart,
      * may happen on some platforms if CEF couldn't be initialized after downloading and installing.
-     * @throws CefException.Disposed if you called [dispose] or [disposeBlocking] previously
+     * @throws KCEFException.Disposed if you called [dispose] or [disposeBlocking] previously
      */
     @JvmStatic
     @JvmOverloads
-    @Throws(CefException.Disposed::class)
+    @Throws(KCEFException.Disposed::class)
     suspend fun init(
         builder: KCEFBuilder,
         onError: InitError = InitError {  },
         onRestartRequired: InitRestartRequired = InitRestartRequired {  }
     ) {
         val currentBuilder = when (state.value) {
-            State.Disposed -> throw CefException.Disposed
+            State.Disposed -> throw KCEFException.Disposed
             State.Initializing, State.Initialized -> null
             State.New, is State.Error -> {
                 state.emit(State.Initializing)
@@ -112,7 +112,7 @@ data object KCEF {
             setInitResult(result)
             if (result.isFailure) {
                 result.exceptionOrNull()?.let(onError::invoke)
-                setInitResult(Result.failure(CefException.ApplicationRestartRequired))
+                setInitResult(Result.failure(KCEFException.ApplicationRestartRequired))
                 onRestartRequired()
             }
         }
@@ -125,7 +125,7 @@ data object KCEF {
      */
     @JvmStatic
     @JvmOverloads
-    @Throws(CefException.Disposed::class)
+    @Throws(KCEFException.Disposed::class)
     fun initBlocking(
         builder: KCEFBuilder,
         onError: InitError = InitError {  },
@@ -140,22 +140,22 @@ data object KCEF {
      * Waits for initialization if it isn't finished yet.
      *
      * @see init to initialize CEF
-     * @throws CefException.NotInitialized if the [init] method have not been called.
-     * @throws CefException.Disposed if you called [dispose] or [disposeBlocking] previously
-     * @throws CefException.Error if any other error occurred during initialization
+     * @throws KCEFException.NotInitialized if the [init] method have not been called.
+     * @throws KCEFException.Disposed if you called [dispose] or [disposeBlocking] previously
+     * @throws KCEFException.Error if any other error occurred during initialization
      * @return [KCEFClient] after initialization
      */
     @JvmStatic
     @Throws(
-        CefException.NotInitialized::class,
-        CefException.Disposed::class,
-        CefException.Error::class
+        KCEFException.NotInitialized::class,
+        KCEFException.Disposed::class,
+        KCEFException.Error::class
     )
     suspend fun newClient(): KCEFClient {
         return when (state.value) {
-            State.New -> throw CefException.NotInitialized
-            State.Disposed -> throw CefException.Disposed
-            is State.Error -> throw CefException.Error((state.value as? State.Error)?.exception)
+            State.New -> throw KCEFException.NotInitialized
+            State.Disposed -> throw KCEFException.Disposed
+            is State.Error -> throw KCEFException.Error((state.value as? State.Error)?.exception)
             State.Initialized -> KCEFClient(cefApp.createClient())
             State.Initializing -> {
                 state.first { it != State.Initializing }
@@ -172,9 +172,9 @@ data object KCEF {
      */
     @JvmStatic
     @Throws(
-        CefException.NotInitialized::class,
-        CefException.Disposed::class,
-        CefException.Error::class
+        KCEFException.NotInitialized::class,
+        KCEFException.Disposed::class,
+        KCEFException.Error::class
     )
     fun newClientBlocking(): KCEFClient = runBlocking {
         newClient()
@@ -194,15 +194,15 @@ data object KCEF {
     suspend fun newClientOrNull(onError: NewClientOrNullError = NewClientOrNullError {  }): KCEFClient? {
         return when (state.value) {
             State.New -> {
-                onError(CefException.NotInitialized)
+                onError(KCEFException.NotInitialized)
                 null
             }
             State.Disposed -> {
-                onError(CefException.Disposed)
+                onError(KCEFException.Disposed)
                 null
             }
             is State.Error -> {
-                onError(CefException.Error((state.value as? State.Error)?.exception))
+                onError(KCEFException.Error((state.value as? State.Error)?.exception))
                 null
             }
             State.Initialized -> KCEFClient(cefApp.createClient())

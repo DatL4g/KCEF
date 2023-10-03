@@ -16,7 +16,7 @@ data object Platform {
      * @see OSInfo
      * @return [OSInfo]
      */
-    @Throws(CefException.UnsupportedPlatform::class)
+    @Throws(KCEFException.UnsupportedPlatform::class)
     fun getCurrentPlatform(): OSInfo {
         osInfo?.let {
             return it
@@ -29,7 +29,7 @@ data object Platform {
         val arch = osArch?.let { ARCH.matching(it) }
 
         if (os == null || arch == null) {
-            throw CefException.UnsupportedPlatform(osName, osArch)
+            throw KCEFException.UnsupportedPlatform(osName, osArch)
         } else {
             return OSInfo(os, arch).also {
                 osInfo = it
