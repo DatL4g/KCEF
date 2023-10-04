@@ -8,7 +8,6 @@ import org.cef.browser.CefRendering
 import org.cef.browser.CefRequestContext
 import org.cef.callback.CefNative
 import org.cef.handler.*
-import java.util.*
 import java.util.concurrent.atomic.AtomicInteger
 
 /**
@@ -38,7 +37,15 @@ class KCEFClient internal constructor(
         get() = client.info
 
     private val jsQueryCounter = AtomicInteger(0)
-    internal val jsQueryPool = JSQueryPool.create(this)
+    internal val evaluateJSHandler: KCEFJSHandler
+
+    init {
+        val router = CefMessageRouter.create(
+            CefMessageRouter.CefMessageRouterConfig("cefQueryEvaluate", "cefQueryEvaluateCancel")
+        )
+        router.addHandler(KCEFJSHandler().also { evaluateJSHandler = it }, false)
+        client.addMessageRouter(router)
+    }
 
     /**
      * Create a [KCEFBrowser] instance
@@ -221,28 +228,4 @@ class KCEFClient internal constructor(
     fun getWindowHandler(): CefWindowHandler = this
 
     companion object { }
-
-    internal class JSQueryPool(
-        private val pool: MutableList<KCEFJSQuery.JSQueryFunc>
-    ) {
-
-        internal constructor(client: KCEFClient) : this(
-            Collections.synchronizedList<KCEFJSQuery.JSQueryFunc?>(emptyList()).toMutableList()
-        )
-
-        fun useFreeSlot(): KCEFJSQuery.JSQueryFunc? {
-            if (pool.isEmpty()) {
-                return null
-            }
-            return pool.removeAt(0)
-        }
-
-        fun releaseUsedSlot(func: KCEFJSQuery.JSQueryFunc) {
-            pool.add(func)
-        }
-
-        companion object {
-            fun create(client: KCEFClient): JSQueryPool = JSQueryPool(client)
-        }
-    }
 }

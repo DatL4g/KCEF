@@ -2,7 +2,8 @@ package dev.datlag.kcef
 
 import kotlinx.coroutines.runBlocking
 import org.cef.browser.CefBrowser
-import org.cef.callback.CefNative
+import kotlin.coroutines.resume
+import kotlin.coroutines.suspendCoroutine
 
 /**
  * Class that inherits the default [CefBrowser] with additional methods.
@@ -26,13 +27,51 @@ class KCEFBrowser internal constructor(
         loadURL(KCEFFileSchemeHandlerFactory.registerLoadHtmlRequest(browser, html, url))
     }
 
-    suspend fun evaluateJavaScript(
-        javaScriptExpression: String
-    ): String? = KCEFBrowserJsCall(javaScriptExpression, this).await()
+    /**
+     * Execute the Javascript code and get the response in [callback].
+     *
+     * @param javaScriptExpression the passed JavaScript code should be either:
+     * * a valid single-line JavaScript expression
+     * * a valid multi-line function-body with at least one "return" statement
+     * @param callback a [EvaluateJavascriptCallback] listener to handle the response
+     */
+    fun evaluateJavaScript(
+        javaScriptExpression: String,
+        callback: EvaluateJavascriptCallback
+    ) {
+        val functionName = client.evaluateJSHandler.queryFunction(client)
+        client.evaluateJSHandler.addHandler(functionName) { response ->
+            callback(response)
+            null
+        }
 
-    fun evaluateJavaScriptBlocking(
-        javaScriptExpression: String
-    ) = runBlocking {
+        val executeJs = KCEFJSHandler.wrapWithErrorHandling(javaScriptExpression, functionName)
+        executeJavaScript(executeJs, "", 0)
+    }
+
+    /**
+     * Execute the Javascript code and wait for a response.
+     * This [suspend] equivalent is useful if you want to work with timeouts for example.
+     *
+     * @param javaScriptExpression the passed JavaScript code should be either:
+     * * a valid single-line JavaScript expression
+     * * a valid multi-line function-body with at least one "return" statement
+     *
+     * @see evaluateJavaScript
+     * @return a nullable [String] which is the response
+     */
+    suspend fun evaluateJavaScript(javaScriptExpression: String): String? = suspendCoroutine { continuation ->
+        evaluateJavaScript(javaScriptExpression) { response ->
+            continuation.resume(response)
+        }
+    }
+
+    /**
+     * Blocking equivalent of [evaluateJavaScript]
+     *
+     * @see evaluateJavaScript
+     */
+    fun evaluateJavaScriptBlocking(javaScriptExpression: String): String? = runBlocking {
         evaluateJavaScript(javaScriptExpression)
     }
 
@@ -45,11 +84,11 @@ class KCEFBrowser internal constructor(
         browser.close(true)
     }
 
-    internal fun isCreated(): Boolean {
-        return (browser as? CefNative)?.getNativeRef("CefBrowser")?.let { it != 0L } ?: false
-    }
-
     companion object {
         const val BLANK_URI = "about:blank"
+    }
+
+    fun interface EvaluateJavascriptCallback {
+        operator fun invoke(response: String?)
     }
 }

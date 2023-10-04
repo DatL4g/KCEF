@@ -56,24 +56,38 @@ fun main() = singleWindowApplication {
                     <title>KCEF</title>
                 </head>
                 <body>
-                    Welcome to KCEF!
+                    <script type="text/javascript">
+                        function callJS() {
+                            return 'Response from JS';
+                        }
+                    </script>
+                    <h1>Welcome to KCEF!</h1>
+                    <h2 id="subtitle">Basic Html Test</h2>
                 </body>
             </html>
         """.trimIndent()
 
         Column(modifier = Modifier.fillMaxSize()) {
             Row(modifier = Modifier.fillMaxWidth()) {
+                var evaluateActive by remember { mutableStateOf(false) }
                 Button(
                     onClick = {
                         browser.loadHtml(html)
+                        evaluateActive = true
                     }
                 ) {
                     Text(text = "Load HTML")
                 }
                 Button(
                     onClick = {
-                        println(browser.evaluateJavaScriptBlocking("2 + 2"))
-                    }
+                        browser.evaluateJavaScript("""
+                            document.getElementById("subtitle").innerText = "Hello from Kotlin";
+                            return callJS();
+                        """.trimIndent()) {
+                            println("JS Result: $it")
+                        }
+                    },
+                    enabled = evaluateActive
                 ) {
                     Text(text = "Evaluate JavaScript to Java Console")
                 }
