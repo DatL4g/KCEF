@@ -9,7 +9,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.awt.SwingPanel
 import androidx.compose.ui.window.singleWindowApplication
 import dev.datlag.kcef.KCEF
+import dev.datlag.kcef.KCEFCookieManager
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.cef.browser.CefRendering
 
@@ -90,6 +92,18 @@ fun main() = singleWindowApplication {
                     enabled = evaluateActive
                 ) {
                     Text(text = "Evaluate JavaScript to Java Console")
+                }
+                val scope = rememberCoroutineScope()
+                Button(
+                    onClick = {
+                        scope.launch(Dispatchers.IO) {
+                            KCEFCookieManager.instance.getCookiesWhile { iteration, _ ->
+                                iteration < 5 // equals 1 second
+                            }.map { "Cookie Name: ${it.name}" }.forEach(::println)
+                        }
+                    }
+                ) {
+                    Text(text = "List Cookies")
                 }
             }
             SwingPanel(
