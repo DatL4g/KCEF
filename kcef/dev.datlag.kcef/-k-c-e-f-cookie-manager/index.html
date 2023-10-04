@@ -1,0 +1,292 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>KCEFCookieManager</title>
+<link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">    <script>var pathToRoot = "../../../";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async></script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../styles/font-jb-sans-auto.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+    <div class="root">
+<nav class="navigation" id="navigation-wrapper">
+    <div class="navigation--inner">
+        <div class="navigation-title">
+            <button class="menu-toggle" id="menu-toggle" type="button">toggle menu</button>
+            <div class="library-name">
+<a class="library-name--link" href="../../../index.html">
+                            KCEF
+                    </a>            </div>
+            <div class="library-version">
+            </div>
+        </div>
+        <div class="filter-section" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":kcef:dokkaHtmlPartial/main">jvm</button>
+        </div>
+    </div>
+    <div class="navigation-controls">
+        <button class="navigation-controls--btn navigation-controls--theme" id="theme-toggle-button" type="button">switch theme</button>
+        <div class="navigation-controls--btn navigation-controls--search" id="searchBar" role="button">search in API</div>
+    </div>
+</nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="sidebar--inner" id="sideMenu"></div>
+            </div>
+            <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageids="kcef::dev.datlag.kcef/KCEFCookieManager///PointingToDeclaration//-414246865">
+  <div class="breadcrumbs"><a href="../../index.html">kcef</a><span class="delimiter">/</span><a href="../index.html">dev.datlag.kcef</a><span class="delimiter">/</span><span class="current">KCEFCookieManager</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>KCEFCookie</span><wbr><span><span>Manager</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="index.html">KCEFCookieManager</a>&nbsp;<span><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-jvm-overloads/index.html"><span class="token annotation builtin">JvmOverloads</span></a>&nbsp;</span><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">_cookieManager<span class="token operator">: </span><a href="../../../jcef/org.cef.network/-cef-cookie-manager/index.html">CefCookieManager</a><span class="token operator">?</span><span class="token operator"> = </span>scopeCatching {
+        CefCookieManager.getGlobalManager()
+    }.getOrNull()</span></span><span class="token punctuation">)</span></div></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="CONSTRUCTOR">
+        <h2 class="">Constructors</h2>
+        <div class="table"><a data-name="-455190412%2FConstructors%2F-414246865" anchor-label="KCEFCookieManager" id="-455190412%2FConstructors%2F-414246865" data-filterable-set=":kcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-togglable="CONSTRUCTOR" data-filterable-current=":kcef:dokkaHtmlPartial/main" data-filterable-set=":kcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-k-c-e-f-cookie-manager.html"><span>KCEFCookie</span><wbr><span><span>Manager</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-455190412%2FConstructors%2F-414246865"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kcef:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-jvm-overloads/index.html"><span class="token annotation builtin">JvmOverloads</span></a></div></div><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">_cookieManager<span class="token operator">: </span><a href="../../../jcef/org.cef.network/-cef-cookie-manager/index.html">CefCookieManager</a><span class="token operator">?</span><span class="token operator"> = </span>scopeCatching {
+        CefCookieManager.getGlobalManager()
+    }.getOrNull()</span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="TYPE">
+        <h2 class="">Types</h2>
+        <div class="table"><a data-name="-1929585729%2FClasslikes%2F-414246865" anchor-label="Companion" id="-1929585729%2FClasslikes%2F-414246865" data-filterable-set=":kcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":kcef:dokkaHtmlPartial/main" data-filterable-set=":kcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-companion/index.html"><span><span>Companion</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1929585729%2FClasslikes%2F-414246865"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">object </span><a href="-companion/index.html">Companion</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-905663314%2FClasslikes%2F-414246865" anchor-label="CookieCallback" id="-905663314%2FClasslikes%2F-414246865" data-filterable-set=":kcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":kcef:dokkaHtmlPartial/main" data-filterable-set=":kcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-cookie-callback/index.html"><span>Cookie</span><wbr><span><span>Callback</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-905663314%2FClasslikes%2F-414246865"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">fun </span><span class="token keyword">interface </span><a href="-cookie-callback/index.html">CookieCallback</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1692283595%2FClasslikes%2F-414246865" anchor-label="CookiesWhile" id="-1692283595%2FClasslikes%2F-414246865" data-filterable-set=":kcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":kcef:dokkaHtmlPartial/main" data-filterable-set=":kcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-cookies-while/index.html"><span>Cookies</span><wbr><span><span>While</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1692283595%2FClasslikes%2F-414246865"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">fun </span><span class="token keyword">interface </span><a href="-cookies-while/index.html">CookiesWhile</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="1233614089%2FFunctions%2F-414246865" anchor-label="deleteAllCookies" id="1233614089%2FFunctions%2F-414246865" data-filterable-set=":kcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":kcef:dokkaHtmlPartial/main" data-filterable-set=":kcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="delete-all-cookies.html"><span>delete</span><wbr><span>All</span><wbr><span><span>Cookies</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1233614089%2FFunctions%2F-414246865"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="delete-all-cookies.html"><span class="token function">deleteAllCookies</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Shorthand for <a href="delete-cookies.html">deleteCookies</a> which deletes all cookies</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1332989356%2FFunctions%2F-414246865" anchor-label="deleteAllCookiesBlocking" id="-1332989356%2FFunctions%2F-414246865" data-filterable-set=":kcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":kcef:dokkaHtmlPartial/main" data-filterable-set=":kcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="delete-all-cookies-blocking.html"><span>delete</span><wbr><span>All</span><wbr><span>Cookies</span><wbr><span><span>Blocking</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1332989356%2FFunctions%2F-414246865"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="delete-all-cookies-blocking.html"><span class="token function">deleteAllCookiesBlocking</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Blocking equivalent of <a href="delete-all-cookies.html">deleteAllCookies</a></p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1393249227%2FFunctions%2F-414246865" anchor-label="deleteCookies" id="1393249227%2FFunctions%2F-414246865" data-filterable-set=":kcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":kcef:dokkaHtmlPartial/main" data-filterable-set=":kcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="delete-cookies.html"><span>delete</span><wbr><span><span>Cookies</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1393249227%2FFunctions%2F-414246865"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kcef:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-jvm-overloads/index.html"><span class="token annotation builtin">JvmOverloads</span></a></div></div><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="delete-cookies.html"><span class="token function">deleteCookies</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">url<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">cookieName<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null</span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Delete all cookies that match the specified parameters.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1050497376%2FFunctions%2F-414246865" anchor-label="deleteCookiesBlocking" id="1050497376%2FFunctions%2F-414246865" data-filterable-set=":kcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":kcef:dokkaHtmlPartial/main" data-filterable-set=":kcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="delete-cookies-blocking.html"><span>delete</span><wbr><span>Cookies</span><wbr><span><span>Blocking</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1050497376%2FFunctions%2F-414246865"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kcef:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-jvm-overloads/index.html"><span class="token annotation builtin">JvmOverloads</span></a></div></div><span class="token keyword"></span><span class="token keyword">fun </span><a href="delete-cookies-blocking.html"><span class="token function">deleteCookiesBlocking</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">url<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">cookieName<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null</span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Blocking equivalent of <a href="delete-cookies.html">deleteCookies</a></p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="73514273%2FFunctions%2F-414246865" anchor-label="getCookies" id="73514273%2FFunctions%2F-414246865" data-filterable-set=":kcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":kcef:dokkaHtmlPartial/main" data-filterable-set=":kcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-cookies.html"><span>get</span><wbr><span><span>Cookies</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="73514273%2FFunctions%2F-414246865"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kcef:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-jvm-overloads/index.html"><span class="token annotation builtin">JvmOverloads</span></a></div></div><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-cookies.html"><span class="token function">getCookies</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">url<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">includeHttpOnly<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator"> = </span><span class="token boolean">false</span><span class="token punctuation">, </span></span><span class="parameter ">callback<span class="token operator">: </span><a href="-cookie-callback/index.html">KCEFCookieManager.CookieCallback</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Get each cookie in a <a href="get-cookies.html">callback</a></p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1740762949%2FFunctions%2F-414246865" anchor-label="getCookiesWhile" id="1740762949%2FFunctions%2F-414246865" data-filterable-set=":kcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":kcef:dokkaHtmlPartial/main" data-filterable-set=":kcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-cookies-while.html"><span>get</span><wbr><span>Cookies</span><wbr><span><span>While</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1740762949%2FFunctions%2F-414246865"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kcef:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-jvm-overloads/index.html"><span class="token annotation builtin">JvmOverloads</span></a></div></div><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="get-cookies-while.html"><span class="token function">getCookiesWhile</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">url<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">includeHttpOnly<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator"> = </span><span class="token boolean">false</span><span class="token punctuation">, </span></span><span class="parameter ">delay<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html">Long</a><span class="token operator"> = </span><span class="token constant">200</span><span class="token punctuation">, </span></span><span class="parameter ">predicate<span class="token operator">: </span><a href="-cookies-while/index.html">KCEFCookieManager.CookiesWhile</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../../jcef/org.cef.network/-cef-cookie/index.html">CefCookie</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Collect cookies and return the list afterward</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-484336496%2FFunctions%2F-414246865" anchor-label="getCookiesWhileBlocking" id="-484336496%2FFunctions%2F-414246865" data-filterable-set=":kcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":kcef:dokkaHtmlPartial/main" data-filterable-set=":kcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-cookies-while-blocking.html"><span>get</span><wbr><span>Cookies</span><wbr><span>While</span><wbr><span><span>Blocking</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-484336496%2FFunctions%2F-414246865"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kcef:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.jvm/-jvm-overloads/index.html"><span class="token annotation builtin">JvmOverloads</span></a></div></div><span class="token keyword"></span><span class="token keyword">fun </span><a href="get-cookies-while-blocking.html"><span class="token function">getCookiesWhileBlocking</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">url<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">includeHttpOnly<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator"> = </span><span class="token boolean">false</span><span class="token punctuation">, </span></span><span class="parameter ">delay<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-long/index.html">Long</a><span class="token operator"> = </span><span class="token constant">200</span><span class="token punctuation">, </span></span><span class="parameter ">predicate<span class="token operator">: </span><a href="-cookies-while/index.html">KCEFCookieManager.CookiesWhile</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span class="token keyword"></span><a href="../../../jcef/org.cef.network/-cef-cookie/index.html">CefCookie</a><span class="token operator">&gt;</span></div><div class="brief "><p class="paragraph">Blocking equivalent of <a href="get-cookies-while.html">getCookiesWhile</a></p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-957723231%2FFunctions%2F-414246865" anchor-label="setCookie" id="-957723231%2FFunctions%2F-414246865" data-filterable-set=":kcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":kcef:dokkaHtmlPartial/main" data-filterable-set=":kcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-cookie.html"><span>set</span><wbr><span><span>Cookie</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-957723231%2FFunctions%2F-414246865"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="set-cookie.html"><span class="token function">setCookie</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">url<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">cookie<span class="token operator">: </span><a href="../../../jcef/org.cef.network/-cef-cookie/index.html">CefCookie</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Set cookie for a given url</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="644446966%2FFunctions%2F-414246865" anchor-label="setCookieBlocking" id="644446966%2FFunctions%2F-414246865" data-filterable-set=":kcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":kcef:dokkaHtmlPartial/main" data-filterable-set=":kcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="set-cookie-blocking.html"><span>set</span><wbr><span>Cookie</span><wbr><span><span>Blocking</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="644446966%2FFunctions%2F-414246865"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="set-cookie-blocking.html"><span class="token function">setCookieBlocking</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">url<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">cookie<span class="token operator">: </span><a href="../../../jcef/org.cef.network/-cef-cookie/index.html">CefCookie</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div><div class="brief "><p class="paragraph">Blocking equivalent of <a href="set-cookie.html">setCookie</a></p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2023 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
