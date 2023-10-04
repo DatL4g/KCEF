@@ -5,8 +5,7 @@ import org.cef.browser.CefFrame
 import org.cef.callback.CefSchemeHandlerFactory
 import org.cef.handler.CefResourceHandler
 import org.cef.network.CefRequest
-import java.util.Collections
-import java.util.WeakHashMap
+import java.util.*
 
 internal class KCEFFileSchemeHandlerFactory : CefSchemeHandlerFactory {
     override fun create(

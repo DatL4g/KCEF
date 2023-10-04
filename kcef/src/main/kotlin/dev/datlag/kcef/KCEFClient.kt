@@ -3,24 +3,13 @@ package dev.datlag.kcef
 import kotlinx.coroutines.Runnable
 import org.cef.CefClient
 import org.cef.browser.CefBrowser
+import org.cef.browser.CefMessageRouter
 import org.cef.browser.CefRendering
 import org.cef.browser.CefRequestContext
-import org.cef.handler.CefAppStateHandler
-import org.cef.handler.CefContextMenuHandler
-import org.cef.handler.CefDialogHandler
-import org.cef.handler.CefDisplayHandler
-import org.cef.handler.CefDownloadHandler
-import org.cef.handler.CefDragHandler
-import org.cef.handler.CefFocusHandler
-import org.cef.handler.CefJSDialogHandler
-import org.cef.handler.CefKeyboardHandler
-import org.cef.handler.CefLifeSpanHandler
-import org.cef.handler.CefLoadHandler
-import org.cef.handler.CefPermissionHandler
-import org.cef.handler.CefPrintHandler
-import org.cef.handler.CefRenderHandler
-import org.cef.handler.CefRequestHandler
-import org.cef.handler.CefWindowHandler
+import org.cef.callback.CefNative
+import org.cef.handler.*
+import java.util.*
+import java.util.concurrent.atomic.AtomicInteger
 
 /**
  * Class that can create a [KCEFBrowser] instance and inherits the default [CefClient] methods.
@@ -42,10 +31,14 @@ class KCEFClient internal constructor(
     CefRenderHandler by client,
     CefRequestHandler by client,
     CefWindowHandler by client,
-    CefAppStateHandler by client {
+    CefAppStateHandler by client,
+    CefNative by client {
 
     val info: String
         get() = client.info
+
+    private val jsQueryCounter = AtomicInteger(0)
+    internal val jsQueryPool = JSQueryPool.create(this)
 
     /**
      * Create a [KCEFBrowser] instance
@@ -86,6 +79,10 @@ class KCEFClient internal constructor(
         isTransparent: Boolean = false,
         context: CefRequestContext
     ) = createBrowser(client.createBrowser(url, rendering, isTransparent, context))
+
+    internal fun nextJSQueryIndex(): Int {
+        return jsQueryCounter.incrementAndGet()
+    }
 
     override fun onCursorChange(browser: CefBrowser?, cursorType: Int): Boolean {
         return client.onCursorChange(browser, cursorType)
@@ -191,6 +188,14 @@ class KCEFClient internal constructor(
         client.removePrintHandler()
     }
 
+    fun addMessageRouter(messageRouter: CefMessageRouter) {
+        client.addMessageRouter(messageRouter)
+    }
+
+    fun removeMessageRouter(messageRouter: CefMessageRouter) {
+        client.removeMessageRouter(messageRouter)
+    }
+
     fun addRequestHandler(handler: CefRequestHandler) = apply {
         client.addRequestHandler(handler)
     }
@@ -214,4 +219,30 @@ class KCEFClient internal constructor(
     fun getRenderHandler(): CefRenderHandler = this
     fun getRequestHandler(): CefRequestHandler = this
     fun getWindowHandler(): CefWindowHandler = this
+
+    companion object { }
+
+    internal class JSQueryPool(
+        private val pool: MutableList<KCEFJSQuery.JSQueryFunc>
+    ) {
+
+        internal constructor(client: KCEFClient) : this(
+            Collections.synchronizedList<KCEFJSQuery.JSQueryFunc?>(emptyList()).toMutableList()
+        )
+
+        fun useFreeSlot(): KCEFJSQuery.JSQueryFunc? {
+            if (pool.isEmpty()) {
+                return null
+            }
+            return pool.removeAt(0)
+        }
+
+        fun releaseUsedSlot(func: KCEFJSQuery.JSQueryFunc) {
+            pool.add(func)
+        }
+
+        companion object {
+            fun create(client: KCEFClient): JSQueryPool = JSQueryPool(client)
+        }
+    }
 }

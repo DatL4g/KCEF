@@ -1,7 +1,6 @@
 package dev.datlag.kcef.common
 
 import java.io.File
-import java.nio.file.CopyOption
 import java.nio.file.Files
 import java.nio.file.LinkOption
 import java.nio.file.StandardCopyOption

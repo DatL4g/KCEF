@@ -1,5 +1,8 @@
 package dev.datlag.kcef
 
+import dev.datlag.kcef.KCEF.InitError
+import dev.datlag.kcef.KCEF.InitRestartRequired
+import dev.datlag.kcef.KCEF.NewClientOrNullError
 import dev.datlag.kcef.common.existsSafely
 import dev.datlag.kcef.common.suspendCatching
 import kotlinx.coroutines.flow.MutableStateFlow

@@ -28,4 +28,6 @@ sealed class KCEFException(override val message: String) : Exception(message) {
     data object ApplicationRestartRequired : KCEFException("Application needs to restart.")
 
     data class Error(override val cause: Throwable?) : KCEFException("Got error: ${cause?.message}")
+
+    data class JsCallError(private val msg: String) : KCEFException("Failed to execute JavaScript expression in KCEF browser. $msg")
 }

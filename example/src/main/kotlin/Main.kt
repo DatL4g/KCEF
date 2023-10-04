@@ -1,5 +1,7 @@
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.*
@@ -32,6 +34,9 @@ fun main() = singleWindowApplication {
                         noSandbox = true
                     }
                     release(true)
+                },
+                onError = {
+                    it?.printStackTrace()
                 }
             )
         }
@@ -57,12 +62,21 @@ fun main() = singleWindowApplication {
         """.trimIndent()
 
         Column(modifier = Modifier.fillMaxSize()) {
-            Button(
-                onClick = {
-                    browser.loadHtml(html)
+            Row(modifier = Modifier.fillMaxWidth()) {
+                Button(
+                    onClick = {
+                        browser.loadHtml(html)
+                    }
+                ) {
+                    Text(text = "Load HTML")
                 }
-            ) {
-                Text(text = "Load HTML")
+                Button(
+                    onClick = {
+                        println(browser.evaluateJavaScriptBlocking("2 + 2"))
+                    }
+                ) {
+                    Text(text = "Evaluate JavaScript to Java Console")
+                }
             }
             SwingPanel(
                 factory = {

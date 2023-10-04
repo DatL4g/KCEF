@@ -1,11 +1,10 @@
 package dev.datlag.kcef
 
 import com.jetbrains.cef.JCefAppConfig
+import dev.datlag.kcef.KCEFBuilder.InitProgress.Builder.NoProgressCallback
+import dev.datlag.kcef.KCEFBuilder.InitProgress.Builder.ProgressCallback
+import dev.datlag.kcef.KCEFBuilder.Settings
 import dev.datlag.kcef.common.*
-import dev.datlag.kcef.common.deleteDir
-import dev.datlag.kcef.common.existsSafely
-import dev.datlag.kcef.common.mkdirsSafely
-import dev.datlag.kcef.common.unquarantine
 import dev.datlag.kcef.step.extract.TarGzExtractor
 import dev.datlag.kcef.step.fetch.PackageDownloader
 import dev.datlag.kcef.step.init.CefInitializer
@@ -333,7 +332,7 @@ class KCEFBuilder {
                 }
             }
 
-            companion object
+            companion object { }
 
             fun interface NoProgressCallback {
                 operator fun invoke()

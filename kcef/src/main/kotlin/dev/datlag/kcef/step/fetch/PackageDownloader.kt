@@ -1,7 +1,7 @@
 package dev.datlag.kcef.step.fetch
 
-import dev.datlag.kcef.KCEFException
 import dev.datlag.kcef.KCEFBuilder
+import dev.datlag.kcef.KCEFException
 import dev.datlag.kcef.Platform
 import dev.datlag.kcef.common.createTempSafely
 import dev.datlag.kcef.common.deleteOnExitSafely
