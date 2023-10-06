@@ -46,12 +46,14 @@ fun main() = singleWindowApplication {
 
     if (initialized) {
         // CEF is definitely initialized here, so we can use the blocking method without produceState
-        val client = KCEF.newClientBlocking()
-        val browser = client.createBrowser(
-            "https://github.com/DATL4G/KCEF",
-            CefRendering.DEFAULT,
-            false
-        )
+        val client = remember { KCEF.newClientBlocking() }
+        val browser = remember {
+            client.createBrowser(
+                "https://github.com/DATL4G/KCEF",
+                CefRendering.DEFAULT,
+                false
+            )
+        }
         val html = """
             <html>
                 <head>
