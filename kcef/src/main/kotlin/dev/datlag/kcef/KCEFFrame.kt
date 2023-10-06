@@ -4,7 +4,7 @@ import org.cef.browser.CefFrame
 import kotlin.coroutines.resume
 import kotlin.coroutines.suspendCoroutine
 
-class KCEFFrame(
+class KCEFFrame internal constructor(
     private val client: KCEFClient,
     private val frame: CefFrame
 ) : CefFrame by frame {

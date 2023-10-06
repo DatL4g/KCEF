@@ -14,10 +14,10 @@ class KCEFBrowser internal constructor(
     private val browser: CefBrowser
 ) : CefBrowser by browser {
 
-    val mainFrame: KCEFFrame
+    val mainKCEFFrame: KCEFFrame
         get() = getMainFrame() as KCEFFrame
 
-    val focusedFrame: KCEFFrame
+    val focusedKCEFFrame: KCEFFrame
         get() = getFocusedFrame() as KCEFFrame
 
     /**
