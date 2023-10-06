@@ -8,7 +8,6 @@ import org.cef.browser.CefRendering
 import org.cef.browser.CefRequestContext
 import org.cef.callback.CefNative
 import org.cef.handler.*
-import java.util.concurrent.atomic.AtomicInteger
 
 /**
  * Class that can create a [KCEFBrowser] instance and inherits the default [CefClient] methods.
@@ -36,7 +35,7 @@ class KCEFClient internal constructor(
     val info: String
         get() = client.info
 
-    private val jsQueryCounter = AtomicInteger(0)
+    private var jsQueryCounter: Int = 0
     internal val evaluateJSHandler: KCEFJSHandler
 
     init {
@@ -88,7 +87,7 @@ class KCEFClient internal constructor(
     ) = createBrowser(client.createBrowser(url, rendering, isTransparent, context))
 
     internal fun nextJSQueryIndex(): Int {
-        return jsQueryCounter.incrementAndGet()
+        return ++jsQueryCounter
     }
 
     override fun onCursorChange(browser: CefBrowser?, cursorType: Int): Boolean {

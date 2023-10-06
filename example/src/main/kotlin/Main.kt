@@ -97,9 +97,7 @@ fun main() = singleWindowApplication {
                 Button(
                     onClick = {
                         scope.launch(Dispatchers.IO) {
-                            KCEFCookieManager.instance.getCookiesWhile { iteration, _ ->
-                                iteration < 5 // equals 1 second
-                            }.map { "Cookie Name: ${it.name}" }.forEach(::println)
+                            KCEFCookieManager.instance.getCookiesWhile().map { "Cookie Name: ${it.name}" }.forEach(::println)
                         }
                     }
                 ) {

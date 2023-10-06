@@ -2,6 +2,7 @@ package dev.datlag.kcef
 
 import kotlinx.coroutines.runBlocking
 import org.cef.browser.CefBrowser
+import org.cef.browser.CefFrame
 import kotlin.coroutines.resume
 import kotlin.coroutines.suspendCoroutine
 
@@ -12,6 +13,12 @@ class KCEFBrowser internal constructor(
     val client: KCEFClient,
     private val browser: CefBrowser
 ) : CefBrowser by browser {
+
+    val mainFrame: KCEFFrame
+        get() = getMainFrame() as KCEFFrame
+
+    val focusedFrame: KCEFFrame
+        get() = getFocusedFrame() as KCEFFrame
 
     /**
      * Loads HTML content.
@@ -33,11 +40,11 @@ class KCEFBrowser internal constructor(
      * @param javaScriptExpression the passed JavaScript code should be either:
      * * a valid single-line JavaScript expression
      * * a valid multi-line function-body with at least one "return" statement
-     * @param callback a [EvaluateJavascriptCallback] listener to handle the response
+     * @param callback a [KCEFFrame.EvaluateJavascriptCallback] listener to handle the response
      */
     fun evaluateJavaScript(
         javaScriptExpression: String,
-        callback: EvaluateJavascriptCallback
+        callback: KCEFFrame.EvaluateJavascriptCallback
     ) {
         val functionName = client.evaluateJSHandler.queryFunction(client)
         client.evaluateJSHandler.addHandler(functionName) { response ->
@@ -75,6 +82,26 @@ class KCEFBrowser internal constructor(
         evaluateJavaScript(javaScriptExpression)
     }
 
+    override fun getFrame(identifier: Long): CefFrame? {
+        return browser.getFrame(identifier)?.let { KCEFFrame(client, it) }
+    }
+
+    fun getKCEFFrame(identifier: Long): KCEFFrame? = getFrame(identifier) as KCEFFrame?
+
+    override fun getFrame(name: String?): CefFrame? {
+        return browser.getFrame(name)?.let { KCEFFrame(client, it) }
+    }
+
+    fun getKCEFFrame(name: String?): KCEFFrame? = getFrame(name) as KCEFFrame?
+
+    override fun getMainFrame(): CefFrame {
+        return KCEFFrame(client, browser.mainFrame)
+    }
+
+    override fun getFocusedFrame(): CefFrame {
+        return KCEFFrame(client, browser.focusedFrame)
+    }
+
     /**
      * Dispose this browser instance.
      */
@@ -86,9 +113,5 @@ class KCEFBrowser internal constructor(
 
     companion object {
         const val BLANK_URI = "about:blank"
-    }
-
-    fun interface EvaluateJavascriptCallback {
-        operator fun invoke(response: String?)
     }
 }

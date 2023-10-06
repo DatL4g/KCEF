@@ -62,7 +62,7 @@ class KCEFCookieManager @JvmOverloads constructor(
         url: String? = null,
         includeHttpOnly: Boolean = false,
         delay: Long = 200,
-        predicate: CookiesWhile
+        predicate: CookiesWhile = CookiesWhile { delayIteration, _ -> delayIteration <= 0 }
     ): List<CefCookie> = coroutineScope {
         val cookies: MutableList<CefCookie> = mutableListOf()
         var iteration: Int = 0
@@ -86,7 +86,7 @@ class KCEFCookieManager @JvmOverloads constructor(
         url: String? = null,
         includeHttpOnly: Boolean = false,
         delay: Long = 200,
-        predicate: CookiesWhile
+        predicate: CookiesWhile = CookiesWhile { delayIteration, _ -> delayIteration <= 0 }
     ) = runBlocking {
         getCookiesWhile(url, includeHttpOnly, delay, predicate)
     }
