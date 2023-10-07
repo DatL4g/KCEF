@@ -1,4 +1,5 @@
 import com.vanniktech.maven.publish.SonatypeHost
+import java.net.URL
 
 plugins {
     kotlin("jvm")
@@ -20,6 +21,15 @@ dependencies {
     implementation("io.ktor:ktor-serialization-kotlinx-json:$ktorVersion")
     implementation("org.apache.commons:commons-compress:1.24.0")
     implementation(kotlin("stdlib"))
+}
+
+tasks.dokkaHtmlPartial {
+    dokkaSourceSets.configureEach {
+        sourceLink {
+            localDirectory.set(file("src"))
+            remoteUrl.set(URL("https://github.com/DatL4g/KCEF/tree/master/kcef/src"))
+        }
+    }
 }
 
 mavenPublishing {
