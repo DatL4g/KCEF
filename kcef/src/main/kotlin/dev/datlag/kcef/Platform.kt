@@ -1,6 +1,7 @@
 package dev.datlag.kcef
 
 import dev.datlag.kcef.common.systemProperty
+import java.io.File
 import java.util.*
 
 data object Platform {
@@ -38,7 +39,36 @@ data object Platform {
     }
 
     sealed class OS(open val name: String, internal vararg val values: String) {
-        data class MACOSX(override val name: String) : OS(name, "mac", "darwin", "osx")
+        data class MACOSX(override val name: String) : OS(name, "mac", "darwin", "osx") {
+            fun getFrameworkPath(installDir: File): String {
+                return "${installDir.canonicalPath}/Chromium Embedded Framework.framework"
+            }
+
+            fun getMainBundlePath(installDir: File): String {
+                return "${installDir.canonicalPath}/jcef Helper.app"
+            }
+
+            fun getBrowserPath(installDir: File): String {
+                return "${installDir.canonicalPath}/jcef Helper.app/Contents/MacOS/jcef Helper"
+            }
+
+            override fun getFixedArgs(installDir: File, args: Collection<String>): Collection<String> {
+                val newArgs = args.toMutableList()
+                newArgs.add(
+                    0,
+                    "--framework-dir-path=${getFrameworkPath(installDir)}"
+                )
+                newArgs.add(
+                    0,
+                    "--main-bundle-path=${getMainBundlePath(installDir)}"
+                )
+                newArgs.add(
+                    0,
+                    "--browser-subprocess-path=${getBrowserPath(installDir)}"
+                )
+                return newArgs
+            }
+        }
         data class LINUX(override val name: String) : OS(name, "linux")
         data class WINDOWS(override val name: String) : OS(name, "win", "windows")
 
@@ -56,6 +86,10 @@ data object Platform {
 
         val isWindows: Boolean
             get() = this is WINDOWS
+
+        open fun getFixedArgs(installDir: File, args: Collection<String>): Collection<String> {
+            return args
+        }
 
         override fun toString(): String {
             return when {

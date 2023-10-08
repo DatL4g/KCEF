@@ -39,22 +39,12 @@ internal data object CefInitializer {
             cefSettings.browser_subprocess_path = File(installDir, "jcef_helper").canonicalPath
         }
 
-        val success = if (Platform.getCurrentPlatform().os.isMacOSX) {
-            val newArgs = cefArgs.toMutableList()
-            newArgs.add(
-                0,
-                "--framework-dir-path=${installDir.canonicalPath}/Chromium Embedded Framework.framework"
-            )
-            newArgs.add(
-                0,
-                "--main-bundle-path=${installDir.canonicalPath}/jcef Helper.app"
-            )
-            newArgs.add(
-                0,
-                "--browser-subprocess-path=${installDir.canonicalPath}/jcef Helper.app/Contents/MacOS/jcef Helper"
-            )
-            cefSettings.browser_subprocess_path = "${installDir.canonicalPath}/jcef Helper.app/Contents/MacOS/jcef Helper"
-            CefApp.startup(newArgs.toTypedArray())
+        val currentOs = Platform.getCurrentPlatform().os
+        val success = if (currentOs.isMacOSX) {
+            val macOs = currentOs as Platform.OS.MACOSX
+
+            cefSettings.browser_subprocess_path = macOs.getBrowserPath(installDir)
+            CefApp.startup(macOs.getFixedArgs(installDir, cefArgs).toTypedArray())
         } else {
             CefApp.startup(cefArgs.toTypedArray())
         }

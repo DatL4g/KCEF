@@ -9,6 +9,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
 import org.cef.CefApp
+import org.cef.callback.CefCommandLine
 import org.cef.handler.CefAppHandlerAdapter
 import java.io.File
 import kotlin.properties.Delegates
@@ -89,7 +90,7 @@ data object KCEF {
             }
         } ?: return
 
-        currentBuilder.addAppHandler(AppHandler)
+        currentBuilder.addAppHandler(AppHandler(currentBuilder))
 
         val installOk = File(currentBuilder.installDir, "install.lock").existsSafely()
 
@@ -291,7 +292,40 @@ data object KCEF {
         operator fun invoke(throwable: Throwable?)
     }
 
-    private data object AppHandler : CefAppHandlerAdapter(arrayOf()) {
+    private data class AppHandler(
+        private val installDir: File,
+        private val args: Collection<String>
+    ) : CefAppHandlerAdapter(args.toTypedArray()) {
+
+        constructor(builder: KCEFBuilder) : this(
+            installDir = builder.installDir,
+            args = Platform.getCurrentPlatform().os.getFixedArgs(builder.installDir, builder.args)
+        )
+
+        override fun onBeforeCommandLineProcessing(process_type: String?, command_line: CefCommandLine?) {
+            val currentOs = Platform.getCurrentPlatform().os
+
+            fun fixArgs() {
+                if (currentOs.isMacOSX) {
+                    val macOs = currentOs as Platform.OS.MACOSX
+
+                    command_line?.switches?.forEach { (t, u) ->
+                        if (t.equals("framework-dir-path", true)) {
+                            command_line.switches[t] = macOs.getFrameworkPath(installDir)
+                        }
+                        if (t.equals("main-bundle-path", true)) {
+                            command_line.switches[t] = macOs.getMainBundlePath(installDir)
+                        }
+                        if (t.equals("browser-subprocess-path", true)) {
+                            command_line.switches[t] = macOs.getBrowserPath(installDir)
+                        }
+                    }
+                }
+            }
+            fixArgs()
+            super.onBeforeCommandLineProcessing(process_type, command_line)
+            fixArgs()
+        }
 
         override fun onContextInitialized() {
             super.onContextInitialized()

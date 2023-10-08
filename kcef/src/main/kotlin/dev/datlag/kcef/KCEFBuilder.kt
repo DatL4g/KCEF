@@ -29,7 +29,7 @@ class KCEFBuilder {
         Settings.fromJcefSettings(JCefAppConfig.getInstance().cefSettings)
     }.getOrNull() ?: Settings()
 
-    private var args: MutableList<String> = scopeCatching {
+    internal var args: MutableList<String> = scopeCatching {
         JCefAppConfig.getInstance().appArgsAsList.filterNotNull().toMutableList()
     }.getOrNull() ?: mutableListOf()
 
