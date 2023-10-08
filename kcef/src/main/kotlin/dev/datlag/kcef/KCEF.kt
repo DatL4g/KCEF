@@ -90,7 +90,7 @@ data object KCEF {
             }
         } ?: return
 
-        currentBuilder.addAppHandler(AppHandler(currentBuilder))
+        currentBuilder.addAppHandler(AppHandler)
 
         val installOk = File(currentBuilder.installDir, "install.lock").existsSafely()
 
@@ -292,40 +292,7 @@ data object KCEF {
         operator fun invoke(throwable: Throwable?)
     }
 
-    private data class AppHandler(
-        private val installDir: File,
-        private val args: Collection<String>
-    ) : CefAppHandlerAdapter(args.toTypedArray()) {
-
-        constructor(builder: KCEFBuilder) : this(
-            installDir = builder.installDir,
-            args = Platform.getCurrentPlatform().os.getFixedArgs(builder.installDir, builder.args)
-        )
-
-        override fun onBeforeCommandLineProcessing(process_type: String?, command_line: CefCommandLine?) {
-            val currentOs = Platform.getCurrentPlatform().os
-
-            fun fixArgs() {
-                if (currentOs.isMacOSX) {
-                    val macOs = currentOs as Platform.OS.MACOSX
-
-                    command_line?.switches?.forEach { (t, u) ->
-                        if (t.equals("framework-dir-path", true)) {
-                            command_line.switches[t] = macOs.getFrameworkPath(installDir)
-                        }
-                        if (t.equals("main-bundle-path", true)) {
-                            command_line.switches[t] = macOs.getMainBundlePath(installDir)
-                        }
-                        if (t.equals("browser-subprocess-path", true)) {
-                            command_line.switches[t] = macOs.getBrowserPath(installDir)
-                        }
-                    }
-                }
-            }
-            fixArgs()
-            super.onBeforeCommandLineProcessing(process_type, command_line)
-            fixArgs()
-        }
+    private data object AppHandler : CefAppHandlerAdapter(emptyArray()) {
 
         override fun onContextInitialized() {
             super.onContextInitialized()

@@ -40,6 +40,26 @@ internal fun systemLoad(value: String, onError: () -> Unit = { }) {
 
 internal fun systemLoad(value: File, onError: () -> Unit = { }) = systemLoad(value.canonicalPath, onError)
 
+internal fun systemAddPath(newPath: String) = scopeCatching {
+    val prop = "java.library.path"
+    val filePath = scopeCatching {
+        File(newPath)
+    }.getOrNull()?.run {
+        if (isDirectorySafely()) {
+            canonicalPath
+        } else {
+            parentSafely()?.canonicalPath
+        }
+    }
+    var path = systemProperty(prop)
+    if (path != null && filePath != null) {
+        path = filePath + File.pathSeparator + path
+        systemProperty(prop, path)
+    }
+}
+
+internal fun systemAddPath(file: File) = systemAddPath(file.canonicalPath)
+
 internal fun homeDirectory(): File? {
     return systemProperty("user.home")?.let {
         File(it)

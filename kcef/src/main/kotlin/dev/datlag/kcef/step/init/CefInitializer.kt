@@ -2,9 +2,12 @@ package dev.datlag.kcef.step.init
 
 import dev.datlag.kcef.KCEFException
 import dev.datlag.kcef.Platform
+import dev.datlag.kcef.common.*
 import dev.datlag.kcef.common.scopeCatching
+import dev.datlag.kcef.common.systemAddPath
 import dev.datlag.kcef.common.systemLoad
 import dev.datlag.kcef.common.systemLoadLibrary
+import dev.datlag.kcef.common.systemProperty
 import org.cef.CefApp
 import org.cef.CefSettings
 import org.cef.SystemBootstrap
@@ -13,6 +16,27 @@ import java.io.File
 internal data object CefInitializer {
 
     fun initialize(installDir: File, cefArgs: Collection<String>, cefSettings: CefSettings): CefApp {
+        val currentOs = Platform.getCurrentPlatform().os
+
+        if (currentOs.isMacOSX) {
+            systemAddPath(installDir)
+            (currentOs as Platform.OS.MACOSX).let { mac ->
+                systemAddPath(mac.getFrameworkPath(installDir))
+                systemAddPath(mac.getMainBundlePath(installDir))
+                systemAddPath(mac.getBrowserPath(installDir))
+            }
+        }
+
+        println("Java Information")
+        println()
+        println()
+        println()
+        println(systemProperty("java.class.path"))
+        println(systemProperty("java.home"))
+        println()
+        println()
+        println()
+
         loadLibrary(installDir, "jawt")
 
         if(cefArgs.none { it.trim().equals("--disable-gpu", true) }) {
@@ -39,7 +63,6 @@ internal data object CefInitializer {
             cefSettings.browser_subprocess_path = File(installDir, "jcef_helper").canonicalPath
         }
 
-        val currentOs = Platform.getCurrentPlatform().os
         val success = if (currentOs.isMacOSX) {
             val macOs = currentOs as Platform.OS.MACOSX
 
@@ -71,6 +94,20 @@ internal data object CefInitializer {
             else -> ""
         }
 
+        var installDirLoaded = true
+        systemLoad(File(installDir, name)) {
+            systemLoad(File(installDir, name + ending)) {
+                systemLoad(File(installDir, "lib$name")) {
+                    systemLoad(File(installDir, "lib$name$ending")) {
+                        installDirLoaded = false
+                    }
+                }
+            }
+        }
+        if (installDirLoaded) {
+            return true
+        }
+
         var installDirLibraryLoaded = true
         systemLoadLibrary(File(installDir, name)) {
             systemLoadLibrary(File(installDir, name + ending)) {
@@ -82,29 +119,20 @@ internal data object CefInitializer {
             }
         }
 
-        var installDirLoaded = true
-        systemLoad(File(installDir, name)) {
-            systemLoad(File(installDir, name + ending)) {
-                systemLoad(File(installDir, "lib$name")) {
-                    systemLoad(File(installDir, "lib$name$ending")) {
-                        installDirLoaded = false
-                    }
-                }
-            }
+        if (installDirLibraryLoaded) {
+            return true
         }
 
         var libraryLoaded = true
-        if (!installDirLibraryLoaded && !installDirLoaded) {
-            systemLoadLibrary(name) {
-                systemLoadLibrary(name + ending) {
-                    systemLoadLibrary("lib$name") {
-                        systemLoadLibrary("lib$name$ending") {
-                            systemLoad(name) {
-                                systemLoad(name + ending) {
-                                    systemLoad("lib$name") {
-                                        systemLoad("lib$name$ending") {
-                                            libraryLoaded = false
-                                        }
+        systemLoad(name) {
+            systemLoad(name + ending) {
+                systemLoad("lib$name") {
+                    systemLoad("lib$name$ending") {
+                        systemLoadLibrary(name) {
+                            systemLoadLibrary(name + ending) {
+                                systemLoadLibrary("lib$name") {
+                                    systemLoadLibrary("lib$name$ending") {
+                                        libraryLoaded = false
                                     }
                                 }
                             }
