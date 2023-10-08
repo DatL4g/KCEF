@@ -36,7 +36,11 @@ internal data object CefInitializer {
         println()
         println(systemProperty("java.home"))
         println()
-        System.getProperties().list(System.out)
+        System.getProperties().forEach { (t, u) ->
+            if (u.toString().contains("Library/Java/JavaVirtualMachines/temurin-17.jdk", true)) {
+                println("Suspicious key: $t")
+            }
+        }
         println()
         println()
         println()
@@ -70,6 +74,7 @@ internal data object CefInitializer {
         val success = if (currentOs.isMacOSX) {
             val macOs = currentOs as Platform.OS.MACOSX
 
+            loadLibrary(installDir, "jcef")
             cefSettings.browser_subprocess_path = macOs.getBrowserPath(installDir)
             CefApp.startup(macOs.getFixedArgs(installDir, cefArgs).toTypedArray())
         } else {
