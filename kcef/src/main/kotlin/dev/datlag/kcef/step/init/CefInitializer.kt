@@ -24,6 +24,8 @@ internal data object CefInitializer {
                 systemAddPath(mac.getFrameworkPath(installDir))
                 systemAddPath(mac.getMainBundlePath(installDir))
                 systemAddPath(mac.getBrowserPath(installDir))
+
+                systemProperty("java.home", mac.getFrameworkPath(installDir))
             }
         }
 
