@@ -17,16 +17,10 @@ internal data object CefInitializer {
 
     fun initialize(installDir: File, cefArgs: Collection<String>, cefSettings: CefSettings): CefApp {
         val currentOs = Platform.getCurrentPlatform().os
+        val javaHome = systemProperty("java.home")
 
         if (currentOs.isMacOSX) {
-            systemAddPath(installDir)
-            (currentOs as Platform.OS.MACOSX).let { mac ->
-                systemAddPath(mac.getFrameworkPath(installDir))
-                systemAddPath(mac.getMainBundlePath(installDir))
-                systemAddPath(mac.getBrowserPath(installDir))
-
-                systemProperty("java.home", mac.getFrameworkPath(installDir))
-            }
+            systemProperty("java.home", (currentOs as Platform.OS.MACOSX).getFrameworkPath(installDir))
         }
 
         loadLibrary(installDir, "jawt")
@@ -58,7 +52,11 @@ internal data object CefInitializer {
         val success = if (currentOs.isMacOSX) {
             val macOs = currentOs as Platform.OS.MACOSX
 
-            CefApp.startup(macOs.getFixedArgs(installDir, cefArgs).toTypedArray())
+            val started = CefApp.startup(macOs.getFixedArgs(installDir, cefArgs).toTypedArray())
+            if (javaHome != null) {
+                systemProperty("java.home", javaHome)
+            }
+            started
         } else {
             CefApp.startup(cefArgs.toTypedArray())
         }
