@@ -45,11 +45,15 @@ data object Platform {
             }
 
             fun getMainBundlePath(installDir: File): String {
-                return "${installDir.canonicalPath}/jcef Helper.app"
+                return "${installDir.canonicalPath}/Frameworks/jcef Helper.app"
             }
 
-            fun getBrowserPath(installDir: File): String {
-                return "${installDir.canonicalPath}/jcef Helper.app/Contents/MacOS/jcef Helper"
+            override fun getResourcesPath(installDir: File): String {
+                return "${getFrameworkPath(installDir)}/Resources"
+            }
+
+            override fun getBrowserPath(installDir: File): String {
+                return "${installDir.canonicalPath}/Frameworks/jcef Helper.app/Contents/MacOS/jcef Helper"
             }
 
             override fun getFixedArgs(installDir: File, args: Collection<String>): Collection<String> {
@@ -89,6 +93,14 @@ data object Platform {
 
         open fun getFixedArgs(installDir: File, args: Collection<String>): Collection<String> {
             return args
+        }
+
+        open fun getResourcesPath(installDir: File): String {
+            return installDir.canonicalPath
+        }
+
+        open fun getBrowserPath(installDir: File): String {
+            return File(installDir, "jcef_helper").canonicalPath
         }
 
         override fun toString(): String {

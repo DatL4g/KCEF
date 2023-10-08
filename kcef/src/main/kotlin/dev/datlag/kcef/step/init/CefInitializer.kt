@@ -48,18 +48,16 @@ internal data object CefInitializer {
         }
 
         if (cefSettings.resources_dir_path.isNullOrEmpty()) {
-            cefSettings.resources_dir_path = installDir.canonicalPath
+            cefSettings.resources_dir_path = currentOs.getResourcesPath(installDir)
         }
 
         if (cefSettings.browser_subprocess_path.isNullOrEmpty()) {
-            cefSettings.browser_subprocess_path = File(installDir, "jcef_helper").canonicalPath
+            cefSettings.browser_subprocess_path = currentOs.getBrowserPath(installDir)
         }
 
         val success = if (currentOs.isMacOSX) {
             val macOs = currentOs as Platform.OS.MACOSX
 
-            loadLibrary(installDir, "jcef")
-            cefSettings.browser_subprocess_path = macOs.getBrowserPath(installDir)
             CefApp.startup(macOs.getFixedArgs(installDir, cefArgs).toTypedArray())
         } else {
             CefApp.startup(cefArgs.toTypedArray())
