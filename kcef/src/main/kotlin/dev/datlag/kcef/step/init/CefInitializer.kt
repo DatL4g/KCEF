@@ -2,9 +2,7 @@ package dev.datlag.kcef.step.init
 
 import dev.datlag.kcef.KCEFException
 import dev.datlag.kcef.Platform
-import dev.datlag.kcef.common.*
 import dev.datlag.kcef.common.scopeCatching
-import dev.datlag.kcef.common.systemAddPath
 import dev.datlag.kcef.common.systemLoad
 import dev.datlag.kcef.common.systemLoadLibrary
 import dev.datlag.kcef.common.systemProperty
@@ -17,7 +15,6 @@ internal data object CefInitializer {
 
     fun initialize(installDir: File, cefArgs: Collection<String>, cefSettings: CefSettings): CefApp {
         val currentOs = Platform.getCurrentPlatform().os
-        val javaHome = systemProperty("java.home")
 
         if (currentOs.isMacOSX) {
             systemProperty("java.home", (currentOs as Platform.OS.MACOSX).getFrameworkPath(installDir))
@@ -52,11 +49,7 @@ internal data object CefInitializer {
         val success = if (currentOs.isMacOSX) {
             val macOs = currentOs as Platform.OS.MACOSX
 
-            val started = CefApp.startup(macOs.getFixedArgs(installDir, cefArgs).toTypedArray())
-            if (javaHome != null) {
-                systemProperty("java.home", javaHome)
-            }
-            started
+            CefApp.startup(macOs.getFixedArgs(installDir, cefArgs).toTypedArray())
         } else {
             CefApp.startup(cefArgs.toTypedArray())
         }

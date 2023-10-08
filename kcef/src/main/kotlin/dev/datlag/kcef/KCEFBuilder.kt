@@ -41,7 +41,7 @@ class KCEFBuilder {
     private val lock = Object()
     private var building = false
     private var installed = false
-    private var downloading = false
+    private var javaHome: String? = null
 
     /**
      * Sets the installation directory to use.
@@ -239,6 +239,7 @@ class KCEFBuilder {
             this.building = true
         }
         install()
+        javaHome = systemProperty("java.home")
         this.progress.initializing()
         synchronized(lock) {
             // Setting the instance has to occur in the synchronized block to prevent race conditions
@@ -248,6 +249,9 @@ class KCEFBuilder {
             //Notify progress handler
             this.instance?.onInitialization { state ->
                 if (state == CefApp.CefAppState.INITIALIZED) {
+                    javaHome?.let { home ->
+                        systemProperty("java.home", home)
+                    }
                     this.progress.initialized()
                 }
             }
