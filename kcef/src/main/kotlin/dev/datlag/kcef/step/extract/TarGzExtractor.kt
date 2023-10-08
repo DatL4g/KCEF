@@ -111,12 +111,8 @@ internal data object TarGzExtractor : Extractor {
                 moveCandidate.moveSafely(File(target, moveCandidate.name))
             }
 
-            File(contents, "Frameworks/Chromium Embedded Framework.framework").moveSafely(
-                File(target, "Chromium Embedded Framework.framework")
-            )
-
-            File(contents, "Frameworks/jcef Helper.app").moveSafely(
-                File(target, "jcef Helper.app")
+            File(contents, "Frameworks").moveSafely(
+                File(target, "Frameworks")
             )
 
             foundParent?.let { p ->

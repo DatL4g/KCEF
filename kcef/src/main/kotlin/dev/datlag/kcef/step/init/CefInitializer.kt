@@ -29,24 +29,6 @@ internal data object CefInitializer {
             }
         }
 
-        println("Java Information")
-        println()
-        println(installDir.canonicalPath)
-        println()
-        println()
-        println(systemProperty("sun.boot.library.path"))
-        println()
-        println(systemProperty("java.home"))
-        println()
-        System.getProperties().forEach { (t, u) ->
-            if (u.toString().contains("Library/Java/JavaVirtualMachines/temurin-17.jdk", true)) {
-                println("Suspicious key: $t")
-            }
-        }
-        println()
-        println()
-        println()
-
         loadLibrary(installDir, "jawt")
 
         if(cefArgs.none { it.trim().equals("--disable-gpu", true) }) {
