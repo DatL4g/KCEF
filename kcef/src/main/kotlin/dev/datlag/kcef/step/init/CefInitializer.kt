@@ -43,11 +43,11 @@ internal data object CefInitializer {
             }
         }
 
-        if (cefSettings.locales_dir_path.isNullOrEmpty()) {
+        if (cefSettings.locales_dir_path.isNullOrEmpty() && !currentOs.isMacOSX) {
             cefSettings.locales_dir_path = File(installDir, "locales").canonicalPath
         }
 
-        if (cefSettings.resources_dir_path.isNullOrEmpty()) {
+        if (cefSettings.resources_dir_path.isNullOrEmpty() && !currentOs.isMacOSX) {
             cefSettings.resources_dir_path = currentOs.getResourcesPath(installDir)
         }
 
