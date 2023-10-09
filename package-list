@@ -5,6 +5,7 @@ module:jcef
 com.jetbrains.cef
 org.cef
 org.cef.browser
+org.cef.browser.platform
 org.cef.callback
 org.cef.handler
 org.cef.input
