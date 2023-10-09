@@ -23,6 +23,7 @@ fun main() = singleWindowApplication {
         withContext(Dispatchers.IO) {
             KCEF.init(
                 builder = {
+                    addArgs("--in-process-gpu")
                     progress {
                         onInitialized {
                             initialized = true
