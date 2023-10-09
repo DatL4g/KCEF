@@ -9,6 +9,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.awt.SwingPanel
 import androidx.compose.ui.window.singleWindowApplication
 import dev.datlag.kcef.KCEF
+import dev.datlag.kcef.KCEFBuilder
 import dev.datlag.kcef.KCEFCookieManager
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -32,6 +33,10 @@ fun main() = singleWindowApplication {
                         }
                     }
                     release(true)
+                    settings { 
+                        this.logSeverity = KCEFBuilder.Settings.LogSeverity.Verbose
+                        this.logFile = "kcef.log"
+                    }
                 },
                 onError = {
                     it?.printStackTrace()

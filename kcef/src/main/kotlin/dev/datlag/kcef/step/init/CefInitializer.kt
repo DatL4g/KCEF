@@ -31,13 +31,6 @@ internal data object CefInitializer {
                 installDir
             }
 
-            if (currentOs.isMacOSX) {
-                loadLibrary(installDir, "osx")
-                loadLibrary(installDir, "osxapp")
-                loadLibrary(installDir, "osxui")
-                loadLibrary(installDir, "osxsecurity")
-            }
-
             loadLibrary(gpuLibPath, "EGL")
             loadLibrary(gpuLibPath, "GLESv2")
             loadLibrary(gpuLibPath, "vk_swiftshader")
