@@ -23,7 +23,6 @@ fun main() = singleWindowApplication {
         withContext(Dispatchers.IO) {
             KCEF.init(
                 builder = {
-                    addArgs("--no-sandbox")
                     progress {
                         onInitialized {
                             initialized = true
@@ -31,9 +30,6 @@ fun main() = singleWindowApplication {
                         onDownloading {
                             download = it.toInt()
                         }
-                    }
-                    settings {
-                        noSandbox = true
                     }
                     release(true)
                 },

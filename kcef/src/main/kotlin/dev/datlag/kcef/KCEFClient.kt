@@ -1,5 +1,7 @@
 package dev.datlag.kcef
 
+import dev.datlag.kcef.router.MessageRouterHandler
+import dev.datlag.kcef.router.MessageRouterHandlerEx
 import kotlinx.coroutines.Runnable
 import org.cef.CefClient
 import org.cef.browser.CefBrowser
@@ -39,6 +41,11 @@ class KCEFClient internal constructor(
     internal val evaluateJSHandler: KCEFJSHandler
 
     init {
+        val msgRouter = CefMessageRouter.create()
+        msgRouter.addHandler(MessageRouterHandler(), true)
+        msgRouter.addHandler(MessageRouterHandlerEx(client), false)
+        client.addMessageRouter(msgRouter)
+
         val router = CefMessageRouter.create(
             CefMessageRouter.CefMessageRouterConfig("cefQueryEvaluate", "cefQueryEvaluateCancel")
         )
