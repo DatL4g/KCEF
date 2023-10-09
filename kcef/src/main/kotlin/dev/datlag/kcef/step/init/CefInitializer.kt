@@ -31,15 +31,9 @@ internal data object CefInitializer {
                 installDir
             }
 
-            if (!loadLibrary(gpuLibPath, "EGL")) {
-                println("Could not load EGL lib")
-            }
-            if (!loadLibrary(gpuLibPath, "GLESv2")) {
-                println("Could not load GLESv2 lib")
-            }
-            if (!loadLibrary(gpuLibPath, "vk_swiftshader")) {
-                println("Could not load Vulkan shader lib")
-            }
+            loadLibrary(gpuLibPath, "EGL")
+            loadLibrary(gpuLibPath, "GLESv2")
+            loadLibrary(gpuLibPath, "vk_swiftshader")
         }
 
         SystemBootstrap.setLoader {
