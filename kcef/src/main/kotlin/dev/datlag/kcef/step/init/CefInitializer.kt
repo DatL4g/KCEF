@@ -31,6 +31,7 @@ internal data object CefInitializer {
                 installDir
             }
 
+            println("GPU path: ${gpuLibPath.canonicalPath}")
             loadLibrary(gpuLibPath, "EGL")
             loadLibrary(gpuLibPath, "GLESv2")
         }
