@@ -40,8 +40,8 @@ data object Platform {
 
     sealed class OS(open val name: String, internal vararg val values: String) {
         data class MACOSX(override val name: String) : OS(name, "mac", "darwin", "osx") {
-            fun getFrameworkPath(installDir: File): String {
-                return "${installDir.canonicalPath}/Chromium Embedded Framework.framework"
+            fun getFrameworkPath(installDir: File, inFrameworks: Boolean = false): String {
+                return "${installDir.canonicalPath}/${if (inFrameworks) "Frameworks/" else ""}Chromium Embedded Framework.framework"
             }
 
             fun getMainBundlePath(installDir: File): String {
@@ -49,7 +49,7 @@ data object Platform {
             }
 
             override fun getResourcesPath(installDir: File): String {
-                return "${getFrameworkPath(installDir)}/Resources"
+                return "${getFrameworkPath(installDir, true)}/Resources"
             }
 
             override fun getBrowserPath(installDir: File): String {
@@ -60,7 +60,7 @@ data object Platform {
                 val newArgs = args.toMutableList()
                 newArgs.add(
                     0,
-                    "--framework-dir-path=${getFrameworkPath(installDir)}"
+                    "--framework-dir-path=${getFrameworkPath(installDir, true)}"
                 )
                 newArgs.add(
                     0,
