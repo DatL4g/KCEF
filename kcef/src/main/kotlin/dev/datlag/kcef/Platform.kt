@@ -40,7 +40,7 @@ data object Platform {
 
     sealed class OS(open val name: String, internal vararg val values: String) {
         data class MACOSX(override val name: String) : OS(name, "mac", "darwin", "osx") {
-            fun getFrameworkPath(installDir: File, inFrameworks: Boolean = false): String {
+            fun getFrameworkPath(installDir: File, inFrameworks: Boolean = true): String {
                 return "${installDir.canonicalPath}/${if (inFrameworks) "Frameworks/" else ""}Chromium Embedded Framework.framework"
             }
 
