@@ -17,7 +17,11 @@ internal data object CefInitializer {
         val currentOs = Platform.getCurrentPlatform().os
 
         if (currentOs.isMacOSX) {
-            systemProperty("java.home", (currentOs as Platform.OS.MACOSX).getFrameworkPath(installDir))
+            val path = (currentOs as Platform.OS.MACOSX).getFrameworkPath(installDir)
+            println()
+            println(path)
+            println()
+            systemProperty("java.home", path)
         }
 
         loadLibrary(installDir, "jawt")

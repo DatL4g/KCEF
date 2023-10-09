@@ -33,10 +33,6 @@ fun main() = singleWindowApplication {
                         }
                     }
                     release(true)
-                    settings { 
-                        this.logSeverity = KCEFBuilder.Settings.LogSeverity.Verbose
-                        this.logFile = "kcef.log"
-                    }
                 },
                 onError = {
                     it?.printStackTrace()
