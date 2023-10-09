@@ -20,12 +20,23 @@ internal data object CefInitializer {
             systemProperty("java.home", (currentOs as Platform.OS.MACOSX).getFrameworkPath(installDir))
         }
 
+        loadLibrary(installDir, "awt")
         loadLibrary(installDir, "jawt")
+
+        if (currentOs.isMacOSX) {
+            loadLibrary(installDir, "awt_lwawt")
+        }
 
         if(cefArgs.none { it.trim().equals("--disable-gpu", true) }) {
             // GPU required
             loadLibrary(installDir, "EGL")
             loadLibrary(installDir, "GLESv2")
+
+            if (currentOs.isMacOSX) {
+                loadLibrary(installDir, "osx")
+                loadLibrary(installDir, "osxapp")
+                loadLibrary(installDir, "osxui")
+            }
         }
 
         SystemBootstrap.setLoader {
