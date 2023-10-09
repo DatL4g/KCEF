@@ -38,5 +38,14 @@ allprojects {
         options.compilerArgs.addAll(arrayOf(
             "--add-exports", "java.desktop/sun.awt=ALL-UNNAMED"
         ))
+        options.compilerArgs.addAll(arrayOf(
+            "--add-exports", "java.desktop/java.awt.peer=ALL-UNNAMED"
+        ))
+        options.compilerArgs.addAll(arrayOf(
+            "--add-exports", "java.desktop/sun.lwawt=ALL-UNNAMED"
+        ))
+        options.compilerArgs.addAll(arrayOf(
+            "--add-exports", "java.desktop/sun.lwawt.macosx=ALL-UNNAMED"
+        ))
     }
 }
