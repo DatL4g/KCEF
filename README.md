@@ -23,6 +23,7 @@ This library is published to [Maven Central](https://mvnrepository.com/artifact/
 ```gradle
 repositories {
     mavenCentral()
+    maven { url = uri("https://jogamp.org/deployment/maven") }
 }
 ```
 
@@ -129,7 +130,7 @@ The above methods may throw a `CefException`, you can use the nullable equivalen
 
 ```kotlin
 if (initialized) {
-    val client: CefClient? = KCEF.newClientOrNullBlocking { throwable ->
+    val client: KCEFClient? = KCEF.newClientOrNullBlocking { throwable ->
         throwable?.printStackTrace()
     }
 }
@@ -137,7 +138,7 @@ if (initialized) {
 
 ```kotlin
 /** Needs to be called in  a coroutine */
-val client: CefClient? = KCEF.newClientOrNull { throwable ->
+val client: KCEFClient? = KCEF.newClientOrNull { throwable ->
     throwable?.printStackTrace()
 }
 ```
@@ -151,7 +152,7 @@ If you listen to the `onInitialized` progress in the `KCEF.init` method, you can
 
 ```java
 if (initialized) {
-    CefClient client = CefClient client = KCEF.newClientBlocking();
+    KCEFClient client = KCEF.newClientBlocking();
 }
 ```
 
@@ -159,14 +160,14 @@ Otherwise, you should run this in a new Thread.
 
 ```java
 /** Run in a new Thread */
-CefClient client = CefClient client = KCEF.newClientBlocking();
+KCEFClient client = KCEF.newClientBlocking();
 ```
 
 The above methods may throw a `CefException`, you can use the nullable equivalent instead.
 
 ```java
 if (initialized) {
-    CefClient client = KCEF.newClientOrNullBlocking(throwable -> {
+    KCEFClient client = KCEF.newClientOrNullBlocking(throwable -> {
         if (throwable != null) {
             throwable.printStackTrace()
         }
@@ -176,7 +177,7 @@ if (initialized) {
 
 ```java
 /** Should be called in a new Thread */
-CefClient client = KCEF.newClientOrNullBlocking(throwable -> {
+KCEFClient client = KCEF.newClientOrNullBlocking(throwable -> {
     if (throwable != null) {
         throwable.printStackTrace()
     }

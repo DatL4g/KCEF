@@ -24,6 +24,12 @@ mavenPublishing {
         url.set("https://github.com/DATL4G/jcef")
         inceptionYear.set("2023")
 
+        licenses {
+            license {
+                url.set("https://github.com/DATL4G/jcef/blob/dev/LICENSE.txt")
+            }
+        }
+
         scm {
             url.set("https://github.com/DATL4G/jcef")
             connection.set("scm:git:git://github.com/DATL4G/jcef.git")

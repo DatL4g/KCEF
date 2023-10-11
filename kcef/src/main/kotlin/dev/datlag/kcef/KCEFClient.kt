@@ -226,5 +226,9 @@ class KCEFClient internal constructor(
     fun getRequestHandler(): CefRequestHandler = this
     fun getWindowHandler(): CefWindowHandler = this
 
+    fun dispose() {
+        client.dispose()
+    }
+
     companion object { }
 }
