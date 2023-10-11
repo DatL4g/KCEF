@@ -35,7 +35,7 @@ tasks.dokkaHtmlPartial {
 mavenPublishing {
     publishToMavenCentral(host = SonatypeHost.S01, automaticRelease = true)
     signAllPublications()
-    coordinates("dev.datlag", "kcef", "1.0.0")
+    coordinates("dev.datlag", "kcef", "2023.10.11.1")
 
     pom {
         name.set(project.name)
