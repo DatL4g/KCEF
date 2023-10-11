@@ -48,7 +48,7 @@ dependencies {
 
 ```toml
 [versions]
-kcef = "1.0.0" # put your wanted version here
+kcef = "2023.10.11.1" # put your wanted version here
 
 [libraries]
 kcef = { group = "dev.datlag", name = "kcef", version.ref = "kcef" }
