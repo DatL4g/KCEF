@@ -20,8 +20,8 @@ internal class KCEFFileSchemeHandlerFactory : CefSchemeHandlerFactory {
 
         val url = request?.url?.let(::normalizeUrl) ?: return null
 
-        val map = browser?.let { LOAD_HTML_REQUEST[it] }
-        if (!map.isNullOrEmpty()) {
+        val map = browser?.let { LOAD_HTML_REQUEST[it] } ?: LOAD_HTML_CLIENT_REQUEST
+        if (map.isNotEmpty()) {
             val html = map[url]
             if (!html.isNullOrEmpty()) {
                 return KCEFLoadHtmlResourceHandler(html)
@@ -38,11 +38,21 @@ internal class KCEFFileSchemeHandlerFactory : CefSchemeHandlerFactory {
 
         // browser: url, html
         private val LOAD_HTML_REQUEST: MutableMap<CefBrowser, MutableMap<String, String>> = WeakHashMap()
+        private val LOAD_HTML_CLIENT_REQUEST: MutableMap<String, String> = Collections.synchronizedMap<String, String>(
+            emptyMap()
+        ).toMutableMap()
 
         fun registerLoadHtmlRequest(browser: CefBrowser, html: String, url: String): String {
             val origUrl = normalizeUrl(url)
             val fileUrl = createFileUrl(origUrl)
             initMap(browser)[fileUrl] = html
+            return fileUrl
+        }
+
+        fun registerLoadHtmlRequest(html: String, url: String): String {
+            val origUrl = normalizeUrl(url)
+            val fileUrl = createFileUrl(origUrl)
+            LOAD_HTML_CLIENT_REQUEST[fileUrl] = html
             return fileUrl
         }
 
@@ -52,7 +62,9 @@ internal class KCEFFileSchemeHandlerFactory : CefSchemeHandlerFactory {
                 synchronized(LOAD_HTML_REQUEST) {
                     map = LOAD_HTML_REQUEST[browser]
                     if (map == null) {
-                        LOAD_HTML_REQUEST[browser] = Collections.synchronizedMap<String, String>(mapOf()).toMutableMap().also {
+                        LOAD_HTML_REQUEST[browser] = Collections.synchronizedMap<String, String>(
+                            emptyMap()
+                        ).toMutableMap().also {
                             map = it
                         }
                     }

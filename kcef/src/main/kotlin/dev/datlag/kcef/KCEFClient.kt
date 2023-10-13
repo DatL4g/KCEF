@@ -86,6 +86,51 @@ class KCEFClient internal constructor(
         context: CefRequestContext
     ) = createBrowser(client.createBrowser(url, rendering, isTransparent, context))
 
+    /**
+     * Create a [KCEFBrowser] instance
+     *
+     * @param html content to load
+     * @param url the base url for [html]
+     * @param rendering [CefRendering] option that specifies the CEF rendering
+     * @param isTransparent whether the browser is transparent
+     * @return [KCEFBrowser]
+     */
+    @JvmOverloads
+    fun createBrowserWithHtml(
+        html: String,
+        url: String = KCEFBrowser.BLANK_URI,
+        rendering: CefRendering = CefRendering.DEFAULT,
+        isTransparent: Boolean = false
+    ) = createBrowser(
+        url = KCEFFileSchemeHandlerFactory.registerLoadHtmlRequest(html, url),
+        rendering = rendering,
+        isTransparent = isTransparent
+    )
+
+    /**
+     * Create a [KCEFBrowser] instance
+     *
+     * @param html content to load
+     * @param url the base url for [html]
+     * @param rendering [CefRendering] option that specifies the CEF rendering
+     * @param isTransparent whether the browser is transparent
+     * @param context [CefRequestContext] handling the request
+     * @return [KCEFBrowser]
+     */
+    @JvmOverloads
+    fun createBrowserWithHtml(
+        html: String,
+        url: String = KCEFBrowser.BLANK_URI,
+        rendering: CefRendering = CefRendering.DEFAULT,
+        isTransparent: Boolean = false,
+        context: CefRequestContext
+    ) = createBrowser(
+        url = KCEFFileSchemeHandlerFactory.registerLoadHtmlRequest(html, url),
+        rendering = rendering,
+        isTransparent = isTransparent,
+        context = context
+    )
+
     internal fun nextJSQueryIndex(): Int {
         return ++jsQueryCounter
     }
