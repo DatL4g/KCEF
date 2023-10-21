@@ -230,6 +230,19 @@ data object KCEF {
     }
 
     /**
+     * Create a new client if CEF has been initialized.
+     *
+     * @return [KCEFClient] if the initialization process already finished else null.
+     */
+    @JvmStatic
+    fun newCurrentPossibleClient(): KCEFClient? {
+        return when (state.value) {
+            is State.Initialized -> KCEFClient(cefApp.createClient())
+            else -> null
+        }
+    }
+
+    /**
      * Dispose the [CefApp] instance if it is not needed anymore.
      * For example on exiting the application.
      *
