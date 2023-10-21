@@ -235,7 +235,7 @@ data object KCEF {
      * @return [KCEFClient] if the initialization process already finished else null.
      */
     @JvmStatic
-    fun newCurrentPossibleClient(): KCEFClient? {
+    fun newPossibleClient(): KCEFClient? {
         return when (state.value) {
             is State.Initialized -> KCEFClient(cefApp.createClient())
             else -> null
