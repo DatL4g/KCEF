@@ -56,6 +56,8 @@ kcef = { group = "dev.datlag", name = "kcef", version.ref = "kcef" }
 
 ## Usage
 
+View Compose specific usage here [COMPOSE](COMPOSE.md)
+
 ### Initialize
 
 It's recommended to initialize `KCEF` directly after starting the application.
