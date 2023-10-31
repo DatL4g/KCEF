@@ -226,6 +226,15 @@ afterEvaluate {
 }
 ```
 
+## ProGuard
+
+If your application build type uses ProGuard, commonly used for release builds in Java and Kotlin applications, you have to add ProGuard rules for KCEF to work.
+
+```
+-keep class org.cef.** { *; }
+-keep class kotlinx.coroutines.swing.SwingDispatcherFactory
+```
+
 ## Support the project
 
 [![Github-sponsors](https://img.shields.io/badge/sponsor-30363D?style=for-the-badge&logo=GitHub-Sponsors&logoColor=#EA4AAA)](https://github.com/sponsors/DATL4G)
