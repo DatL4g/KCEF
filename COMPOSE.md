@@ -71,19 +71,46 @@ DisposableEffect(Unit) {
 
 ## Flags
 
-As mentioned in the [README.md](README.md#flags), some platforms need flags to run properly.
+As mentioned in the [README](README.md#flags), some platforms need flags to run properly.
 Adding them is pretty easy, by just adding them to your compose configuration in your `build.gradle.kts`:
 
 ```kotlin
 compose.desktop {
-    application {
-      jvmArgs("--add-opens", "java.desktop/sun.awt=ALL-UNNAMED")
-      jvmArgs("--add-opens", "java.desktop/java.awt.peer=ALL-UNNAMED") // recommended but not necessary
+  application {
+    // all your other configuration, etc
 
-      if (System.getProperty("os.name").contains("Mac")) {
-            jvmArgs("--add-opens", "java.desktop/sun.lwawt=ALL-UNNAMED")
-            jvmArgs("--add-opens", "java.desktop/sun.lwawt.macosx=ALL-UNNAMED")
-        }
+    jvmArgs("--add-opens", "java.desktop/sun.awt=ALL-UNNAMED")
+    jvmArgs("--add-opens", "java.desktop/java.awt.peer=ALL-UNNAMED") // recommended but not necessary
+
+    if (System.getProperty("os.name").contains("Mac")) {
+      jvmArgs("--add-opens", "java.desktop/sun.lwawt=ALL-UNNAMED")
+      jvmArgs("--add-opens", "java.desktop/sun.lwawt.macosx=ALL-UNNAMED")
     }
+  }
+}
+```
+
+## ProGuard
+
+As mentioned in the [README](README.md#proguard) as well, you have to add ProGuard rules in order for KCEF to work in required build types.
+
+Simply add a ProGuard configuration file to your target platform, for example `compose-desktop.pro` and add the following lines:
+
+```
+-keep class org.cef.** { *; }
+-keep class kotlinx.coroutines.swing.SwingDispatcherFactory
+```
+
+Then make sure to use this config by adding the following lines to your `build.gradle.kts`:
+
+```kotlin
+compose.desktop {
+  application {
+    // all your other configuration, etc
+
+    buildTypes.release.proguard {
+      configurationFiles.from("compose-desktop.pro")
+    }
+  }
 }
 ```
