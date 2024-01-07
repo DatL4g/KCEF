@@ -23,7 +23,7 @@ This library is published to [Maven Central](https://mvnrepository.com/artifact/
 ```gradle
 repositories {
     mavenCentral()
-    maven { url = uri("https://jogamp.org/deployment/maven") }
+    maven("https://jogamp.org/deployment/maven")
 }
 ```
 
