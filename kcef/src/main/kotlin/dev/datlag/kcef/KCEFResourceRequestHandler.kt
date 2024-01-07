@@ -26,7 +26,7 @@ open class KCEFResourceRequestHandler(
         browser: CefBrowser?,
         frame: CefFrame?,
         request: CefRequest?
-    ): CefCookieAccessFilter {
+    ): CefCookieAccessFilter? {
         return defaultCookieAccessFilter(browser, frame, request)
     }
 
@@ -34,7 +34,7 @@ open class KCEFResourceRequestHandler(
         browser: CefBrowser?,
         frame: CefFrame?,
         request: CefRequest?
-    ): CefCookieAccessFilter {
+    ): CefCookieAccessFilter? {
         return (defaultHandler ?: fallback).getCookieAccessFilter(browser, frame, request)
     }
 
@@ -50,7 +50,7 @@ open class KCEFResourceRequestHandler(
         return (defaultHandler ?: fallback).onBeforeResourceLoad(browser, frame, request)
     }
 
-    override fun getResourceHandler(browser: CefBrowser?, frame: CefFrame?, request: CefRequest?): CefResourceHandler {
+    override fun getResourceHandler(browser: CefBrowser?, frame: CefFrame?, request: CefRequest?): CefResourceHandler? {
         return defaultResourceHandler(browser, frame, request)
     }
 
@@ -58,7 +58,7 @@ open class KCEFResourceRequestHandler(
         browser: CefBrowser?,
         frame: CefFrame?,
         request: CefRequest?
-    ): CefResourceHandler {
+    ): CefResourceHandler? {
         return (defaultHandler ?: fallback).getResourceHandler(browser, frame, request)
     }
 
