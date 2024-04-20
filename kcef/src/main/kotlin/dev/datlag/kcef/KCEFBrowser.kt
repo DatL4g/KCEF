@@ -15,10 +15,10 @@ class KCEFBrowser internal constructor(
 ) : CefBrowser by browser {
 
     val mainKCEFFrame: KCEFFrame
-        get() = getMainFrame() as KCEFFrame
+        get() = mainFrame as KCEFFrame
 
     val focusedKCEFFrame: KCEFFrame
-        get() = getFocusedFrame() as KCEFFrame
+        get() = focusedFrame as KCEFFrame
 
     /**
      * Loads HTML content.
@@ -82,17 +82,17 @@ class KCEFBrowser internal constructor(
         evaluateJavaScript(javaScriptExpression)
     }
 
-    override fun getFrame(identifier: Long): CefFrame? {
-        return browser.getFrame(identifier)?.let { KCEFFrame(client, it) }
+    override fun getFrameByIdentifier(identifier: String?): CefFrame? {
+        return browser.getFrameByIdentifier(identifier)?.let { KCEFFrame(client, it) }
     }
 
-    fun getKCEFFrame(identifier: Long): KCEFFrame? = getFrame(identifier) as KCEFFrame?
+    fun getKCEFFrameByIdentifier(identifier: String?): KCEFFrame? = getFrameByIdentifier(identifier) as? KCEFFrame?
 
-    override fun getFrame(name: String?): CefFrame? {
-        return browser.getFrame(name)?.let { KCEFFrame(client, it) }
+    override fun getFrameByName(name: String?): CefFrame? {
+        return browser.getFrameByName(name)?.let { KCEFFrame(client, it) }
     }
 
-    fun getKCEFFrame(name: String?): KCEFFrame? = getFrame(name) as KCEFFrame?
+    fun getKCEFFrameByName(name: String?): KCEFFrame? = getFrameByName(name) as? KCEFFrame?
 
     override fun getMainFrame(): CefFrame {
         return KCEFFrame(client, browser.mainFrame)
