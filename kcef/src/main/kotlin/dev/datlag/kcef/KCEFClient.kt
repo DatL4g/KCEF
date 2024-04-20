@@ -12,7 +12,7 @@ import org.cef.handler.*
 /**
  * Class that can create a [KCEFBrowser] instance and inherits the default [CefClient] methods.
  */
-class KCEFClient internal constructor(
+class KCEFClient constructor(
     private val client: CefClient
 ) : CefContextMenuHandler by client,
     CefDialogHandler by client,
