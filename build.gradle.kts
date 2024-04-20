@@ -4,8 +4,8 @@ plugins {
     kotlin("jvm") version "1.9.21" apply false
     kotlin("plugin.serialization") version "1.9.21" apply false
     id("org.jetbrains.compose") version "1.5.11" apply false
-    id("com.vanniktech.maven.publish") version "0.25.3" apply false
-    id("org.jetbrains.dokka") version "1.9.10"
+    id("com.vanniktech.maven.publish") version "0.28.0" apply false
+    id("org.jetbrains.dokka") version "1.9.20"
 }
 
 buildscript {

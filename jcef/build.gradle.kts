@@ -11,6 +11,8 @@ plugins {
 dependencies {
     implementation("org.jogamp.gluegen:gluegen-rt:2.5.0")
     implementation("org.jogamp.jogl:jogl-all:2.5.0")
+
+    implementation(files("src/main/third_party/thrift/libthrift-0.19.0.jar"))
 }
 
 mavenPublishing {
