@@ -171,7 +171,7 @@ The above methods may throw a `CefException`, you can use the nullable equivalen
 if (initialized) {
     KCEFClient client = KCEF.newClientOrNullBlocking(throwable -> {
         if (throwable != null) {
-            throwable.printStackTrace()
+            throwable.printStackTrace();
         }
     });
 }
@@ -181,7 +181,7 @@ if (initialized) {
 /** Should be called in a new Thread */
 KCEFClient client = KCEF.newClientOrNullBlocking(throwable -> {
     if (throwable != null) {
-        throwable.printStackTrace()
+        throwable.printStackTrace();
     }
 });
 ```
