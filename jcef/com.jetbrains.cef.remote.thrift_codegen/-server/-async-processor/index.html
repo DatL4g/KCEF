@@ -1,0 +1,1353 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>AsyncProcessor</title>
+<link href="../../../../images/logo-icon.svg" rel="icon" type="image/svg">    <script>var pathToRoot = "../../../../";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async></script>
+<script type="text/javascript" src="../../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../../styles/style.css" rel="Stylesheet">
+<link href="../../../../styles/main.css" rel="Stylesheet">
+<link href="../../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../../styles/font-jb-sans-auto.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+    <div class="root">
+<nav class="navigation" id="navigation-wrapper">
+    <div class="navigation--inner">
+        <div class="navigation-title">
+            <button class="menu-toggle" id="menu-toggle" type="button">toggle menu</button>
+            <div class="library-name">
+<a class="library-name--link" href="../../../../index.html">
+                            KCEF
+                    </a>            </div>
+            <div class="library-version">
+            </div>
+        </div>
+        <div class="filter-section" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":jcef:dokkaHtmlPartial/main">jvm</button>
+        </div>
+    </div>
+    <div class="navigation-controls">
+        <button class="navigation-controls--btn navigation-controls--theme" id="theme-toggle-button" type="button">switch theme</button>
+        <div class="navigation-controls--btn navigation-controls--search" id="searchBar" role="button">search in API</div>
+    </div>
+</nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="sidebar--inner" id="sideMenu"></div>
+            </div>
+            <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageids="jcef::com.jetbrains.cef.remote.thrift_codegen/Server.AsyncProcessor///PointingToDeclaration//1511286446">
+  <div class="breadcrumbs"><a href="../../../index.html">jcef</a><span class="delimiter">/</span><a href="../../index.html">com.jetbrains.cef.remote.thrift_codegen</a><span class="delimiter">/</span><a href="../index.html">Server</a><span class="delimiter">/</span><span class="current">AsyncProcessor</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Async</span><wbr><span><span>Processor</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="index.html">AsyncProcessor</a><span class="token operator">&lt;</span><a href="index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/TBaseAsyncProcessor///PointingToDeclaration/">TBaseAsyncProcessor</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/TBaseAsyncProcessor///PointingToGenericParameters(0)/">I</span><span class="token operator">&gt; </span></div></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="CONSTRUCTOR">
+        <h2 class="">Constructors</h2>
+        <div class="table"><a data-name="2096173337%2FConstructors%2F1511286446" anchor-label="AsyncProcessor" id="2096173337%2FConstructors%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-togglable="CONSTRUCTOR" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-async-processor.html"><span>Async</span><wbr><span><span>Processor</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2096173337%2FConstructors%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">iface<span class="token operator">: </span><a href="index.html">I</a></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="TYPE">
+        <h2 class="">Types</h2>
+        <div class="table"><a data-name="1028697163%2FClasslikes%2F1511286446" anchor-label="AuthCallback_Cancel" id="1028697163%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-auth-callback_-cancel/index.html"><span>Auth</span><wbr><span><span>Callback_Cancel</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1028697163%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-auth-callback_-cancel/index.html">AuthCallback_Cancel</a><span class="token operator">&lt;</span><a href="-auth-callback_-cancel/index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(1)/">T</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(2)/">R</span><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-287668802%2FClasslikes%2F1511286446" anchor-label="AuthCallback_Continue" id="-287668802%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-auth-callback_-continue/index.html"><span>Auth</span><wbr><span><span>Callback_Continue</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-287668802%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-auth-callback_-continue/index.html">AuthCallback_Continue</a><span class="token operator">&lt;</span><a href="-auth-callback_-continue/index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(1)/">T</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(2)/">R</span><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1823292386%2FClasslikes%2F1511286446" anchor-label="AuthCallback_Dispose" id="-1823292386%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-auth-callback_-dispose/index.html"><span>Auth</span><wbr><span><span>Callback_Dispose</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1823292386%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-auth-callback_-dispose/index.html">AuthCallback_Dispose</a><span class="token operator">&lt;</span><a href="-auth-callback_-dispose/index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(1)/">T</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(2)/">R</span><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="929565935%2FClasslikes%2F1511286446" anchor-label="Browser_CanGoBack" id="929565935%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-browser_-can-go-back/index.html"><span>Browser_Can</span><wbr><span>Go</span><wbr><span><span>Back</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="929565935%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-browser_-can-go-back/index.html">Browser_CanGoBack</a><span class="token operator">&lt;</span><a href="-browser_-can-go-back/index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(1)/">T</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(2)/">R</span><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-269897945%2FClasslikes%2F1511286446" anchor-label="Browser_CanGoForward" id="-269897945%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-browser_-can-go-forward/index.html"><span>Browser_Can</span><wbr><span>Go</span><wbr><span><span>Forward</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-269897945%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-browser_-can-go-forward/index.html">Browser_CanGoForward</a><span class="token operator">&lt;</span><a href="-browser_-can-go-forward/index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(1)/">T</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(2)/">R</span><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1603250826%2FClasslikes%2F1511286446" anchor-label="Browser_Close" id="-1603250826%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-browser_-close/index.html"><span><span>Browser_Close</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1603250826%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-browser_-close/index.html">Browser_Close</a><span class="token operator">&lt;</span><a href="-browser_-close/index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(1)/">T</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(2)/">R</span><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="584882712%2FClasslikes%2F1511286446" anchor-label="Browser_Create" id="584882712%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-browser_-create/index.html"><span><span>Browser_Create</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="584882712%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-browser_-create/index.html">Browser_Create</a><span class="token operator">&lt;</span><a href="-browser_-create/index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(1)/">T</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(2)/">R</span><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-170086324%2FClasslikes%2F1511286446" anchor-label="Browser_ExecuteJavaScript" id="-170086324%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-browser_-execute-java-script/index.html"><span>Browser_Execute</span><wbr><span>Java</span><wbr><span><span>Script</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-170086324%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-browser_-execute-java-script/index.html">Browser_ExecuteJavaScript</a><span class="token operator">&lt;</span><a href="-browser_-execute-java-script/index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(1)/">T</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(2)/">R</span><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1242964155%2FClasslikes%2F1511286446" anchor-label="Browser_Find" id="1242964155%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-browser_-find/index.html"><span><span>Browser_Find</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1242964155%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-browser_-find/index.html">Browser_Find</a><span class="token operator">&lt;</span><a href="-browser_-find/index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(1)/">T</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(2)/">R</span><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1018359510%2FClasslikes%2F1511286446" anchor-label="Browser_GetFrameCount" id="1018359510%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-browser_-get-frame-count/index.html"><span>Browser_Get</span><wbr><span>Frame</span><wbr><span><span>Count</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1018359510%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-browser_-get-frame-count/index.html">Browser_GetFrameCount</a><span class="token operator">&lt;</span><a href="-browser_-get-frame-count/index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(1)/">T</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(2)/">R</span><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="2097479677%2FClasslikes%2F1511286446" anchor-label="Browser_GetSource" id="2097479677%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-browser_-get-source/index.html"><span>Browser_Get</span><wbr><span><span>Source</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2097479677%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-browser_-get-source/index.html">Browser_GetSource</a><span class="token operator">&lt;</span><a href="-browser_-get-source/index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(1)/">T</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(2)/">R</span><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1551716587%2FClasslikes%2F1511286446" anchor-label="Browser_GetText" id="1551716587%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-browser_-get-text/index.html"><span>Browser_Get</span><wbr><span><span>Text</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1551716587%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-browser_-get-text/index.html">Browser_GetText</a><span class="token operator">&lt;</span><a href="-browser_-get-text/index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(1)/">T</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(2)/">R</span><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-996165765%2FClasslikes%2F1511286446" anchor-label="Browser_GetURL" id="-996165765%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-browser_-get-u-r-l/index.html"><span>Browser_Get</span><wbr><span><span>URL</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-996165765%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-browser_-get-u-r-l/index.html">Browser_GetURL</a><span class="token operator">&lt;</span><a href="-browser_-get-u-r-l/index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(1)/">T</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(2)/">R</span><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1921948423%2FClasslikes%2F1511286446" anchor-label="Browser_GetZoomLevel" id="-1921948423%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-browser_-get-zoom-level/index.html"><span>Browser_Get</span><wbr><span>Zoom</span><wbr><span><span>Level</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1921948423%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-browser_-get-zoom-level/index.html">Browser_GetZoomLevel</a><span class="token operator">&lt;</span><a href="-browser_-get-zoom-level/index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(1)/">T</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(2)/">R</span><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="188960901%2FClasslikes%2F1511286446" anchor-label="Browser_GoBack" id="188960901%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-browser_-go-back/index.html"><span>Browser_Go</span><wbr><span><span>Back</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="188960901%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-browser_-go-back/index.html">Browser_GoBack</a><span class="token operator">&lt;</span><a href="-browser_-go-back/index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(1)/">T</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(2)/">R</span><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-387466287%2FClasslikes%2F1511286446" anchor-label="Browser_GoForward" id="-387466287%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-browser_-go-forward/index.html"><span>Browser_Go</span><wbr><span><span>Forward</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-387466287%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-browser_-go-forward/index.html">Browser_GoForward</a><span class="token operator">&lt;</span><a href="-browser_-go-forward/index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(1)/">T</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(2)/">R</span><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-80746887%2FClasslikes%2F1511286446" anchor-label="Browser_HasDocument" id="-80746887%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-browser_-has-document/index.html"><span>Browser_Has</span><wbr><span><span>Document</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-80746887%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-browser_-has-document/index.html">Browser_HasDocument</a><span class="token operator">&lt;</span><a href="-browser_-has-document/index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(1)/">T</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(2)/">R</span><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="370297212%2FClasslikes%2F1511286446" anchor-label="Browser_IsLoading" id="370297212%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-browser_-is-loading/index.html"><span>Browser_Is</span><wbr><span><span>Loading</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="370297212%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-browser_-is-loading/index.html">Browser_IsLoading</a><span class="token operator">&lt;</span><a href="-browser_-is-loading/index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(1)/">T</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(2)/">R</span><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="2053148108%2FClasslikes%2F1511286446" anchor-label="Browser_IsPopup" id="2053148108%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-browser_-is-popup/index.html"><span>Browser_Is</span><wbr><span><span>Popup</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2053148108%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-browser_-is-popup/index.html">Browser_IsPopup</a><span class="token operator">&lt;</span><a href="-browser_-is-popup/index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(1)/">T</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(2)/">R</span><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2052718939%2FClasslikes%2F1511286446" anchor-label="Browser_LoadURL" id="-2052718939%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-browser_-load-u-r-l/index.html"><span>Browser_Load</span><wbr><span><span>URL</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2052718939%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-browser_-load-u-r-l/index.html">Browser_LoadURL</a><span class="token operator">&lt;</span><a href="-browser_-load-u-r-l/index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(1)/">T</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(2)/">R</span><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-117698947%2FClasslikes%2F1511286446" anchor-label="Browser_NotifyScreenInfoChanged" id="-117698947%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-browser_-notify-screen-info-changed/index.html"><span>Browser_Notify</span><wbr><span>Screen</span><wbr><span>Info</span><wbr><span><span>Changed</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-117698947%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-browser_-notify-screen-info-changed/index.html">Browser_NotifyScreenInfoChanged</a><span class="token operator">&lt;</span><a href="-browser_-notify-screen-info-changed/index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(1)/">T</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(2)/">R</span><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1568388123%2FClasslikes%2F1511286446" anchor-label="Browser_Reload" id="1568388123%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-browser_-reload/index.html"><span><span>Browser_Reload</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1568388123%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-browser_-reload/index.html">Browser_Reload</a><span class="token operator">&lt;</span><a href="-browser_-reload/index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(1)/">T</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(2)/">R</span><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1662555305%2FClasslikes%2F1511286446" anchor-label="Browser_ReloadIgnoreCache" id="-1662555305%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-browser_-reload-ignore-cache/index.html"><span>Browser_Reload</span><wbr><span>Ignore</span><wbr><span><span>Cache</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1662555305%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-browser_-reload-ignore-cache/index.html">Browser_ReloadIgnoreCache</a><span class="token operator">&lt;</span><a href="-browser_-reload-ignore-cache/index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(1)/">T</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(2)/">R</span><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1983813641%2FClasslikes%2F1511286446" anchor-label="Browser_ReplaceMisspelling" id="-1983813641%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-browser_-replace-misspelling/index.html"><span>Browser_Replace</span><wbr><span><span>Misspelling</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1983813641%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-browser_-replace-misspelling/index.html">Browser_ReplaceMisspelling</a><span class="token operator">&lt;</span><a href="-browser_-replace-misspelling/index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(1)/">T</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(2)/">R</span><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="947985297%2FClasslikes%2F1511286446" anchor-label="Browser_SendKeyEvent" id="947985297%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-browser_-send-key-event/index.html"><span>Browser_Send</span><wbr><span>Key</span><wbr><span><span>Event</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="947985297%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-browser_-send-key-event/index.html">Browser_SendKeyEvent</a><span class="token operator">&lt;</span><a href="-browser_-send-key-event/index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(1)/">T</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(2)/">R</span><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-861615977%2FClasslikes%2F1511286446" anchor-label="Browser_SendMouseEvent" id="-861615977%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-browser_-send-mouse-event/index.html"><span>Browser_Send</span><wbr><span>Mouse</span><wbr><span><span>Event</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-861615977%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-browser_-send-mouse-event/index.html">Browser_SendMouseEvent</a><span class="token operator">&lt;</span><a href="-browser_-send-mouse-event/index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(1)/">T</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(2)/">R</span><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1750986926%2FClasslikes%2F1511286446" anchor-label="Browser_SendMouseWheelEvent" id="-1750986926%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-browser_-send-mouse-wheel-event/index.html"><span>Browser_Send</span><wbr><span>Mouse</span><wbr><span>Wheel</span><wbr><span><span>Event</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1750986926%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-browser_-send-mouse-wheel-event/index.html">Browser_SendMouseWheelEvent</a><span class="token operator">&lt;</span><a href="-browser_-send-mouse-wheel-event/index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(1)/">T</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(2)/">R</span><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="541907454%2FClasslikes%2F1511286446" anchor-label="Browser_SetFocus" id="541907454%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-browser_-set-focus/index.html"><span>Browser_Set</span><wbr><span><span>Focus</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="541907454%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-browser_-set-focus/index.html">Browser_SetFocus</a><span class="token operator">&lt;</span><a href="-browser_-set-focus/index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(1)/">T</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(2)/">R</span><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1196399113%2FClasslikes%2F1511286446" anchor-label="Browser_SetFrameRate" id="1196399113%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-browser_-set-frame-rate/index.html"><span>Browser_Set</span><wbr><span>Frame</span><wbr><span><span>Rate</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1196399113%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-browser_-set-frame-rate/index.html">Browser_SetFrameRate</a><span class="token operator">&lt;</span><a href="-browser_-set-frame-rate/index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(1)/">T</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(2)/">R</span><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="2035240709%2FClasslikes%2F1511286446" anchor-label="Browser_SetZoomLevel" id="2035240709%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-browser_-set-zoom-level/index.html"><span>Browser_Set</span><wbr><span>Zoom</span><wbr><span><span>Level</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2035240709%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-browser_-set-zoom-level/index.html">Browser_SetZoomLevel</a><span class="token operator">&lt;</span><a href="-browser_-set-zoom-level/index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(1)/">T</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(2)/">R</span><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1224921180%2FClasslikes%2F1511286446" anchor-label="Browser_StartDownload" id="-1224921180%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-browser_-start-download/index.html"><span>Browser_Start</span><wbr><span><span>Download</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1224921180%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-browser_-start-download/index.html">Browser_StartDownload</a><span class="token operator">&lt;</span><a href="-browser_-start-download/index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(1)/">T</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(2)/">R</span><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="231042966%2FClasslikes%2F1511286446" anchor-label="Browser_StartNativeCreation" id="231042966%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-browser_-start-native-creation/index.html"><span>Browser_Start</span><wbr><span>Native</span><wbr><span><span>Creation</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="231042966%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-browser_-start-native-creation/index.html">Browser_StartNativeCreation</a><span class="token operator">&lt;</span><a href="-browser_-start-native-creation/index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(1)/">T</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(2)/">R</span><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="687894375%2FClasslikes%2F1511286446" anchor-label="Browser_StopFinding" id="687894375%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-browser_-stop-finding/index.html"><span>Browser_Stop</span><wbr><span><span>Finding</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="687894375%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-browser_-stop-finding/index.html">Browser_StopFinding</a><span class="token operator">&lt;</span><a href="-browser_-stop-finding/index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(1)/">T</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(2)/">R</span><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-591936564%2FClasslikes%2F1511286446" anchor-label="Browser_StopLoad" id="-591936564%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-browser_-stop-load/index.html"><span>Browser_Stop</span><wbr><span><span>Load</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-591936564%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-browser_-stop-load/index.html">Browser_StopLoad</a><span class="token operator">&lt;</span><a href="-browser_-stop-load/index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(1)/">T</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(2)/">R</span><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1622867212%2FClasslikes%2F1511286446" anchor-label="Browser_ViewSource" id="-1622867212%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-browser_-view-source/index.html"><span>Browser_View</span><wbr><span><span>Source</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1622867212%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-browser_-view-source/index.html">Browser_ViewSource</a><span class="token operator">&lt;</span><a href="-browser_-view-source/index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(1)/">T</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(2)/">R</span><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-761936659%2FClasslikes%2F1511286446" anchor-label="Browser_WasResized" id="-761936659%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-browser_-was-resized/index.html"><span>Browser_Was</span><wbr><span><span>Resized</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-761936659%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-browser_-was-resized/index.html">Browser_WasResized</a><span class="token operator">&lt;</span><a href="-browser_-was-resized/index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(1)/">T</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(2)/">R</span><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1300133251%2FClasslikes%2F1511286446" anchor-label="Callback_Cancel" id="1300133251%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-callback_-cancel/index.html"><span><span>Callback_Cancel</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1300133251%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-callback_-cancel/index.html">Callback_Cancel</a><span class="token operator">&lt;</span><a href="-callback_-cancel/index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(1)/">T</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(2)/">R</span><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1430593290%2FClasslikes%2F1511286446" anchor-label="Callback_Continue" id="-1430593290%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-callback_-continue/index.html"><span><span>Callback_Continue</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1430593290%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-callback_-continue/index.html">Callback_Continue</a><span class="token operator">&lt;</span><a href="-callback_-continue/index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(1)/">T</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(2)/">R</span><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1998708250%2FClasslikes%2F1511286446" anchor-label="Callback_Dispose" id="-1998708250%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-callback_-dispose/index.html"><span><span>Callback_Dispose</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1998708250%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-callback_-dispose/index.html">Callback_Dispose</a><span class="token operator">&lt;</span><a href="-callback_-dispose/index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(1)/">T</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(2)/">R</span><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1875725492%2FClasslikes%2F1511286446" anchor-label="ClearAllSchemeHandlerFactories" id="1875725492%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-clear-all-scheme-handler-factories/index.html"><span>Clear</span><wbr><span>All</span><wbr><span>Scheme</span><wbr><span>Handler</span><wbr><span><span>Factories</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1875725492%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-clear-all-scheme-handler-factories/index.html">ClearAllSchemeHandlerFactories</a><span class="token operator">&lt;</span><a href="-clear-all-scheme-handler-factories/index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(1)/">T</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(2)/">R</span><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1854582003%2FClasslikes%2F1511286446" anchor-label="connect" id="-1854582003%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="connect/index.html"><span><span>connect</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1854582003%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="connect/index.html">connect</a><span class="token operator">&lt;</span><a href="connect/index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(1)/">T</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(2)/">R</span><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1625940172%2FClasslikes%2F1511286446" anchor-label="connectTcp" id="-1625940172%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="connect-tcp/index.html"><span>connect</span><wbr><span><span>Tcp</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1625940172%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="connect-tcp/index.html">connectTcp</a><span class="token operator">&lt;</span><a href="connect-tcp/index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(1)/">T</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(2)/">R</span><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2107952103%2FClasslikes%2F1511286446" anchor-label="CookieManager_Create" id="-2107952103%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-cookie-manager_-create/index.html"><span>Cookie</span><wbr><span><span>Manager_Create</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2107952103%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-cookie-manager_-create/index.html">CookieManager_Create</a><span class="token operator">&lt;</span><a href="-cookie-manager_-create/index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(1)/">T</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(2)/">R</span><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1302569879%2FClasslikes%2F1511286446" anchor-label="CookieManager_DeleteCookies" id="-1302569879%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-cookie-manager_-delete-cookies/index.html"><span>Cookie</span><wbr><span>Manager_Delete</span><wbr><span><span>Cookies</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1302569879%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-cookie-manager_-delete-cookies/index.html">CookieManager_DeleteCookies</a><span class="token operator">&lt;</span><a href="-cookie-manager_-delete-cookies/index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(1)/">T</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(2)/">R</span><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1506656782%2FClasslikes%2F1511286446" anchor-label="CookieManager_Dispose" id="1506656782%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-cookie-manager_-dispose/index.html"><span>Cookie</span><wbr><span><span>Manager_Dispose</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1506656782%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-cookie-manager_-dispose/index.html">CookieManager_Dispose</a><span class="token operator">&lt;</span><a href="-cookie-manager_-dispose/index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(1)/">T</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(2)/">R</span><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1800049160%2FClasslikes%2F1511286446" anchor-label="CookieManager_FlushStore" id="-1800049160%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-cookie-manager_-flush-store/index.html"><span>Cookie</span><wbr><span>Manager_Flush</span><wbr><span><span>Store</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1800049160%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-cookie-manager_-flush-store/index.html">CookieManager_FlushStore</a><span class="token operator">&lt;</span><a href="-cookie-manager_-flush-store/index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(1)/">T</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(2)/">R</span><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1542906457%2FClasslikes%2F1511286446" anchor-label="CookieManager_SetCookie" id="-1542906457%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-cookie-manager_-set-cookie/index.html"><span>Cookie</span><wbr><span>Manager_Set</span><wbr><span><span>Cookie</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1542906457%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-cookie-manager_-set-cookie/index.html">CookieManager_SetCookie</a><span class="token operator">&lt;</span><a href="-cookie-manager_-set-cookie/index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(1)/">T</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(2)/">R</span><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1690140692%2FClasslikes%2F1511286446" anchor-label="CookieManager_VisitAllCookies" id="1690140692%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-cookie-manager_-visit-all-cookies/index.html"><span>Cookie</span><wbr><span>Manager_Visit</span><wbr><span>All</span><wbr><span><span>Cookies</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1690140692%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-cookie-manager_-visit-all-cookies/index.html">CookieManager_VisitAllCookies</a><span class="token operator">&lt;</span><a href="-cookie-manager_-visit-all-cookies/index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(1)/">T</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(2)/">R</span><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-596962334%2FClasslikes%2F1511286446" anchor-label="CookieManager_VisitUrlCookies" id="-596962334%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-cookie-manager_-visit-url-cookies/index.html"><span>Cookie</span><wbr><span>Manager_Visit</span><wbr><span>Url</span><wbr><span><span>Cookies</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-596962334%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-cookie-manager_-visit-url-cookies/index.html">CookieManager_VisitUrlCookies</a><span class="token operator">&lt;</span><a href="-cookie-manager_-visit-url-cookies/index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(1)/">T</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(2)/">R</span><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1487155942%2FClasslikes%2F1511286446" anchor-label="echo" id="1487155942%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="echo/index.html"><span><span>echo</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1487155942%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="echo/index.html">echo</a><span class="token operator">&lt;</span><a href="echo/index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(1)/">T</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(2)/">R</span><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2012157337%2FClasslikes%2F1511286446" anchor-label="Frame_ExecuteJavaScript" id="-2012157337%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-frame_-execute-java-script/index.html"><span>Frame_Execute</span><wbr><span>Java</span><wbr><span><span>Script</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2012157337%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-frame_-execute-java-script/index.html">Frame_ExecuteJavaScript</a><span class="token operator">&lt;</span><a href="-frame_-execute-java-script/index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(1)/">T</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(2)/">R</span><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-611265293%2FClasslikes%2F1511286446" anchor-label="log" id="-611265293%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="log/index.html"><span><span>log</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-611265293%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="log/index.html">log</a><span class="token operator">&lt;</span><a href="log/index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(1)/">T</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(2)/">R</span><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1619344979%2FClasslikes%2F1511286446" anchor-label="MessageRouter_AddHandler" id="1619344979%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-message-router_-add-handler/index.html"><span>Message</span><wbr><span>Router_Add</span><wbr><span><span>Handler</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1619344979%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-message-router_-add-handler/index.html">MessageRouter_AddHandler</a><span class="token operator">&lt;</span><a href="-message-router_-add-handler/index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(1)/">T</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(2)/">R</span><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-660944056%2FClasslikes%2F1511286446" anchor-label="MessageRouter_AddMessageRouterToBrowser" id="-660944056%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-message-router_-add-message-router-to-browser/index.html"><span>Message</span><wbr><span>Router_Add</span><wbr><span>Message</span><wbr><span>Router</span><wbr><span>To</span><wbr><span><span>Browser</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-660944056%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-message-router_-add-message-router-to-browser/index.html">MessageRouter_AddMessageRouterToBrowser</a><span class="token operator">&lt;</span><a href="-message-router_-add-message-router-to-browser/index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(1)/">T</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(2)/">R</span><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1157260233%2FClasslikes%2F1511286446" anchor-label="MessageRouter_CancelPending" id="1157260233%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-message-router_-cancel-pending/index.html"><span>Message</span><wbr><span>Router_Cancel</span><wbr><span><span>Pending</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1157260233%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-message-router_-cancel-pending/index.html">MessageRouter_CancelPending</a><span class="token operator">&lt;</span><a href="-message-router_-cancel-pending/index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(1)/">T</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(2)/">R</span><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1901423200%2FClasslikes%2F1511286446" anchor-label="MessageRouter_Create" id="-1901423200%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-message-router_-create/index.html"><span>Message</span><wbr><span><span>Router_Create</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1901423200%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-message-router_-create/index.html">MessageRouter_Create</a><span class="token operator">&lt;</span><a href="-message-router_-create/index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(1)/">T</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(2)/">R</span><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-680881817%2FClasslikes%2F1511286446" anchor-label="MessageRouter_Dispose" id="-680881817%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-message-router_-dispose/index.html"><span>Message</span><wbr><span><span>Router_Dispose</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-680881817%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-message-router_-dispose/index.html">MessageRouter_Dispose</a><span class="token operator">&lt;</span><a href="-message-router_-dispose/index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(1)/">T</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(2)/">R</span><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1856276608%2FClasslikes%2F1511286446" anchor-label="MessageRouter_RemoveHandler" id="-1856276608%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-message-router_-remove-handler/index.html"><span>Message</span><wbr><span>Router_Remove</span><wbr><span><span>Handler</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1856276608%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-message-router_-remove-handler/index.html">MessageRouter_RemoveHandler</a><span class="token operator">&lt;</span><a href="-message-router_-remove-handler/index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(1)/">T</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(2)/">R</span><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-601528854%2FClasslikes%2F1511286446" anchor-label="MessageRouter_RemoveMessageRouterFromBrowser" id="-601528854%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-message-router_-remove-message-router-from-browser/index.html"><span>Message</span><wbr><span>Router_Remove</span><wbr><span>Message</span><wbr><span>Router</span><wbr><span>From</span><wbr><span><span>Browser</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-601528854%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-message-router_-remove-message-router-from-browser/index.html">MessageRouter_RemoveMessageRouterFromBrowser</a><span class="token operator">&lt;</span><a href="-message-router_-remove-message-router-from-browser/index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(1)/">T</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(2)/">R</span><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="504394250%2FClasslikes%2F1511286446" anchor-label="QueryCallback_Dispose" id="504394250%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-query-callback_-dispose/index.html"><span>Query</span><wbr><span><span>Callback_Dispose</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="504394250%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-query-callback_-dispose/index.html">QueryCallback_Dispose</a><span class="token operator">&lt;</span><a href="-query-callback_-dispose/index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(1)/">T</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(2)/">R</span><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1187087615%2FClasslikes%2F1511286446" anchor-label="QueryCallback_Failure" id="1187087615%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-query-callback_-failure/index.html"><span>Query</span><wbr><span><span>Callback_Failure</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1187087615%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-query-callback_-failure/index.html">QueryCallback_Failure</a><span class="token operator">&lt;</span><a href="-query-callback_-failure/index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(1)/">T</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(2)/">R</span><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1582530394%2FClasslikes%2F1511286446" anchor-label="QueryCallback_Success" id="-1582530394%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-query-callback_-success/index.html"><span>Query</span><wbr><span><span>Callback_Success</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1582530394%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-query-callback_-success/index.html">QueryCallback_Success</a><span class="token operator">&lt;</span><a href="-query-callback_-success/index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(1)/">T</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(2)/">R</span><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="149208418%2FClasslikes%2F1511286446" anchor-label="Request_GetHeaderByName" id="149208418%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-request_-get-header-by-name/index.html"><span>Request_Get</span><wbr><span>Header</span><wbr><span>By</span><wbr><span><span>Name</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="149208418%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-request_-get-header-by-name/index.html">Request_GetHeaderByName</a><span class="token operator">&lt;</span><a href="-request_-get-header-by-name/index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(1)/">T</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(2)/">R</span><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="120452290%2FClasslikes%2F1511286446" anchor-label="Request_GetHeaderMap" id="120452290%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-request_-get-header-map/index.html"><span>Request_Get</span><wbr><span>Header</span><wbr><span><span>Map</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="120452290%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-request_-get-header-map/index.html">Request_GetHeaderMap</a><span class="token operator">&lt;</span><a href="-request_-get-header-map/index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(1)/">T</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(2)/">R</span><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-466404921%2FClasslikes%2F1511286446" anchor-label="Request_GetPostData" id="-466404921%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-request_-get-post-data/index.html"><span>Request_Get</span><wbr><span>Post</span><wbr><span><span>Data</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-466404921%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-request_-get-post-data/index.html">Request_GetPostData</a><span class="token operator">&lt;</span><a href="-request_-get-post-data/index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(1)/">T</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(2)/">R</span><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1035711365%2FClasslikes%2F1511286446" anchor-label="Request_Set" id="1035711365%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-request_-set/index.html"><span><span>Request_Set</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1035711365%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-request_-set/index.html">Request_Set</a><span class="token operator">&lt;</span><a href="-request_-set/index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(1)/">T</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(2)/">R</span><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="508299222%2FClasslikes%2F1511286446" anchor-label="Request_SetHeaderByName" id="508299222%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-request_-set-header-by-name/index.html"><span>Request_Set</span><wbr><span>Header</span><wbr><span>By</span><wbr><span><span>Name</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="508299222%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-request_-set-header-by-name/index.html">Request_SetHeaderByName</a><span class="token operator">&lt;</span><a href="-request_-set-header-by-name/index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(1)/">T</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(2)/">R</span><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-217325874%2FClasslikes%2F1511286446" anchor-label="Request_SetHeaderMap" id="-217325874%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-request_-set-header-map/index.html"><span>Request_Set</span><wbr><span>Header</span><wbr><span><span>Map</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-217325874%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-request_-set-header-map/index.html">Request_SetHeaderMap</a><span class="token operator">&lt;</span><a href="-request_-set-header-map/index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(1)/">T</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(2)/">R</span><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1462361659%2FClasslikes%2F1511286446" anchor-label="Request_SetPostData" id="1462361659%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-request_-set-post-data/index.html"><span>Request_Set</span><wbr><span>Post</span><wbr><span><span>Data</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1462361659%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-request_-set-post-data/index.html">Request_SetPostData</a><span class="token operator">&lt;</span><a href="-request_-set-post-data/index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(1)/">T</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(2)/">R</span><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="30531154%2FClasslikes%2F1511286446" anchor-label="Request_Update" id="30531154%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-request_-update/index.html"><span><span>Request_Update</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="30531154%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-request_-update/index.html">Request_Update</a><span class="token operator">&lt;</span><a href="-request_-update/index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(1)/">T</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(2)/">R</span><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1989334442%2FClasslikes%2F1511286446" anchor-label="RequestContext_ClearCertificateExceptions" id="1989334442%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-request-context_-clear-certificate-exceptions/index.html"><span>Request</span><wbr><span>Context_Clear</span><wbr><span>Certificate</span><wbr><span><span>Exceptions</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1989334442%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-request-context_-clear-certificate-exceptions/index.html">RequestContext_ClearCertificateExceptions</a><span class="token operator">&lt;</span><a href="-request-context_-clear-certificate-exceptions/index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(1)/">T</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(2)/">R</span><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-17356258%2FClasslikes%2F1511286446" anchor-label="RequestContext_CloseAllConnections" id="-17356258%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-request-context_-close-all-connections/index.html"><span>Request</span><wbr><span>Context_Close</span><wbr><span>All</span><wbr><span><span>Connections</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-17356258%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-request-context_-close-all-connections/index.html">RequestContext_CloseAllConnections</a><span class="token operator">&lt;</span><a href="-request-context_-close-all-connections/index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(1)/">T</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(2)/">R</span><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="154803044%2FClasslikes%2F1511286446" anchor-label="Response_GetHeaderByName" id="154803044%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-response_-get-header-by-name/index.html"><span>Response_Get</span><wbr><span>Header</span><wbr><span>By</span><wbr><span><span>Name</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="154803044%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-response_-get-header-by-name/index.html">Response_GetHeaderByName</a><span class="token operator">&lt;</span><a href="-response_-get-header-by-name/index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(1)/">T</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(2)/">R</span><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1709496832%2FClasslikes%2F1511286446" anchor-label="Response_GetHeaderMap" id="-1709496832%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-response_-get-header-map/index.html"><span>Response_Get</span><wbr><span>Header</span><wbr><span><span>Map</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1709496832%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-response_-get-header-map/index.html">Response_GetHeaderMap</a><span class="token operator">&lt;</span><a href="-response_-get-header-map/index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(1)/">T</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(2)/">R</span><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="513893848%2FClasslikes%2F1511286446" anchor-label="Response_SetHeaderByName" id="513893848%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-response_-set-header-by-name/index.html"><span>Response_Set</span><wbr><span>Header</span><wbr><span>By</span><wbr><span><span>Name</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="513893848%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-response_-set-header-by-name/index.html">Response_SetHeaderByName</a><span class="token operator">&lt;</span><a href="-response_-set-header-by-name/index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(1)/">T</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(2)/">R</span><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2047274996%2FClasslikes%2F1511286446" anchor-label="Response_SetHeaderMap" id="-2047274996%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-response_-set-header-map/index.html"><span>Response_Set</span><wbr><span>Header</span><wbr><span><span>Map</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2047274996%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-response_-set-header-map/index.html">Response_SetHeaderMap</a><span class="token operator">&lt;</span><a href="-response_-set-header-map/index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(1)/">T</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(2)/">R</span><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-707504624%2FClasslikes%2F1511286446" anchor-label="Response_Update" id="-707504624%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-response_-update/index.html"><span><span>Response_Update</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-707504624%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-response_-update/index.html">Response_Update</a><span class="token operator">&lt;</span><a href="-response_-update/index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(1)/">T</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(2)/">R</span><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1162499942%2FClasslikes%2F1511286446" anchor-label="SchemeHandlerFactory_Register" id="-1162499942%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-scheme-handler-factory_-register/index.html"><span>Scheme</span><wbr><span>Handler</span><wbr><span><span>Factory_Register</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1162499942%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="-scheme-handler-factory_-register/index.html">SchemeHandlerFactory_Register</a><span class="token operator">&lt;</span><a href="-scheme-handler-factory_-register/index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(1)/">T</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(2)/">R</span><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-305689914%2FClasslikes%2F1511286446" anchor-label="state" id="-305689914%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="state/index.html"><span><span>state</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-305689914%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="state/index.html">state</a><span class="token operator">&lt;</span><a href="state/index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(1)/">T</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(2)/">R</span><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="737474473%2FClasslikes%2F1511286446" anchor-label="stop" id="737474473%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="stop/index.html"><span><span>stop</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="737474473%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="stop/index.html">stop</a><span class="token operator">&lt;</span><a href="stop/index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(1)/">T</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(2)/">R</span><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="355292895%2FClasslikes%2F1511286446" anchor-label="version" id="355292895%2FClasslikes%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="version/index.html"><span><span>version</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="355292895%2FClasslikes%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">class </span><a href="version/index.html">version</a><span class="token operator">&lt;</span><a href="version/index.html">I</a><span class="token operator"> : </span><a href="../-async-iface/index.html">Server.AsyncIface</a><span class="token operator">?</span><span class="token operator">&gt;</span> : <span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(1)/">T</span><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToGenericParameters(2)/">R</span><span class="token operator">&gt; </span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="-2038861623%2FFunctions%2F1511286446" anchor-label="getProcessMapView" id="-2038861623%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-2038861623%2FFunctions%2F1511286446"><span>get</span><wbr><span>Process</span><wbr><span>Map</span><wbr><span><span>View</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2038861623%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#-2038861623%2FFunctions%2F1511286446"><span class="token function">getProcessMapView</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Map.html">Map</a><span class="token operator">&lt;</span><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a><span class="token punctuation">, </span><span data-unresolved-link="org.apache.thrift/AsyncProcessFunction///PointingToDeclaration/">AsyncProcessFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="org.apache.thrift/TBaseAsyncProcessor///PointingToGenericParameters(0)/">I</span><span class="token punctuation">, </span><span class="token keyword">out </span><span data-unresolved-link="org.apache.thrift/TBase///PointingToDeclaration/">TBase</span><span class="token punctuation">, </span><span class="token keyword">out </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-any/index.html">Any</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="2128080792%2FFunctions%2F1511286446" anchor-label="process" id="2128080792%2FFunctions%2F1511286446" data-filterable-set=":jcef:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":jcef:dokkaHtmlPartial/main" data-filterable-set=":jcef:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#2128080792%2FFunctions%2F1511286446"><span><span>process</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2128080792%2FFunctions%2F1511286446"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":jcef:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#2128080792%2FFunctions%2F1511286446"><span class="token function">process</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">fb<span class="token operator">: </span><span data-unresolved-link="org.apache.thrift.server/AbstractNonblockingServer.AsyncFrameBuffer///PointingToDeclaration/">AbstractNonblockingServer.AsyncFrameBuffer</span></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2024 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
