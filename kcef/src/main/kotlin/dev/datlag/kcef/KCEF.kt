@@ -304,7 +304,9 @@ data object KCEF {
         operator fun invoke(throwable: Throwable?)
     }
 
-    open class AppHandler : CefAppHandlerAdapter(emptyArray()) {
+    open class AppHandler @JvmOverloads constructor(
+        args: Array<String> = emptyArray()
+    ) : CefAppHandlerAdapter(args) {
 
         override fun onContextInitialized() {
             super.onContextInitialized()
