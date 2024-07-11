@@ -9,7 +9,6 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
 import org.cef.CefApp
-import org.cef.callback.CefCommandLine
 import org.cef.handler.CefAppHandlerAdapter
 import java.io.File
 import kotlin.properties.Delegates
@@ -90,7 +89,7 @@ data object KCEF {
             }
         } ?: return
 
-        currentBuilder.addAppHandler(AppHandler)
+        CefApp.addAppHandler(currentBuilder.appHandler ?: AppHandler())
 
         val installOk = File(currentBuilder.installDir, "install.lock").existsSafely()
 
@@ -305,7 +304,7 @@ data object KCEF {
         operator fun invoke(throwable: Throwable?)
     }
 
-    private data object AppHandler : CefAppHandlerAdapter(emptyArray()) {
+    open class AppHandler : CefAppHandlerAdapter(emptyArray()) {
 
         override fun onContextInitialized() {
             super.onContextInitialized()
