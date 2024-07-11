@@ -11,7 +11,6 @@ import dev.datlag.kcef.step.init.CefInitializer
 import org.cef.CefApp
 import org.cef.CefSettings
 import org.cef.CefSettings.ColorType
-import org.cef.handler.CefAppHandler
 import java.io.File
 
 /**
@@ -42,6 +41,8 @@ class KCEFBuilder {
     private var building = false
     private var installed = false
     private var javaHome: String? = null
+
+    internal var appHandler: KCEF.AppHandler? = null;
 
     /**
      * Sets the installation directory to use.
@@ -168,14 +169,10 @@ class KCEFBuilder {
      * application arguments, to register your own schemes and to hook into the
      * shutdown sequence. See CefAppHandler for more details.
      *
-     * This method must be called before CefApp is initialized. CefApp will be
-     * initialized automatically if you call createClient() the first time.
-     * @param appHandler An instance of CefAppHandler.
-     *
-     * @throws IllegalStateException in case of CefApp is already initialized
+     * @param appHandler An instance of KCEF.AppHandler.
      */
-    fun addAppHandler(appHandler: CefAppHandler) = apply {
-        CefApp.addAppHandler(appHandler)
+    fun appHandler(appHandler: KCEF.AppHandler) = apply {
+        this.appHandler = appHandler
     }
 
     internal suspend fun install() = apply {
