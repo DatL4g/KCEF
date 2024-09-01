@@ -5,8 +5,10 @@ import dev.datlag.kcef.KCEF.InitRestartRequired
 import dev.datlag.kcef.KCEF.NewClientOrNullError
 import dev.datlag.kcef.common.existsSafely
 import dev.datlag.kcef.common.suspendCatching
+import dev.datlag.kcef.model.KCEFAcknowledge
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.runBlocking
 import org.cef.CefApp
 import org.cef.callback.CefCommandLine
@@ -139,6 +141,20 @@ data object KCEF {
     }
 
     /**
+     * Mark CEF as initialized on the client.
+     *
+     * @param cefApp the initialized [CefApp] instance, used to create clients.
+     */
+    @KCEFAcknowledge
+    @JvmStatic
+    @JvmOverloads
+    @Throws(UnsatisfiedLinkError::class, IllegalStateException::class)
+    fun init(cefApp: CefApp = CefApp.getInstance()) {
+        this.state.update { State.Initialized }
+        this.cefApp = cefApp
+    }
+
+    /**
      * Create a new CefClient after CEF has been initialized.
      *
      * Waits for initialization if it isn't finished yet.
@@ -156,10 +172,10 @@ data object KCEF {
         KCEFException.Error::class
     )
     suspend fun newClient(): KCEFClient {
-        return when (state.value) {
+        return when (val current = state.value) {
             State.New -> throw KCEFException.NotInitialized
             State.Disposed -> throw KCEFException.Disposed
-            is State.Error -> throw KCEFException.Error((state.value as? State.Error)?.exception)
+            is State.Error -> throw KCEFException.Error(current.exception)
             State.Initialized -> KCEFClient(cefApp.createClient())
             State.Initializing -> {
                 state.first { it != State.Initializing }
@@ -196,7 +212,7 @@ data object KCEF {
     @JvmStatic
     @JvmOverloads
     suspend fun newClientOrNull(onError: NewClientOrNullError = NewClientOrNullError {  }): KCEFClient? {
-        return when (state.value) {
+        return when (val current = state.value) {
             State.New -> {
                 onError(KCEFException.NotInitialized)
                 null
@@ -206,7 +222,7 @@ data object KCEF {
                 null
             }
             is State.Error -> {
-                onError(KCEFException.Error((state.value as? State.Error)?.exception))
+                onError(KCEFException.Error(current.exception))
                 null
             }
             State.Initialized -> KCEFClient(cefApp.createClient())

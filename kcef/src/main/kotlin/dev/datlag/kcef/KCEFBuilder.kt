@@ -5,9 +5,20 @@ import dev.datlag.kcef.KCEFBuilder.InitProgress.Builder.NoProgressCallback
 import dev.datlag.kcef.KCEFBuilder.InitProgress.Builder.ProgressCallback
 import dev.datlag.kcef.KCEFBuilder.Settings
 import dev.datlag.kcef.common.*
+import dev.datlag.kcef.model.GitHubRelease
+import dev.datlag.kcef.model.KCEFAcknowledge
 import dev.datlag.kcef.step.extract.TarGzExtractor
 import dev.datlag.kcef.step.fetch.PackageDownloader
 import dev.datlag.kcef.step.init.CefInitializer
+import io.ktor.client.HttpClient
+import io.ktor.client.call.body
+import io.ktor.client.engine.okhttp.OkHttp
+import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
+import io.ktor.client.statement.HttpResponse
+import io.ktor.http.ContentType
+import io.ktor.http.Url
+import io.ktor.serialization.kotlinx.json.json
+import kotlinx.serialization.json.Json
 import org.cef.CefApp
 import org.cef.CefSettings
 import org.cef.CefSettings.ColorType
@@ -33,8 +44,7 @@ class KCEFBuilder {
         JCefAppConfig.getInstance().appArgsAsList.filterNotNull().toMutableList()
     }.getOrNull() ?: mutableListOf()
 
-    private var releaseTag: String? = null
-    private var downloadBufferSize: Long = 16 * 1024
+    private var download: Download = Download.Builder().github().build()
     private var extractBufferSize: Long = 4096
 
     private var instance: CefApp? = null
@@ -122,34 +132,58 @@ class KCEFBuilder {
      * Specify and pin the used [runtime package](https://github.com/JetBrains/JetBrainsRuntime/releases) to a tag.
      *
      * @param tag the release that will be downloaded and used on the client.
+     * @see download
      */
-    fun release(tag: String) = apply {
-        this.releaseTag = tag
-    }
+    @Deprecated(message = "Use download builder instead", level = DeprecationLevel.ERROR)
+    fun release(tag: CharSequence) = download(
+        Download.Builder().github {
+            release(tag)
+        }.buffer(download.bufferSize).build()
+    )
 
     /**
      * Set the used [runtime package](https://github.com/JetBrains/JetBrainsRuntime/releases) to the latest release.
      *
      * @param latest if true the latest release will be used,
      * make sure to use [release] with a tag if you want to pin it instead.
+     * @see download
      */
-    fun release(latest: Boolean) = apply {
-        if (latest) {
-            this.releaseTag = null
-        }
+    @Deprecated(message = "Use download builder instead", level = DeprecationLevel.ERROR)
+    fun release(latest: Boolean) = download(
+        Download.Builder().github {
+            if (latest) {
+                release(null)
+            }
+        }.buffer(download.bufferSize).build()
+    )
+
+    /**
+     * Specify your download options.
+     *
+     * @param download your [Download] instance.
+     */
+    fun download(download: Download) = apply {
+        this.download = download
     }
+
+    /**
+     * Specify your download options.
+     *
+     * @see download
+     */
+    fun download(builder: Download.Builder.() -> Unit) = download(Download.Builder().apply(builder).build())
 
     /**
      * Overwrite the buffer size to download the
      * [runtime package](https://github.com/JetBrains/JetBrainsRuntime/releases) on the client.
      *
      * @param size the buffer size used to while downloading
+     * @see download
      */
-    fun downloadBuffer(size: Number) = apply {
-        if (size.toLong() > 0L) {
-            downloadBufferSize = size.toLong()
-        }
-    }
+    @Deprecated("Use download builder instead", level = DeprecationLevel.WARNING)
+    fun downloadBuffer(size: Number) = download(download.copy(
+        bufferSize = size.toLong()
+    ))
 
     /**
      * Overwrite the buffer size to extract the
@@ -194,9 +228,8 @@ class KCEFBuilder {
 
             progress.downloading(0F)
             val downloadedFile = PackageDownloader.downloadPackage(
-                releaseTag,
-                progress,
-                downloadBufferSize
+                download,
+                progress
             )
 
             this.progress.extracting()
@@ -618,6 +651,228 @@ class KCEFBuilder {
                 windowlessRenderingEnabled = settings.windowless_rendering_enabled,
                 noSandbox = settings.no_sandbox
             )
+        }
+    }
+
+    data class Download(
+        val url: Url,
+        val client: HttpClient,
+        val transform: Transform?,
+        val bufferSize: Long = 16 * 1024
+    ) {
+
+        fun interface Transform {
+            suspend fun transform(client: HttpClient, response: HttpResponse): Url
+
+            companion object {
+                val GitHub = Transform { client, initialResponse ->
+                    val release = initialResponse.body<GitHubRelease>()
+
+                    val packageUrlList = Builder.GitHub.urlRegex.findAll(release.body).toList().map { it.value }.filterNot {
+                        it.isBlank() || it.endsWith(".checksum", true)
+                    }.filter {
+                        it.contains("jcef", true)
+                    }
+
+                    val platform = Platform.getCurrentPlatform()
+                    val osPackageList = packageUrlList.filter { url ->
+                        platform.os.values.any { os ->
+                            url.contains(os, true)
+                        }
+                    }.ifEmpty {
+                        release.assets.filter { asset ->
+                            platform.os.values.any { os ->
+                                asset.name.contains(os, true) || asset.downloadUrl.contains(os, true)
+                            }
+                        }.map { it.downloadUrl }
+                    }
+                    val platformPackageList = osPackageList.filter { url ->
+                        platform.arch.values.any { arch ->
+                            url.contains(arch, true)
+                        }
+                    }
+
+                    if (platformPackageList.isEmpty()) {
+                        client.close()
+                        throw KCEFException.UnsupportedPlatformPackage(
+                            platform.os.toString(),
+                            platform.arch.toString()
+                        )
+                    }
+
+                    val sortedPackageList = platformPackageList.sortedWith(compareBy<String> {
+                        if (it.contains("sdk", true)) {
+                            1
+                        } else {
+                            0
+                        }
+                    }.thenBy {
+                        if (it.endsWith(".tar.gz", true)) {
+                            0
+                        } else {
+                            1
+                        }
+                    })
+
+                    Url(sortedPackageList.first())
+                }
+            }
+        }
+
+        class Builder {
+            private lateinit var url: Url
+            private var transform: Transform? = null
+            private var httpClient: HttpClient = client
+            private var bufferSize: Long = 16 * 1024
+
+            /**
+             * Specify that you download from GitHub.
+             */
+            fun github(builder: GitHub.() -> Unit = { }) = apply {
+                this.url = GitHub().apply(builder).build()
+                client(GitHub.client)
+                transformHttpResponse(Transform.GitHub)
+            }
+
+            /**
+             * Specify a custom download link, instead of the default GitHub.
+             *
+             * @param url a direct package download link or transformable.
+             */
+            fun custom(url: CharSequence) = apply {
+                this.url = Url(url.toString())
+            }
+
+            /**
+             * Specify a custom download link, instead of the default GitHub.
+             *
+             * @param url a direct package download link or transformable.
+             */
+            fun custom(url: Url) = apply {
+                this.url = url
+            }
+
+            /**
+             * Transform the download link response.
+             * Used for GitHub downloads by default.
+             *
+             * @param transform transform the initial response.
+             */
+            fun transformHttpResponse(transform: Transform) = apply {
+                this.transform = transform
+            }
+
+            /**
+             * Specify a custom [HttpClient] for requesting and downloading packages.
+             *
+             * @param client your custom [HttpClient]
+             */
+            fun client(client: HttpClient) = apply {
+                this.httpClient = client
+            }
+
+            /**
+             * Specify the buffer size the download will use.
+             *
+             * @param size your buffer size.
+             */
+            fun buffer(size: Number) = apply {
+                this.bufferSize = size.toLong()
+            }
+
+            fun build() = Download(
+                url = url,
+                client = httpClient,
+                transform = transform,
+                bufferSize = bufferSize
+            )
+
+            class GitHub {
+                private var owner: CharSequence = GITHUB_JB_OWNER
+                private var repo: CharSequence = GITHUB_JB_REPO
+                private var release: CharSequence? = null
+
+                /**
+                 * Specify a custom repository to use for JCEF packages.
+                 *
+                 * @param owner the owner of the GitHub repo
+                 * @param repo the name of the GitHub repo
+                 */
+                fun repository(owner: CharSequence, repo: CharSequence) = apply {
+                    this.owner = owner
+                    this.repo = repo
+                }
+
+                /**
+                 * Specify a custom repository to use for JCEF packages.
+                 *
+                 * @param owner the owner of the GitHub repo
+                 * @see repository
+                 */
+                fun owner(owner: CharSequence) = apply {
+                    this.owner = owner
+                }
+
+                /**
+                 * Specify a custom repository to use for JCEF packages.
+                 *
+                 * @param repo the name of the GitHub repo
+                 * @see repository
+                 */
+                fun repository(repo: CharSequence) = apply {
+                    this.repo = repo
+                }
+
+                /**
+                 * Specify a custom repository to use for JCEF packages.
+                 *
+                 * @param tag the specific release used for downloading packages.
+                 */
+                @JvmOverloads
+                fun release(tag: CharSequence? = null) = apply {
+                    this.release = tag
+                }
+
+                fun build(): Url {
+                    val url = if (release.isNullOrEmpty()) {
+                        "https://api.github.com/repos/$owner/$repo/releases/latest"
+                    } else {
+                        "https://api.github.com/repos/$owner/$repo/releases/tags/$release"
+                    }
+                    return Url(url)
+                }
+
+                companion object {
+                    internal val urlRegex = "(https?://|www.)[-a-zA-Z0-9+&@#/%?=~_|!:.;]*[-a-zA-Z0-9+&@#/%=~_|]".toRegex()
+                    internal val ContentType_GitHub_Json = ContentType("application", "vnd.github+json")
+
+                    internal val client = HttpClient(OkHttp) {
+                        followRedirects = true
+                        install(ContentNegotiation) {
+                            json(json)
+                            json(json, ContentType_GitHub_Json)
+                        }
+                    }
+                }
+            }
+
+            companion object {
+                internal val json = Json {
+                    ignoreUnknownKeys = true
+                }
+
+                internal val client = HttpClient(OkHttp) {
+                    followRedirects = true
+                    install(ContentNegotiation) {
+                        json(json)
+                    }
+                }
+            }
+        }
+
+        companion object {
+            const val GITHUB_JB_OWNER = "JetBrains"
+            const val GITHUB_JB_REPO = "JetBrainsRuntime"
         }
     }
 }

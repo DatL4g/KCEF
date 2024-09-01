@@ -22,90 +22,33 @@ import java.io.File
 
 internal data object PackageDownloader {
 
-    private val json = Json {
-        ignoreUnknownKeys = true
-    }
-
-    private val ContentType_GitHub_Json = ContentType("application", "vnd.github+json")
-    private val urlRegex = "(https?://|www.)[-a-zA-Z0-9+&@#/%?=~_|!:.;]*[-a-zA-Z0-9+&@#/%=~_|]".toRegex()
-
     suspend fun downloadPackage(
-        tag: String?,
-        progress: KCEFBuilder.InitProgress,
-        bufferSize: Long
+        download: KCEFBuilder.Download,
+        progress: KCEFBuilder.InitProgress
     ): File {
-        val client = HttpClient(OkHttp) {
-            followRedirects = true
-            install(ContentNegotiation) {
-                json(json)
-                json(json, ContentType_GitHub_Json)
-            }
-        }
 
-        val releasesUrl = if (tag.isNullOrEmpty()) {
-            "https://api.github.com/repos/JetBrains/JetBrainsRuntime/releases/latest"
-        } else {
-            "https://api.github.com/repos/JetBrains/JetBrainsRuntime/releases/tags/$tag"
-        }
-
-        val gitHubRelease: GitHubRelease = client.get {
-            url(releasesUrl)
-            accept(ContentType_GitHub_Json)
-        }.body()
-
-        val packageUrlList = urlRegex.findAll(gitHubRelease.body).toList().map { it.value }.filterNot {
-            it.isBlank() || it.endsWith(".checksum", true)
-        }.filter {
-            it.contains("jcef", true)
-        }
-
-        val platform = Platform.getCurrentPlatform()
-        val osPackageList = packageUrlList.filter { url ->
-            platform.os.values.any { os ->
-                url.contains(os, true)
-            }
-        }
-        val platformPackageList = osPackageList.filter { url ->
-            platform.arch.values.any { arch ->
-                url.contains(arch, true)
-            }
-        }
-
-        if (platformPackageList.isEmpty()) {
-            client.close()
-            throw KCEFException.UnsupportedPlatformPackage(
-                platform.os.toString(),
-                platform.arch.toString()
-            )
-        }
-
-        val sortedPackageList = platformPackageList.sortedWith(compareBy<String> {
-            if (it.contains("sdk", true)) {
-                1
-            } else {
-                0
-            }
-        }.thenBy {
-            if (it.endsWith(".tar.gz", true)) {
-                0
-            } else {
-                1
-            }
-        })
+        val downloadUrl = download.transform?.transform(
+            client = download.client,
+            response = download.client.get(download.url)
+        ) ?: download.url
 
         val file = createTempSafely(
             prefix = "jcef",
             suffix = ".tar.gz"
         ) ?: run {
-            client.close()
+            download.client.close()
             throw KCEFException.DownloadTempFile
         }
 
         file.deleteOnExitSafely()
 
-        val success = client.prepareGet(sortedPackageList.first().also {
-            println("Used package: $it")
-        }) {
+        val buffer = if (download.bufferSize <= 0) {
+            16 * 1024
+        } else {
+            download.bufferSize
+        }
+
+        val success = download.client.prepareGet(downloadUrl) {
             onDownload { bytesSentTotal, contentLength ->
                 progress.downloading((bytesSentTotal.toFloat() / contentLength.toFloat()) * 100F)
             }
@@ -113,7 +56,7 @@ internal data object PackageDownloader {
             val channel: ByteReadChannel = httpResponse.bodyAsChannel()
 
             while (!channel.isClosedForRead) {
-                val packet = channel.readRemaining(bufferSize)
+                val packet = channel.readRemaining(buffer)
                 while (packet.isNotEmpty) {
                     val bytes = packet.readBytes()
                     file.appendBytes(bytes)
@@ -122,7 +65,7 @@ internal data object PackageDownloader {
             httpResponse.status.isSuccess()
         }
 
-        client.close()
+        download.client.close()
         if (!success) {
             throw KCEFException.Download
         }
