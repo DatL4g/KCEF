@@ -10,7 +10,7 @@ internal data class GitHubRelease(
 ) {
     @Serializable
     internal data class Asset(
-        val name: String,
-        @SerialName("browser_download_url") val downloadUrl: String
+        val name: String = "",
+        @SerialName("browser_download_url") val downloadUrl: String = ""
     )
 }

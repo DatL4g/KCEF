@@ -6,7 +6,6 @@ import dev.datlag.kcef.KCEFBuilder.InitProgress.Builder.ProgressCallback
 import dev.datlag.kcef.KCEFBuilder.Settings
 import dev.datlag.kcef.common.*
 import dev.datlag.kcef.model.GitHubRelease
-import dev.datlag.kcef.model.KCEFAcknowledge
 import dev.datlag.kcef.step.extract.TarGzExtractor
 import dev.datlag.kcef.step.fetch.PackageDownloader
 import dev.datlag.kcef.step.init.CefInitializer
@@ -680,7 +679,11 @@ class KCEFBuilder {
                         release.assets.filter { asset ->
                             platform.os.values.any { os ->
                                 asset.name.contains(os, true) || asset.downloadUrl.contains(os, true)
-                            }
+                            } && asset.downloadUrl.isNotBlank()
+                        }.filter { asset ->
+                            platform.arch.values.any { arch ->
+                                asset.name.contains(arch, ignoreCase = true) || asset.downloadUrl.contains(arch, true)
+                            } && asset.downloadUrl.isNotBlank()
                         }.map { it.downloadUrl }
                     }
                     val platformPackageList = osPackageList.filter { url ->
