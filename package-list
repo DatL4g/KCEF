@@ -19,4 +19,3 @@ org.cef.network
 org.cef.security
 module:kcef
 dev.datlag.kcef
-dev.datlag.kcef.model
