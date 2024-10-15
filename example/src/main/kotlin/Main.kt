@@ -32,7 +32,6 @@ fun main() = singleWindowApplication {
                             download = it.toInt()
                         }
                     }
-                    release(true)
                 },
                 onError = {
                     it?.printStackTrace()
