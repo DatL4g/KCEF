@@ -50,7 +50,11 @@ internal data object PackageDownloader {
 
         val success = download.client.prepareGet(downloadUrl) {
             onDownload { bytesSentTotal, contentLength ->
-                progress.downloading((bytesSentTotal.toFloat() / contentLength.toFloat()) * 100F)
+                if (contentLength == null) {
+                    progress.downloading(0f)
+                } else {
+                    progress.downloading((bytesSentTotal.toFloat() / (contentLength.toFloat()) * 100F))
+                }
             }
         }.execute { httpResponse ->
             val channel: ByteReadChannel = httpResponse.bodyAsChannel()
