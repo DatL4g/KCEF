@@ -18,7 +18,7 @@ dependencies {
 mavenPublishing {
     publishToMavenCentral(host = SonatypeHost.S01, automaticRelease = true)
     signAllPublications()
-    coordinates("dev.datlag", "jcef", "2024.04.20.2")
+    coordinates("dev.datlag", "jcef", "2024.04.20.3")
 
     pom {
         name.set(project.name)
