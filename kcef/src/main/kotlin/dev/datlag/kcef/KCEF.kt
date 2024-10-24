@@ -95,15 +95,8 @@ data object KCEF {
 
         CefApp.addAppHandler(currentBuilder.appHandler ?: AppHandler())
 
-        if (initFromRuntime(currentBuilder.args)) {
-            val result = suspendCatching {
-                CefApp.getInstanceIfAny() ?: suspendCatching {
-                    CefApp.getInstance(currentBuilder.settings.toJcefSettings())
-                }.getOrNull() ?: CefApp.getInstance()
-            }
-            setInitResult(result)
-            result.exceptionOrNull()?.let(onError::invoke)
-
+        currentBuilder.initFromRuntime()?.let {
+            setInitResult(Result.success(it))
             return
         }
 
@@ -301,22 +294,6 @@ data object KCEF {
     @JvmStatic
     fun disposeBlocking() = runBlocking {
         dispose()
-    }
-
-    private fun initFromRuntime(cefArgs: Collection<String>): Boolean {
-        systemLoadLibrary("jawt") || return false
-
-        if (cefArgs.none { it.trim().equals("--disable-gpu", true) }) {
-            systemLoadLibrary("EGL")
-            systemLoadLibrary("GLESv2")
-            systemLoadLibrary("vk_swiftshader")
-        }
-
-        systemLoadLibrary("libcef") || systemLoadLibrary("cef") || systemLoadLibrary("jcef") || return false
-
-        return scopeCatching {
-            CefApp.startup(cefArgs.toTypedArray())
-        }.getOrNull() ?: false
     }
 
     private fun setInitResult(result: Result<CefApp>): Boolean {

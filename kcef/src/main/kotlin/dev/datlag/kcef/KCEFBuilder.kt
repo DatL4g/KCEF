@@ -290,6 +290,46 @@ class KCEFBuilder {
         return this.instance!!
     }
 
+    internal fun initFromRuntime(): CefApp? {
+        this.instance?.let { return it }
+        if (!systemLoadLibrary("jawt")) {
+            return null
+        }
+
+        if (args.none { it.trim().equals("--disable-gpu", true) }) {
+            systemLoadLibrary("EGL")
+            systemLoadLibrary("GLESv2")
+            systemLoadLibrary("vk_swiftshader")
+        }
+
+        val cefLoaded = systemLoadLibrary("libcef") || systemLoadLibrary("cef") || systemLoadLibrary("jcef")
+        if (!cefLoaded) {
+            return null
+        }
+
+        val started = scopeCatching {
+            CefApp.startup(args.toTypedArray())
+        }.getOrNull() ?: false
+
+        if (!started) {
+            return null
+        }
+
+        this.instance = CefApp.getInstanceIfAny() ?: scopeCatching {
+            CefApp.getInstance(settings.toJcefSettings())
+        }.getOrNull() ?: scopeCatching {
+            CefApp.getInstance()
+        }.getOrNull()
+
+        this.instance?.onInitialization { state ->
+            if (state == CefApp.CefAppState.INITIALIZED) {
+                this.progress.initialized()
+            }
+        }
+
+        return this.instance
+    }
+
     @JvmDefaultWithCompatibility
     interface InitProgress {
 
