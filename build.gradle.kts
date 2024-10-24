@@ -14,9 +14,11 @@ buildscript {
         google()
         mavenCentral()
         gradlePluginPortal()
-        maven { url = uri("https://jitpack.io") }
-        maven { url = uri("https://plugins.gradle.org/m2/") }
-        maven { url = uri("https://jogamp.org/deployment/maven") }
+        maven("https://jitpack.io")
+        maven("https://jogamp.org/deployment/maven")
+        maven("https://s01.oss.sonatype.org/content/repositories/snapshots/")
+        maven("https://oss.sonatype.org/content/repositories/snapshots")
+        maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
     }
 }
 
@@ -25,15 +27,13 @@ allprojects {
         google()
         mavenCentral()
         gradlePluginPortal()
-        maven { url = uri("https://jitpack.io") }
-        maven { url = uri("https://plugins.gradle.org/m2/") }
-        maven { url = uri("https://jogamp.org/deployment/maven") }
+        maven("https://jitpack.io")
+        maven("https://jogamp.org/deployment/maven")
+        maven("https://s01.oss.sonatype.org/content/repositories/snapshots/")
+        maven("https://oss.sonatype.org/content/repositories/snapshots")
+        maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
     }
 
-    tasks.withType<KotlinCompile> {
-        kotlinOptions.jvmTarget = "17"
-        kotlinOptions.freeCompilerArgs = listOf("-Xjvm-default=all")
-    }
     tasks.withType<JavaCompile> {
         targetCompatibility = "17"
         options.compilerArgs.addAll(arrayOf(

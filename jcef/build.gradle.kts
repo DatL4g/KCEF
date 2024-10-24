@@ -1,4 +1,5 @@
 import com.vanniktech.maven.publish.SonatypeHost
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
     kotlin("jvm")
@@ -13,6 +14,13 @@ dependencies {
     implementation("org.jogamp.jogl:jogl-all:2.5.0")
 
     implementation(files("src/main/third_party/thrift/libthrift-0.19.0.jar"))
+}
+
+kotlin {
+    jvmToolchain(17)
+    compilerOptions {
+        jvmTarget.set(JvmTarget.JVM_17)
+    }
 }
 
 mavenPublishing {

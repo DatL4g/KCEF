@@ -28,6 +28,14 @@ internal fun systemLoadLibrary(value: String, onError: () -> Unit = { }) {
     }
 }
 
+internal fun systemLoadLibrary(value: String): Boolean {
+    var loaded = true
+    systemLoadLibrary(value) {
+        loaded = false
+    }
+    return loaded
+}
+
 internal fun systemLoadLibrary(value: File, onError: () -> Unit = { }) = systemLoadLibrary(value.canonicalPath, onError)
 
 internal fun systemLoad(value: String, onError: () -> Unit = { }) {

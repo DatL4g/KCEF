@@ -34,7 +34,7 @@ class KCEFBuilder {
     internal var installDir: File = File("jcef-bundle")
     private var progress: InitProgress = InitProgress.Builder().build()
 
-    private var settings: Settings = scopeCatching {
+    internal var settings: Settings = scopeCatching {
         Settings.fromJcefSettings(JCefAppConfig.getInstance().cefSettings)
     }.getOrNull() ?: Settings()
 

@@ -4,12 +4,15 @@ import dev.datlag.kcef.KCEF.InitError
 import dev.datlag.kcef.KCEF.InitRestartRequired
 import dev.datlag.kcef.KCEF.NewClientOrNullError
 import dev.datlag.kcef.common.existsSafely
+import dev.datlag.kcef.common.scopeCatching
 import dev.datlag.kcef.common.suspendCatching
+import dev.datlag.kcef.common.systemLoadLibrary
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.runBlocking
 import org.cef.CefApp
+import org.cef.CefSettings
 import org.cef.handler.CefAppHandlerAdapter
 import java.io.File
 import kotlin.properties.Delegates
@@ -91,6 +94,18 @@ data object KCEF {
         } ?: return
 
         CefApp.addAppHandler(currentBuilder.appHandler ?: AppHandler())
+
+        if (initFromRuntime(currentBuilder.args)) {
+            val result = suspendCatching {
+                CefApp.getInstanceIfAny() ?: suspendCatching {
+                    CefApp.getInstance(currentBuilder.settings.toJcefSettings())
+                }.getOrNull() ?: CefApp.getInstance()
+            }
+            setInitResult(result)
+            result.exceptionOrNull()?.let(onError::invoke)
+
+            return
+        }
 
         val installOk = File(currentBuilder.installDir, "install.lock").existsSafely()
 
@@ -286,6 +301,22 @@ data object KCEF {
     @JvmStatic
     fun disposeBlocking() = runBlocking {
         dispose()
+    }
+
+    private fun initFromRuntime(cefArgs: Collection<String>): Boolean {
+        systemLoadLibrary("jawt") || return false
+
+        if (cefArgs.none { it.trim().equals("--disable-gpu", true) }) {
+            systemLoadLibrary("EGL")
+            systemLoadLibrary("GLESv2")
+            systemLoadLibrary("vk_swiftshader")
+        }
+
+        systemLoadLibrary("libcef") || systemLoadLibrary("cef") || systemLoadLibrary("jcef") || return false
+
+        return scopeCatching {
+            CefApp.startup(cefArgs.toTypedArray())
+        }.getOrNull() ?: false
     }
 
     private fun setInitResult(result: Result<CefApp>): Boolean {
