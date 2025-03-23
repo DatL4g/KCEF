@@ -22,7 +22,7 @@ jobs:
         uses: gradle/actions/setup-gradle@v3
 
       - name: Remove Java Module
-        uses: rm -rf ./jcef/src/main/java/module-info.java
+        run: rm -rf ./jcef/src/main/java/module-info.java
 
       - name: Publish release
         run: ./gradlew publishAllPublicationsToMavenCentralRepository
