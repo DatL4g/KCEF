@@ -24,7 +24,7 @@ kotlin {
 mavenPublishing {
     publishToMavenCentral(host = SonatypeHost.S01, automaticRelease = true)
     signAllPublications()
-    coordinates("dev.datlag", "jcef", "2024.04.20.4")
+    coordinates("dev.datlag", "jcef", "2025.03.23")
 
     pom {
         name.set(project.name)
