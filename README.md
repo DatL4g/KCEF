@@ -1,5 +1,24 @@
 # KCEF
 
+> [!CAUTION]
+> The usage of KCEF is not recommended at this point!  
+> The package is highly outdated and not easy to use for newbies.
+
+## Alternatives
+
+There are basically 3 free alternatives, as far as I know:
+- JavaFX Webview
+  - Pro: Easy to use
+  - Contra: Heavy (comes with JavaFX), some flaws on Linux
+- jcef (either original or JetBrains)
+  - Pro: pretty similar usage to KCEF
+  - Contra: several flaws but depends on the actual package
+- Native Bindings
+  - Pro: Lightweight (pre-installed on every system), full control
+  - Contra: Highly complex, you need to write bindings for WebKitGTK etc. yourself
+
+## Legacy Information
+
 **Kotlin equivalent of jcefmaven with a more modern setup and depending on JetBrains/jcef**
 
 Visit the JCEF repo at [JetBrains/jcef](https://github.com/JetBrains/jcef) and the jcefmaven repo at [jcefmaven/jcefmaven](https://github.com/jcefmaven/jcefmaven/)
